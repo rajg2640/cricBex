@@ -1,103 +1,490 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import Container from "./shared/Container";
 import Image from "next/image";
+import India from '@/app/assets/image/png/india.png'
+import Pakistan from '@/app/assets/image/png/pakistan.png'
+import Australia from '@/app/assets/image/png/australia.png'
+import England from '@/app/assets/image/png/england.png'
+import Bangladesh from '@/app/assets/image/png/bangladesh.png'
+import Afghanistan from '@/app/assets/image/png/afghanistan.png'
+import CricketAPI from '@/app/assets/image/png/api-bg.jpg'
+import Blog1 from '@/app/assets/image/png/blog-1.png'
+import Blog2 from '@/app/assets/image/png/blog-2.png'
+import Blog3 from '@/app/assets/image/png/blog-3.png'
+import News1 from '@/app/assets/image/png/news-1.png'
+import News2 from '@/app/assets/image/png/news-2.png'
+import { Ball, Cup, RankDown, RankUp, UpRightArrow, Users } from "./shared/Icon";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import MatchCard from "./shared/MatchCard";
+import UpcomingMatchCard from "./shared/UpcomingMatchCard";
+import TeamScore from "./shared/TeamScore";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import NewsCard from "./shared/NewsCard";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const recentMatch = [
+    {
+      venue: "Final • Asia Cup •  t20i •  Dubai",
+      firstTeam: "india",
+      firstTeamFlag: India,
+      firstTeamScore: "150",
+      firstTeamWicket: "5",
+      firstTeamOver: "19.4",
+      secondTeam: "pakistan",
+      secondaTeamFlag: Pakistan,
+      secondTeamScore: "146",
+      secondTeamWicket: "10",
+      secondTeamOver: "19.1",
+      result: "IND won by 5  wickets",
+      link: "/detail-score"
+    },
+    {
+      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
+      firstTeam: "australia",
+      firstTeamFlag: Australia,
+      firstTeamScore: "287",
+      firstTeamWicket: "6",
+      firstTeamOver: "50.0",
+      secondTeam: "england",
+      secondaTeamFlag: England,
+      secondTeamScore: "245",
+      secondTeamWicket: "7",
+      secondTeamOver: "42.5",
+      result: "AUS Needs 42 runs",
+      live: true
+    },
+    {
+      venue: "Final • Asia Cup •  t20i •  Dubai",
+      firstTeam: "india",
+      firstTeamFlag: India,
+      firstTeamScore: "150",
+      firstTeamWicket: "5",
+      firstTeamOver: "19.4",
+      secondTeam: "pakistan",
+      secondaTeamFlag: Pakistan,
+      secondTeamScore: "146",
+      secondTeamWicket: "10",
+      secondTeamOver: "19.1",
+      result: "IND won by 5  wickets"
+    },
+    {
+      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
+      firstTeam: "Bangladesh",
+      firstTeamFlag: Bangladesh,
+      firstTeamScore: "287",
+      firstTeamWicket: "6",
+      firstTeamOver: "20.0",
+      secondTeam: "Afghanistan",
+      secondaTeamFlag: Afghanistan,
+      result: "1st Inning",
+      live: true
+    },
+  ]
+
+  const upcoming = [
+    {
+      time: "Tomorrow • 2:30 PM",
+      format: "T20I",
+      firstTeam: "India",
+      firstTeamFlag: India,
+      secondTeam: "Pakistan",
+      secondTeamFlag: Pakistan,
+      matchDetail: "Asia Cup 2025 Final",
+      venue: "Dubai"
+    },
+    {
+      time: "Oct 2 • 9:30 AM",
+      format: "ODI",
+      firstTeam: "Australia",
+      firstTeamFlag: Australia,
+      secondTeam: "england",
+      secondTeamFlag: England,
+      matchDetail: "ENG vs AUS Bilateral Series",
+      venue: "Sydney"
+    },
+  ]
+
+  const upcomingSeries = [
+    {
+      time: "Starts from Tomorrow • 2:30 PM",
+      format: "T20I",
+      firstTeam: "India",
+      firstTeamFlag: India,
+      secondTeam: "Pakistan",
+      secondTeamFlag: Pakistan,
+      matchDetail: "3 Matches T20I Series",
+      venue: "United Arab Emirates"
+    },
+    {
+      time: "Starts from Oct 2 • 9:30 AM",
+      format: "ODI",
+      firstTeam: "Australia",
+      firstTeamFlag: Australia,
+      secondTeam: "england",
+      secondTeamFlag: England,
+      matchDetail: "5 Matches ODI Series",
+      venue: "Australia"
+    },
+  ]
+
+  const recentMatches = [
+    {
+      date: "Today",
+      format: "T20I",
+      firstTeam: {
+        name: "India",
+        flag: India,
+        score: 150,
+        wicket: 5,
+        over: 19.1,
+      },
+      secondTeam: {
+        name: "Pakistan",
+        flag: Pakistan,
+        score: 146,
+        wicket: 10,
+        over: 19.4,
+      },
+      result: "IND won by 5  wickets",
+      summary: "Asia Cup 2025"
+    },
+    {
+      date: "Yesterday",
+      format: "ODI",
+      firstTeam: {
+        name: "Australia",
+        flag: Australia,
+        score: 287,
+        wicket: 6,
+        over: 50.0,
+      },
+      secondTeam: {
+        name: "England",
+        flag: England,
+        score: 245,
+        wicket: 7,
+        over: 48.3,
+      },
+      result: "AUS won by 42 runs",
+      summary: "ENG vs AUS Bilateral Series"
+    },
+  ];
+
+  const newsData = [
+    {
+      image: News1,
+      title: "August 2025 - News Digest",
+      description: "News bytes that you may have missed otherwise",
+    },
+    {
+      image: News2, // Use different image for different cards
+      title: "Where faith met fearlessness: The Abhishek Sharma story",
+      description: "Behind the sixes and strike-rates lies a boy from Amritsar, shaped by devotion and a belief that every ball is meant to be hit",
+    },
+  ];
+
+  return (
+    <div>
+      <Container>
+        <div className="flex items-center justify-between mt-2">
+          <h5 className="text-lg leading-[27px] font-semibold text-dark-gray">Recent Matches</h5>
+          <Button variant="link" className="">View All Matches</Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="grid grid-cols-4 gap-4 mt-4">
+          {recentMatch.map((match, i) => (
+            <MatchCard key={i} data={match} />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4 mt-8">
+          <p>Quick Access</p>
+          <div className="flex items-center gap-4">
+            <Button variant="outline" className="rounded-full py-[11px] px-4"><Cup />Asia Cup</Button>
+            <Button variant="outline" className="rounded-full py-[11px] px-4"><Users />Team India</Button>
+            <Button variant="outline" className="rounded-full py-[11px] px-4"><Ball />Browse Series</Button>
+            <Button variant="outline" className="rounded-full py-[11px] px-4"><Cup />T20 World Cup</Button>
+          </div>
+        </div>
+
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{
+            350: 1,
+            750: 2,
+            1200: 3,
+          }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Masonry className="mt-4 !gap-6 [&>*>div]:mb-6 [&>*]:!gap-0">
+            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
+              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+                <h5 className="text-primary font-bold leading-[21px]">Upcoming Matches</h5>
+                <Button variant="link" className="text-right">Full Schedule</Button>
+              </div>
+              {upcoming.map((match, i) => (
+                <UpcomingMatchCard key={i} data={match} />
+              ))}
+            </div>
+            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
+              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+                <h5 className="text-primary font-bold leading-[21px]">ICC Rankings</h5>
+                <Button variant="link" className="text-right">Full Rankings</Button>
+              </div>
+              <div className="py-4 px-6">
+                <Tabs defaultValue="odi">
+                  <TabsList>
+                    <TabsTrigger value="odi">odi</TabsTrigger>
+                    <TabsTrigger value="test">Test</TabsTrigger>
+                    <TabsTrigger value="t20">T20</TabsTrigger>
+                  </TabsList>
+                  <div className="mt-3">
+                    <TabsContent value="odi">
+                      <Table>
+                        <TableBody>
+                          <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                            <TableCell className="font-medium p-0 py-4">
+                              <h6 className="text-sm leading-[16px] font-bold">#1 Batter</h6>
+                              <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Shubman Gill</p>
+                            </TableCell>
+                            <TableCell className="p-0 py-4"><p className="mt-[22px] text-right text-sm leading-[16px] text-dark-gray-500">116 points</p></TableCell>
+                          </TableRow>
+                          <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                            <TableCell className="font-medium p-0 py-4">
+                              <h6 className="text-sm leading-[16px] font-bold">#1 Bowler</h6>
+                              <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Keshav Maharaj</p>
+                            </TableCell>
+                            <TableCell className="p-0 py-4"><p className="mt-[22px] text-right text-sm leading-[16px] text-dark-gray-500">112 points</p></TableCell>
+                          </TableRow>
+                          <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                            <TableCell className="font-medium p-0 py-4">
+                              <h6 className="text-sm leading-[16px] font-bold">#1 All rounder</h6>
+                              <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Sikandar Raza</p>
+                            </TableCell>
+                            <TableCell className="p-0 py-4"><p className="mt-[22px] text-right text-sm leading-[16px] text-dark-gray-500">108 points</p></TableCell>
+                          </TableRow>
+                          <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                            <TableCell className="font-medium p-0 py-4">
+                              <h6 className="text-sm leading-[16px] font-bold">#1 Team</h6>
+                              <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">India</p>
+                            </TableCell>
+                            <TableCell className="p-0 py-4"><p className="mt-[22px] text-right text-sm leading-[16px] text-dark-gray-500">98 points</p></TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </TabsContent>
+                    <TabsContent value="test">Test data goes here.</TabsContent>
+                    <TabsContent value="t20">T20 data goes here.</TabsContent>
+                  </div>
+                </Tabs>
+              </div>
+            </div>
+            <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[525px] w-full">AD</div>
+            <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[525px] w-full">AD</div>
+            <div className="relative rounded-2xl overflow-hidden h-fit w-full">
+              <Image src={CricketAPI} className="h-[278px] object-cover" alt="cricket api bg" />
+              <span className="absolute bg-[linear-gradient(180deg,rgba(239,18,7,0)_0%,#FF4F2F_86.69%)] block h-full w-full z-[1] top-0 left-0"></span>
+              <div className="absolute z-[2] top-0 left-0 w-full h-full flex flex-col items-center pt-9 px-14">
+                <h4 className="text-white text-center text-[40px] leading-[47px]">Get Your <span className="font-bold">Cricket API</span> Today</h4>
+                <Button variant="secondary" className="rounded-full w-fit mt-4"><UpRightArrow /></Button>
+              </div>
+            </div>
+            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
+              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+                <h5 className="text-primary font-bold leading-[21px]">Recent Trending Players</h5>
+                <Button variant="link" className="text-right">Full Rankings</Button>
+              </div>
+              <div>
+                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+                  <p className="text-sm font-medium leading-[16px] text-dark-gray-100">Top Batters</p>
+                  <Table>
+                    <TableBody>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#1<RankUp /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4">
+                          <h6 className="text-sm leading-[16px] font-bold">Shubman Gill</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">IND</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">847 runs</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Avg: 52.9, SR: 96.2</p>
+                        </TableCell>
+
+                      </TableRow>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#2<RankDown /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4">
+                          <h6 className="text-sm leading-[16px] font-bold">B. Azam</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">PAK</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">786 runs</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Avg: 49.1, SR: 89.7</p>
+                        </TableCell>
+
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+                  <p className="text-sm font-medium leading-[16px] text-dark-gray-100">Top Bowlers</p>
+                  <Table>
+                    <TableBody>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#1<RankUp /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4">
+                          <h6 className="text-sm leading-[16px] font-bold">J. Bumrah</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">IND</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">42 wickets</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Avg: 18.6, Eco: 4.2</p>
+                        </TableCell>
+
+                      </TableRow>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#2<RankDown /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4">
+                          <h6 className="text-sm leading-[16px] font-bold">S. Afridi</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">PAK</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">38 wickets</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">Avg: 21.3, Eco: 4.8</p>
+                        </TableCell>
+
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+                  <p className="text-sm font-medium leading-[16px] text-dark-gray-100">Top All-Rounders</p>
+                  <Table>
+                    <TableBody>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#1<RankUp /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <h6 className="text-sm leading-[16px] font-bold">S. Raza</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">ZIM</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">456 pts</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">623 runs, 28 wkts</p>
+                        </TableCell>
+
+                      </TableRow>
+                      <TableRow className="!border-b border-light-gray-100 last-of-type:!border-0">
+                        <TableCell className="font-medium p-0 py-4 w-10">
+                          <div className="text-dark-gray-100 text-xs leading-[14px] flex items-center">#2<RankDown /></div>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4">
+                          <h6 className="text-sm leading-[16px] font-bold">H. Pandya</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">IND</p>
+                        </TableCell>
+                        <TableCell className="font-medium p-0 py-4 text-right">
+                          <h6 className="text-sm leading-[16px] font-bold">398 pts</h6>
+                          <p className="mt-1.5 text-sm leading-[16px] text-dark-gray-500">512 runs, 24 wkts</p>
+                        </TableCell>
+
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
+              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+                <h5 className="text-primary font-bold leading-[21px]">Upcoming Series</h5>
+                <Button variant="link" className="text-right">Full Schedule</Button>
+              </div>
+              {upcomingSeries.map((match, i) => (
+                <UpcomingMatchCard key={i} data={match} />
+              ))}
+            </div>
+            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
+              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+                <h5 className="text-primary font-bold leading-[21px]">Recent Results</h5>
+                <Button variant="link" className="text-right">View All</Button>
+              </div>
+              <div className="divide-y divide-black/10">
+                {recentMatches.map((match, index) => (
+                  <div
+                    key={index}
+                    className="py-4 px-6 border-b border-black/10 last-of-type:border-none"
+                  >
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <p className="text-dark-gray-100 text-xs leading-[14px]">
+                        {match.date}
+                      </p>
+                      <div className="text-[10px] leading-[12px] bg-light-gray-50 border-[0.5px] border-dark-gray-400 text-dark-gray-100 p-1 rounded-[2px]">
+                        {match.format}
+                      </div>
+                    </div>
+
+                    {/* Your exact TeamScore usage */}
+                    <TeamScore
+                      firstTeam={match.firstTeam}
+                      secondTeam={match.secondTeam}
+                    />
+                    <div className="text-xs leading-[14px] mt-3">
+                      <p className="text-success font-semibold">
+                        {match?.result}
+                      </p>
+                      <p className="text-dark-gray-50/50 mt-2">{match?.summary}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="p-6">
+              <h6 className="text-primary  uppercase font-bold text-base leading-normal mb-4">Latest News</h6>
+              <div className="space-y-6">
+                {newsData.map((news, i) => (
+                  <NewsCard
+                    key={i}
+                    image={news.image}
+                    title={news.title}
+                    description={news.description}
+                    link={news.link}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="p-4 divide-y divide-black/10">
+              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-[14px]">SQUAD ANNOUNCEMENT</p>
+                <Image src={Blog1} alt="blog 1" className="max-h-[230px] rounded-sm object-cover" />
+                <a href="/" className="font-bold text-2xl leading-[28px] mt-6 block">Nitish Reddy, Devdutt Padikkal return for West Indies Tests</a>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran</p>
+              </div>
+              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-[14px]">ASIA CUP 2025</p>
+                <Image src={Blog2} alt="blog 2" className="max-h-[230px] rounded-sm object-cover" />
+                <a href="/" className="font-bold text-2xl leading-[28px] mt-6 block">Pakistan sneak narrow win to set finals date with India</a>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance</p>
+              </div>
+              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-[14px]">CAPTAINCY SHUFFLE</p>
+                <Image src={Blog3} alt="blog 3" className="max-h-[230px] rounded-sm object-cover" />
+                <a href="/" className="font-bold text-2xl leading-[28px] mt-6 block">Iyer to lead India 'A' in one-dayers with Patidar handed Irani Cup reins</a>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A</p>
+                <a href="/" className="text-sm leading-normal font-bold text-info mt-6 block">Shreyas Iyer requests break from red-ball cricket</a>
+              </div>
+            </div>
+          </Masonry>
+        </ResponsiveMasonry>
+      </Container>
     </div>
   );
 }
