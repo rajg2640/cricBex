@@ -9,16 +9,38 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 
 const page = () => {
+
+    const ballValue = [
+        {
+            value: "•"
+        },
+        {
+            value: "1"
+        },
+        {
+            value: "3"
+        },
+        {
+            value: "4"
+        },
+        {
+            value: "6"
+        },
+        {
+            value: "W"
+        },
+    ]
+
     return (
         <>
             <div className='py-4'>
                 <Container>
                     <div className='flex items-center justify-between gap-4'>
                         <div className='flex items-center gap-6'>
-                            <Button variant="link" className="text-[#343330]"><LeftArrow className="!w-6 !h-6" /></Button>
+                            <Button variant="link" className="text-[#343330]"><LeftArrow className="w-6! h-6!" /></Button>
                             <div>
-                                <h6 className='text-xl leading-[28px] mb-1 font-semibold [&_span]:font-normal'>IND <span>vs</span> PAK, Asia Cup Final</h6>
-                                <div className='flex items-center gap-4 text-xs leading-[14px] text-dark-gray-100'>
+                                <h6 className='text-xl leading-7 mb-1 font-semibold [&_span]:font-normal'>IND <span>vs</span> PAK, Asia Cup Final</h6>
+                                <div className='flex items-center gap-4 text-xs leading-3.5 text-dark-gray-100'>
                                     <div className='flex items-center gap-1'>
                                         <Location />
                                         <p>Boland Park, Paarl, South Africa</p>
@@ -54,16 +76,16 @@ const page = () => {
                                             <p className={`font-bold leading-[19px] capitalize text-dark-gray-50`}>
                                                 India
                                             </p>
-                                            <p className='mt-1 text-xs leading-[14px] text-dark-gray-50/50'>Currently Batting</p>
+                                            <p className='mt-1 text-xs leading-3.5 text-dark-gray-50/50'>Currently Batting</p>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <p className={`font-semibold text-2xl leading-[28px] text-dark-gray-50`}>
+                                        <p className={`font-semibold text-2xl leading-7 text-dark-gray-50`}>
                                             <span>146</span>
                                             <span className="inline-block mx-0.5">/</span>
                                             <span>5</span>
                                         </p>
-                                        <span className={`text-sm block leading-[16px] text-dark-gray-100`}>
+                                        <span className={`text-sm block leading-4 text-dark-gray-100`}>
                                             (19.1)
                                         </span>
                                     </div>
@@ -81,36 +103,37 @@ const page = () => {
                                             <p className={`font-bold leading-[19px] capitalize text-dark-gray-50`}>
                                                 India
                                             </p>
-                                            <p className='mt-1 text-xs leading-[14px] text-dark-gray-50/50'>1st Inning</p>
+                                            <p className='mt-1 text-xs leading-3.5 text-dark-gray-50/50'>1st Inning</p>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <p className={`font-semibold text-2xl leading-[28px] text-dark-gray-50`}>
+                                        <p className={`font-semibold text-2xl leading-7 text-dark-gray-50`}>
                                             <span>142</span>
                                             <span className="inline-block mx-0.5">/</span>
                                             <span>5</span>
                                         </p>
-                                        <span className={`text-sm block leading-[16px] text-dark-gray-100`}>
+                                        <span className={`text-sm block leading-4 text-dark-gray-100`}>
                                             (20.0)
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div className='bg-light-gray border border-primary-600 text-primary font-bold text-2xl leading-[28px] p-6 shadow-sm rounded-lg w-full'>IND need 34 runs from 9 balls</div>
+                            <div className='bg-light-gray border border-primary-600 text-primary font-bold text-2xl leading-7 p-6 shadow-sm rounded-lg w-full'>IND need 34 runs from 9 balls</div>
                         </div>
                         <div className='w-4/12 space-y-4'>
                             <div className='bg-white p-6  pb-[34px] shadow-sm rounded-lg w-full'>
                                 <div className='flex items-center justify-between mb-6'>
                                     <p className='leading-[19px] text-dark-gray-50'>Current Over (18.5)</p>
-                                    <div className='text-info-50 border border-info-50 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]'>6 runs • 1 wicket</div>
+                                    <div className='text-info-50 border border-info-50 bg-info-50/10 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]'>6 runs • 1 wicket</div>
                                 </div>
                                 <div className='flex items-center w-fit gap-2'>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-light-gray-300'>1</div>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-light-gray-300'>2</div>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-light-gray-300'>3</div>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-success/30'>4</div>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-success/30'>6</div>
-                                    <div className='h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-primary-100'>W</div>
+                                    {
+                                        ballValue.map((data, i) => {
+                                            return (
+                                                <div className={`h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-light-gray-300 ${data?.value === "4" || data?.value === "6" ? "bg-success/30" : data?.value === "W" ? "bg-primary-100" : ""}`} key={i}>{data?.value}</div>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                             <div className='bg-white p-6 shadow-sm rounded-lg w-full'>
@@ -118,23 +141,23 @@ const page = () => {
                                 <div className='flex items-center w-fit gap-4'>
                                     <div>
                                         <Sun />
-                                        <p className='text-xs leading-[14px] text-dark-gray-50/50 text-center'>Sunny</p>
+                                        <p className='text-xs leading-3.5 text-dark-gray-50/50 text-center'>Sunny</p>
                                     </div>
                                     <div>
                                         <Humidity />
-                                        <p className='text-xs leading-[14px] text-dark-gray-50/50 text-center'>0</p>
+                                        <p className='text-xs leading-3.5 text-dark-gray-50/50 text-center'>0</p>
                                     </div>
                                     <div>
                                         <Wind />
-                                        <p className='text-xs leading-[14px] text-dark-gray-50/50 text-center'>11</p>
+                                        <p className='text-xs leading-3.5 text-dark-gray-50/50 text-center'>11</p>
                                     </div>
                                     <div>
                                         <HumidityPercentage />
-                                        <p className='text-xs leading-[14px] text-dark-gray-50/50 text-center'>35</p>
+                                        <p className='text-xs leading-3.5 text-dark-gray-50/50 text-center'>35</p>
                                     </div>
                                     <div>
                                         <Tepmrature />
-                                        <p className='text-xs leading-[14px] text-dark-gray-50/50 text-center'>28</p>
+                                        <p className='text-xs leading-3.5 text-dark-gray-50/50 text-center'>28</p>
                                     </div>
                                 </div>
                             </div>
@@ -148,11 +171,11 @@ const page = () => {
                     <div className='border-t border-b border-black/25'>
                         <Container>
                             <TabsList className="border-0 justify-start p-0">
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] !shadow-none !bg-transparent border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:!text-primary data-[state=active]:border-primary' value="live">Live</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] !shadow-none !bg-transparent border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:!text-primary data-[state=active]:border-primary' value="scorecard">Scorecard</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] !shadow-none !bg-transparent border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:!text-primary data-[state=active]:border-primary' value="commentary">Commentary</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] !shadow-none !bg-transparent border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:!text-primary data-[state=active]:border-primary' value="stats">Stats</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] !shadow-none !bg-transparent border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:!text-primary data-[state=active]:border-primary' value="playingXI">Playing XI</TabsTrigger>
+                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="live">Live</TabsTrigger>
+                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="scorecard">Scorecard</TabsTrigger>
+                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="commentary">Commentary</TabsTrigger>
+                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="stats">Stats</TabsTrigger>
+                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="playingXI">Playing XI</TabsTrigger>
                             </TabsList>
                         </Container>
                     </div>
@@ -160,9 +183,9 @@ const page = () => {
                         <TabsContent value="live">
                             <div className='flex gap-6'>
                                 <div className='w-9/12 space-y-6'>
-                                    <div className='shadow-sm rounded-[16px] overflow-auto'>
+                                    <div className='shadow-sm rounded-2xl overflow-auto'>
                                         <Table>
-                                            <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-end text-sm leading-[16px]">
+                                            <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-end text-sm leading-4">
                                                 <TableRow>
                                                     <TableCell colspan={10}></TableCell>
                                                     <TableCell colspan={4} className="text-center text-dark-gray-700">FC CAREER</TableCell>
@@ -195,7 +218,7 @@ const page = () => {
                                                     <TableCell>138</TableCell>
                                                     <TableCell>34.85</TableCell>
                                                 </TableRow>
-                                                <TableRow className="bg-light-gray text-dark-gray-700 text-end text-sm leading-[16px]">
+                                                <TableRow className="bg-light-gray text-dark-gray-700 text-end text-sm leading-4">
                                                     <TableCell className="text-start">Bowlers</TableCell>
                                                     <TableCell>o</TableCell>
                                                     <TableCell>M</TableCell>
@@ -232,7 +255,28 @@ const page = () => {
                                     </div>
                                     <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[389px] w-full">AD</div>
                                 </div>
-                                <div className='w-3/12'></div>
+                                <div className='w-3/12'>
+                                    <div className='bg-white  divide-y divide-black/10  shadow-sm rounded-lg w-full'>
+                                        <div className="pt-6 p-4">
+                                            <h5 className="text-primary font-bold leading-[21px]">Recent Overs</h5>
+                                        </div>
+                                        <div className='p-4'>
+                                            <div className='flex items-center justify-between mb-2'>
+                                                <p className='leading-[19px] text-dark-gray-50'>Over 17</p>
+                                                <div className='text-info-50 border border-info-50 bg-info-50/10 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]'>12 runs</div>
+                                            </div>
+                                            <div className='flex items-center w-fit gap-2'>
+                                                {
+                                                    ballValue.map((data, i) => {
+                                                        return (
+                                                            <div className={`h-8 w-8 rounded-full flex items-center justify-center text-dark-gray-50 leading-[19px] bg-light-gray-300 ${data?.value === "4" || data?.value === "6" ? "bg-success/30" : data?.value === "W" ? "bg-primary-100" : ""}`} key={i}>{data?.value}</div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </TabsContent>
                     </Container>

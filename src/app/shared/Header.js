@@ -33,7 +33,7 @@ const Header = () => {
         },
     ]
     return (
-        <header className='bg-[radial-gradient(67.11%_50%_at_50%_50%,_var(--primary)_0%,_var(--primary-800)_100%)] py-5'>
+        <header className='bg-[radial-gradient(67.11%_50%_at_50%_50%,var(--primary)_0%,var(--primary-800)_100%)] py-5'>
             <Container>
                 <div className='flex items-center justify-between'>
                     <Link href="/">
@@ -44,7 +44,7 @@ const Header = () => {
                             {
                                 menu.map((data, i) => {
                                     return (
-                                        <li key={i}><Link href={data?.link} className="block font-semibold relative after:content-[''] after:w-full after:absolute overflow-hidden after:duration-300  after:h-[1px] after:bg-white after:bottom-0 after:-left-full hover:after:left-0">{data?.label}</Link></li>
+                                        <li key={i}><Link href={data?.link} className="block relative after:content-[''] after:w-full after:absolute overflow-hidden after:duration-300  after:h-px after:bg-white after:bottom-0 after:-left-full hover:after:left-0">{data?.label}</Link></li>
                                     )
                                 })
                             }
