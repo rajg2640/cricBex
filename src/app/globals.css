@@ -24,6 +24,7 @@
   --light-gray-300: #F2F2F2;
   --light-gray-400: #E5E7EB;
   --light-gray-500: #F9FAFB;
+  --light-gray-700: #F4F4F4;
   
   --dark-gray: #222222;
   --dark-gray-50: #2B2C2D;
@@ -41,6 +42,7 @@
 
   --success: #4DB648;
   --success-100: #00A63E;
+  --success-200: #016630;
 
   --info: #1866DB;
   --info-50: #03A9F4;
@@ -101,6 +103,7 @@
   --color-light-gray-300: var(--light-gray-300);
   --color-light-gray-400: var(--light-gray-400);
   --color-light-gray-500: var(--light-gray-500);
+  --color-light-gray-700: var(--light-gray-700);
 
   --color-dark-gray: var(--dark-gray);
   --color-dark-gray-50: var(--dark-gray-50);
@@ -117,6 +120,8 @@
   --color-black-300: var(--black-300);
 
   --color-success: var(--success);
+  --color-success-100: var(--success-100);
+  --color-success-200: var(--success-200);
 
   --color-info: var(--info);
   --color-info-50: var(--info-50);
