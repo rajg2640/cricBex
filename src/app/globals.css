@@ -14,7 +14,7 @@
   --primary-500: #FF2626;
   --primary-600: #FC0606;
   --primary-800: #AF0505;
-  --primary-900: #900C0C;
+  --primary-900: #E7000B;
   --primary-950: #500000;
 
   --light-gray: #FFF0F0;
@@ -22,6 +22,8 @@
   --light-gray-100: #EAEBEC;
   --light-gray-200: #BABABA;
   --light-gray-300: #F2F2F2;
+  --light-gray-400: #E5E7EB;
+  --light-gray-500: #F9FAFB;
   
   --dark-gray: #222222;
   --dark-gray-50: #2B2C2D;
@@ -33,7 +35,12 @@
   --dark-gray-600: #0F0F0F;
   --dark-gray-700: #6C6D6F;
 
+  --black-100: #101828;
+  --black-200: #364153;
+  --black-300: #4A5565;
+
   --success: #4DB648;
+  --success-100: #00A63E;
 
   --info: #1866DB;
   --info-50: #03A9F4;
@@ -92,6 +99,8 @@
   --color-light-gray-100: var(--light-gray-100);
   --color-light-gray-200: var(--light-gray-200);
   --color-light-gray-300: var(--light-gray-300);
+  --color-light-gray-400: var(--light-gray-400);
+  --color-light-gray-500: var(--light-gray-500);
 
   --color-dark-gray: var(--dark-gray);
   --color-dark-gray-50: var(--dark-gray-50);
@@ -102,6 +111,10 @@
   --color-dark-gray-500: var(--dark-gray-500);
   --color-dark-gray-600: var(--dark-gray-600);
   --color-dark-gray-700: var(--dark-gray-700);
+  
+  --color-black-100: var(--black-100);
+  --color-black-200: var(--black-200);
+  --color-black-300: var(--black-300);
 
   --color-success: var(--success);
 
@@ -109,6 +122,8 @@
   --color-info-50: var(--info-50);
   
   --shadow-sm:  0px 0px 16px 0px #00000014;
+  --shadow-lg: 0px 1px 2px -1px #0000001A, 0px 1px 3px 0px #0000001A;
+
 
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -177,6 +192,14 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+body {
+  font-family: var(--roboto);
+}
+html body[data-scroll-locked] {
+  overflow-y: scroll !important;
+  margin-right: 0 !important;
 }
 
 .live{
