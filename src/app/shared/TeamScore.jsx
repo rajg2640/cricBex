@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 
 const TeamScore = ({ firstTeam, secondTeam, status, isLive = false }) => {
-  console.log("firstTeam :", { firstTeam, secondTeam });
   return (
     <div className="space-y-4 mt-4">
       {/* First Team */}

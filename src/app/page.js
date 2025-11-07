@@ -20,13 +20,13 @@ import {
   UpRightArrow,
   Users,
 } from "./shared/Icon";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import UpcomingMatchCard from "./shared/UpcomingMatchCard";
 import TeamScore from "./shared/TeamScore";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import NewsCard from "./shared/NewsCard";
 import { RecentMatches } from "@/components/recent-matches";
+import { ICCRankings } from "@/components/icc-rankings";
 
 export default function Home() {
   const upcoming = [
@@ -190,95 +190,7 @@ export default function Home() {
                 <UpcomingMatchCard key={i} data={match} />
               ))}
             </div>
-            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">
-                  ICC Rankings
-                </h5>
-                <Button variant="link" className="text-right">
-                  Full Rankings
-                </Button>
-              </div>
-              <div className="py-4 px-6">
-                <Tabs defaultValue="odi">
-                  <TabsList>
-                    <TabsTrigger value="odi">odi</TabsTrigger>
-                    <TabsTrigger value="test">Test</TabsTrigger>
-                    <TabsTrigger value="t20">T20</TabsTrigger>
-                  </TabsList>
-                  <div className="mt-3">
-                    <TabsContent value="odi">
-                      <Table>
-                        <TableBody>
-                          <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                            <TableCell className="font-medium p-0 py-4">
-                              <h6 className="text-sm leading-4 font-bold">
-                                #1 Batter
-                              </h6>
-                              <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                                Shubman Gill
-                              </p>
-                            </TableCell>
-                            <TableCell className="p-0 py-4">
-                              <p className="mt-[22px] text-right text-sm leading-4 text-dark-gray-500">
-                                116 points
-                              </p>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                            <TableCell className="font-medium p-0 py-4">
-                              <h6 className="text-sm leading-4 font-bold">
-                                #1 Bowler
-                              </h6>
-                              <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                                Keshav Maharaj
-                              </p>
-                            </TableCell>
-                            <TableCell className="p-0 py-4">
-                              <p className="mt-[22px] text-right text-sm leading-4 text-dark-gray-500">
-                                112 points
-                              </p>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                            <TableCell className="font-medium p-0 py-4">
-                              <h6 className="text-sm leading-4 font-bold">
-                                #1 All rounder
-                              </h6>
-                              <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                                Sikandar Raza
-                              </p>
-                            </TableCell>
-                            <TableCell className="p-0 py-4">
-                              <p className="mt-[22px] text-right text-sm leading-4 text-dark-gray-500">
-                                108 points
-                              </p>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                            <TableCell className="font-medium p-0 py-4">
-                              <h6 className="text-sm leading-4 font-bold">
-                                #1 Team
-                              </h6>
-                              <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                                India
-                              </p>
-                            </TableCell>
-                            <TableCell className="p-0 py-4">
-                              <p className="mt-[22px] text-right text-sm leading-4 text-dark-gray-500">
-                                98 points
-                              </p>
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
-                    </TabsContent>
-                    <TabsContent value="test">Test data goes here.</TabsContent>
-                    <TabsContent value="t20">T20 data goes here.</TabsContent>
-                  </div>
-                </Tabs>
-              </div>
-            </div>
+            <ICCRankings />
             <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[525px] w-full">
               AD
             </div>
