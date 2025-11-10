@@ -4,7 +4,7 @@ import { queryOptions } from "@tanstack/react-query";
 export const liveMatchesQueryOptions = queryOptions({
   queryKey: ["live-matches"],
   queryFn: async () => {
-    const response = await sportbexClient.get("/live-score/match/live");
+    const response = await sportbexClient.get("/match/live");
     return response.data;
   },
   select: (data) => {
@@ -20,7 +20,7 @@ export const playerRankingsQueryOptions = queryOptions({
     const [_, { format, type }] = queryKey;
 
     const response = await sportbexClient.get(
-      `/live-score/rank/player?gender=MALE&matchType=${format}&type=${type}`
+      `/rank/player?gender=MALE&matchType=${format}&type=${type}`
     );
     return response.data;
   },
@@ -33,7 +33,7 @@ export const teamRankingsQueryOptions = queryOptions({
     const [_, { format }] = queryKey;
 
     const response = await sportbexClient.get(
-      `/live-score/rank?gender=MALE&matchType=${format}`
+      `/rank?gender=MALE&matchType=${format}`
     );
     return response.data;
   },
