@@ -1,7 +1,8 @@
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
+import { QueryClientProvider } from "@/provider/query-client";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -16,14 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} antialiased`}
-      >
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+      <body className={`${roboto.variable} antialiased`}>
+        <QueryClientProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </QueryClientProvider>
       </body>
     </html>
   );
