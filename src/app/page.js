@@ -6,8 +6,6 @@ import India from "@/app/assets/image/png/india.png";
 import Pakistan from "@/app/assets/image/png/pakistan.png";
 import Australia from "@/app/assets/image/png/australia.png";
 import England from "@/app/assets/image/png/england.png";
-import Bangladesh from "@/app/assets/image/png/bangladesh.png";
-import Afghanistan from "@/app/assets/image/png/afghanistan.png";
 import CricketAPI from "@/app/assets/image/png/api-bg.jpg";
 import Blog1 from "@/app/assets/image/png/blog-1.png";
 import Blog2 from "@/app/assets/image/png/blog-2.png";
@@ -23,7 +21,6 @@ import {
   Users,
 } from "./shared/Icon";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import UpcomingMatchCard from "./shared/UpcomingMatchCard";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import NewsCard from "./shared/NewsCard";
 import { useState } from "react";
@@ -32,6 +29,8 @@ import Link from "next/link";
 import { RecentMatches } from "@/components/recent-matches";
 import { ICCRankings } from "@/components/icc-rankings";
 import { RecentResults } from "@/components/recent-results";
+import { UpcomingMatchesCard } from "@/components/upcoming-matches-card";
+import { UpcomingMatch } from "@/components/upcoming-match";
 
 export default function Home() {
 
@@ -41,88 +40,6 @@ export default function Home() {
     { value: "odi", label: "ODI" },
     { value: "t20", label: "T20" },
     { value: "test", label: "TEST" },
-  ];
-
-  const recentMatch = [
-    {
-      venue: "Final • Asia Cup •  t20i •  Dubai",
-      firstTeam: "india",
-      firstTeamFlag: India,
-      firstTeamScore: "150",
-      firstTeamWicket: "5",
-      firstTeamOver: "19.4",
-      secondTeam: "pakistan",
-      secondaTeamFlag: Pakistan,
-      secondTeamScore: "146",
-      secondTeamWicket: "10",
-      secondTeamOver: "19.1",
-      result: "IND won by 5  wickets",
-      link: "/detail-score"
-    },
-    {
-      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
-      firstTeam: "australia",
-      firstTeamFlag: Australia,
-      firstTeamScore: "287",
-      firstTeamWicket: "6",
-      firstTeamOver: "50.0",
-      secondTeam: "england",
-      secondaTeamFlag: England,
-      secondTeamScore: "245",
-      secondTeamWicket: "7",
-      secondTeamOver: "42.5",
-      result: "AUS Needs 42 runs",
-      live: true
-    },
-    {
-      venue: "Final • Asia Cup •  t20i •  Dubai",
-      firstTeam: "india",
-      firstTeamFlag: India,
-      firstTeamScore: "150",
-      firstTeamWicket: "5",
-      firstTeamOver: "19.4",
-      secondTeam: "pakistan",
-      secondaTeamFlag: Pakistan,
-      secondTeamScore: "146",
-      secondTeamWicket: "10",
-      secondTeamOver: "19.1",
-      result: "IND won by 5  wickets"
-    },
-    {
-      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
-      firstTeam: "Bangladesh",
-      firstTeamFlag: Bangladesh,
-      firstTeamScore: "287",
-      firstTeamWicket: "6",
-      firstTeamOver: "20.0",
-      secondTeam: "Afghanistan",
-      secondaTeamFlag: Afghanistan,
-      result: "1st Inning",
-      live: true
-    },
-  ]
-
-  const upcoming = [
-    {
-      time: "Tomorrow • 2:30 PM",
-      format: "T20I",
-      firstTeam: "India",
-      firstTeamFlag: India,
-      secondTeam: "Pakistan",
-      secondTeamFlag: Pakistan,
-      matchDetail: "Asia Cup 2025 Final",
-      venue: "Dubai",
-    },
-    {
-      time: "Oct 2 • 9:30 AM",
-      format: "ODI",
-      firstTeam: "Australia",
-      firstTeamFlag: Australia,
-      secondTeam: "england",
-      secondTeamFlag: England,
-      matchDetail: "ENG vs AUS Bilateral Series",
-      venue: "Sydney",
-    },
   ];
 
   const upcomingSeries = [
@@ -207,19 +124,8 @@ export default function Home() {
           }}
         >
           <Masonry className="mt-4 gap-6! [&>*>div]:mb-6 *:gap-0!">
-            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">
-                  Upcoming Matches
-                </h5>
-                <Button variant="link" className="text-right">
-                  Full Schedule
-                </Button>
-              </div>
-              {upcoming.map((match, i) => (
-                <UpcomingMatchCard key={i} data={match} />
-              ))}
-            </div>
+            <UpcomingMatchesCard />
+
             <ICCRankings />
             <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[525px] w-full">
               AD
@@ -432,7 +338,7 @@ export default function Home() {
                 </Button>
               </div>
               {upcomingSeries.map((match, i) => (
-                <UpcomingMatchCard key={i} data={match} />
+                <UpcomingMatch key={i} match={match} />
               ))}
             </div>
 

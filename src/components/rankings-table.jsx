@@ -32,7 +32,6 @@ export const RankingsTable = ({ format, category }) => {
       enabled: category !== "team",
     }
   );
-  console.log("playerRankings :", playerRankings);
   const { data: teamRankings, isLoading: isLoadingTeamRankings } = useQuery({
     ...teamRankingsQueryOptions,
     queryKey: ["team-rankings", { format }],

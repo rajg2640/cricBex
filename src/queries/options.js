@@ -10,6 +10,15 @@ export const recentMatchesQueryOptions = queryOptions({
   select: (data) => data?.data?.slice(0, 4),
 });
 
+export const upcomingMatchesQueryOptions = queryOptions({
+  queryKey: ["upcoming-matches"],
+  queryFn: async () => {
+    const response = await sportbexClient.get("/match/upcoming");
+    return response.data;
+  },
+  select: (data) => data?.data?.slice(0, 2),
+});
+
 export const playerRankingsQueryOptions = queryOptions({
   queryKey: ["player-rankings"],
   queryFn: async ({ queryKey }) => {
