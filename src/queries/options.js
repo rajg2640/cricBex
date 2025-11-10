@@ -1,17 +1,13 @@
 import { sportbexClient } from "@/services/sportbex";
 import { queryOptions } from "@tanstack/react-query";
 
-export const liveMatchesQueryOptions = queryOptions({
-  queryKey: ["live-matches"],
+export const recentMatchesQueryOptions = queryOptions({
+  queryKey: ["recent-matches"],
   queryFn: async () => {
-    const response = await sportbexClient.get("/match/live");
+    const response = await sportbexClient.get("/match/recent");
     return response.data;
   },
-  select: (data) => {
-    return data.data
-      ?.filter((match) => match.status !== "NOT_STARTED")
-      ?.slice(0, 4);
-  },
+  select: (data) => data?.data?.slice(0, 4),
 });
 
 export const playerRankingsQueryOptions = queryOptions({

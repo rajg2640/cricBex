@@ -2,12 +2,14 @@
 
 import MatchCard from "@/app/shared/MatchCard";
 
-import { liveMatchesQueryOptions } from "@/queries/options";
+import { recentMatchesQueryOptions } from "@/queries/options";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "./ui/skeleton";
 
 export const RecentMatches = () => {
-  const { data: recentMatches, isLoading } = useQuery(liveMatchesQueryOptions);
+  const { data: recentMatches, isLoading } = useQuery(
+    recentMatchesQueryOptions
+  );
 
   if (isLoading) {
     return new Array(4)

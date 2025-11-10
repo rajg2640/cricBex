@@ -24,7 +24,6 @@ import {
 } from "./shared/Icon";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import UpcomingMatchCard from "./shared/UpcomingMatchCard";
-import TeamScore from "./shared/TeamScore";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import NewsCard from "./shared/NewsCard";
 import { useState } from "react";
@@ -32,6 +31,7 @@ import CustomSelect from "./shared/CustomSelect";
 import Link from "next/link";
 import { RecentMatches } from "@/components/recent-matches";
 import { ICCRankings } from "@/components/icc-rankings";
+import { RecentResults } from "@/components/recent-results";
 
 export default function Home() {
 
@@ -145,49 +145,6 @@ export default function Home() {
       secondTeamFlag: England,
       matchDetail: "5 Matches ODI Series",
       venue: "Australia",
-    },
-  ];
-
-  const recentMatches = [
-    {
-      date: "Today",
-      format: "T20I",
-      firstTeam: {
-        name: "India",
-        flag: India,
-        score: 150,
-        wicket: 5,
-        over: 19.1,
-      },
-      secondTeam: {
-        name: "Pakistan",
-        flag: Pakistan,
-        score: 146,
-        wicket: 10,
-        over: 19.4,
-      },
-      result: "IND won by 5  wickets",
-      summary: "Asia Cup 2025",
-    },
-    {
-      date: "Yesterday",
-      format: "ODI",
-      firstTeam: {
-        name: "Australia",
-        flag: Australia,
-        score: 287,
-        wicket: 6,
-        over: 50.0,
-      },
-      secondTeam: {
-        name: "England",
-        flag: England,
-        score: 245,
-        wicket: 7,
-        over: 48.3,
-      },
-      result: "AUS won by 42 runs",
-      summary: "ENG vs AUS Bilateral Series",
     },
   ];
 
@@ -478,48 +435,9 @@ export default function Home() {
                 <UpcomingMatchCard key={i} data={match} />
               ))}
             </div>
-            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">
-                  Recent Results
-                </h5>
-                <Button variant="link" className="text-right">
-                  View All
-                </Button>
-              </div>
-              <div className="divide-y divide-black/10">
-                {recentMatches.map((match, index) => (
-                  <div
-                    key={index}
-                    className="py-4 px-6 border-b border-black/10 last-of-type:border-none"
-                  >
-                    {/* Header */}
-                    <div className="flex items-center justify-between">
-                      <p className="text-dark-gray-100 text-xs leading-3.5">
-                        {match.date}
-                      </p>
-                      <div className="text-[10px] leading-3 bg-light-gray-50 border-[0.5px] border-dark-gray-400 text-dark-gray-100 p-1 rounded-[2px]">
-                        {match.format}
-                      </div>
-                    </div>
 
-                    {/* Your exact TeamScore usage */}
-                    <TeamScore
-                      firstTeam={match.firstTeam}
-                      secondTeam={match.secondTeam}
-                    />
-                    <div className="text-xs leading-3.5 mt-3">
-                      <p className="text-success font-semibold">
-                        {match?.result}
-                      </p>
-                      <p className="text-dark-gray-50/50 mt-2">
-                        {match?.summary}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <RecentResults />
+
             <div className="p-6">
               <h6 className="text-primary  uppercase font-bold text-base leading-normal mb-4">
                 Latest News
