@@ -1,12 +1,15 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
-import { Humidity, HumidityPercentage, LeftArrow, Location, Sun, Tepmrature, Wind } from '../shared/Icon'
-import Container from '../shared/Container'
-import India from '@/app/assets/image/png/india.png'
-import Pakistan from '@/app/assets/image/png/pakistan.png'
-import Image from 'next/image'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+"use client";
+import India from '@/app/assets/image/png/india.png';
+import Pakistan from '@/app/assets/image/png/pakistan.png';
+import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Image from 'next/image';
+import Container from '../shared/Container';
+import { BatBall, Humidity, HumidityPercentage, LeftArrow, Location, Sun, Tepmrature, TossCoin, Wind } from '../shared/Icon';
+import Live from './components/Live';
+import ScoreCard from './components/ScoreCard';
+import Stats from './components/Stats';
+import Commentary from './components/Commantary';
 
 const page = () => {
 
@@ -31,6 +34,30 @@ const page = () => {
         },
     ]
 
+    const scroeDetailTab = [
+        {
+            value: "live",
+            label: "Live"
+        },
+        {
+            value: "scorecard",
+            label: "Scorecard"
+        },
+        {
+            value: "commentary",
+            label: "Commentary"
+        },
+        {
+            value: "stats",
+            label: "Stats"
+        },
+        {
+            value: "playing-xi",
+            label: "Playing XI"
+        },
+    ]
+
+
     return (
         <>
             <div className='py-4'>
@@ -46,11 +73,11 @@ const page = () => {
                                         <p>Boland Park, Paarl, South Africa</p>
                                     </div>
                                     <div className='flex items-center gap-1'>
-                                        <Location />
+                                        <BatBall />
                                         <p>T20I</p>
                                     </div>
                                     <div className='flex items-center gap-1'>
-                                        <Location />
+                                        <TossCoin />
                                         <p>Pakistan won the toss and elected to bat first</p>
                                     </div>
                                 </div>
@@ -167,117 +194,32 @@ const page = () => {
             </div>
 
             <div className='mt-6'>
-                <Tabs defaultValue="live" className="gap-6">
+                <Tabs defaultValue="stats" className="gap-6">
                     <div className='border-t border-b border-black/25'>
                         <Container>
                             <TabsList className="border-0 justify-start p-0">
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="live">Live</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="scorecard">Scorecard</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="commentary">Commentary</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="stats">Stats</TabsTrigger>
-                                <TabsTrigger className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value="playingXI">Playing XI</TabsTrigger>
+                                {
+                                    scroeDetailTab.map((data, i) => {
+                                        return (
+                                            <TabsTrigger key={i} className='w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary' value={data?.value}>{data?.label}</TabsTrigger>
+                                        )
+                                    })
+                                }
                             </TabsList>
                         </Container>
                     </div>
                     <Container>
                         <TabsContent value="live">
-                            <div className='flex gap-6'>
-                                <div className='w-9/12 space-y-6'>
-                                    <div className='shadow-sm rounded-2xl overflow-auto'>
-                                        <Table>
-                                            <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-end text-sm leading-4">
-                                                <TableRow>
-                                                    <TableCell colspan={10}></TableCell>
-                                                    <TableCell colspan={4} className="text-center text-dark-gray-700">FC CAREER</TableCell>
-                                                </TableRow>
-                                                <TableRow className="bg-light-gray text-dark-gray-700 ">
-                                                    <TableCell className="text-start">Batters</TableCell>
-                                                    <TableCell>R</TableCell>
-                                                    <TableCell>B</TableCell>
-                                                    <TableCell>4s</TableCell>
-                                                    <TableCell>6s</TableCell>
-                                                    <TableCell>SR</TableCell>
-                                                    <TableCell colspan={3}>This Bowler</TableCell>
-                                                    <TableCell>Mat</TableCell>
-                                                    <TableCell>Mat</TableCell>
-                                                    <TableCell>Runs</TableCell>
-                                                    <TableCell>HS</TableCell>
-                                                    <TableCell>Avg</TableCell>
-                                                </TableRow>
-                                                <TableRow className="text-dark-gray-100">
-                                                    <TableCell className="text-start"><p className='text-dark-gray-50'>Atharva Taide* <span className='text-dark-gray-100'>(lhb)</span></p></TableCell>
-                                                    <TableCell className="font-bold text-dark-gray-50">22</TableCell>
-                                                    <TableCell>44</TableCell>
-                                                    <TableCell>4</TableCell>
-                                                    <TableCell>0</TableCell>
-                                                    <TableCell>50.00</TableCell>
-                                                    <TableCell colspan={3}>8 (8b)</TableCell>
-                                                    <TableCell>14 (32b)</TableCell>
-                                                    <TableCell>34</TableCell>
-                                                    <TableCell>1847</TableCell>
-                                                    <TableCell>138</TableCell>
-                                                    <TableCell>34.85</TableCell>
-                                                </TableRow>
-                                                <TableRow className="bg-light-gray text-dark-gray-700 text-end text-sm leading-4">
-                                                    <TableCell className="text-start">Bowlers</TableCell>
-                                                    <TableCell>o</TableCell>
-                                                    <TableCell>M</TableCell>
-                                                    <TableCell>R</TableCell>
-                                                    <TableCell>W</TableCell>
-                                                    <TableCell>Econ.</TableCell>
-                                                    <TableCell>0s</TableCell>
-                                                    <TableCell>4s</TableCell>
-                                                    <TableCell>6s</TableCell>
-                                                    <TableCell>This Spell</TableCell>
-                                                    <TableCell>Mat</TableCell>
-                                                    <TableCell>Wkts</TableCell>
-                                                    <TableCell>BBI</TableCell>
-                                                    <TableCell>Ave</TableCell>
-                                                </TableRow>
-                                                <TableRow className="text-dark-gray-100">
-                                                    <TableCell className="text-start"><p className='text-dark-gray-50'>Saransh Jain <span className='text-dark-gray-100'>(ob)</span></p></TableCell>
-                                                    <TableCell>1.3</TableCell>
-                                                    <TableCell>0</TableCell>
-                                                    <TableCell>9</TableCell>
-                                                    <TableCell className="font-bold text-dark-gray-50">0</TableCell>
-                                                    <TableCell>6.00</TableCell>
-                                                    <TableCell>6</TableCell>
-                                                    <TableCell>2</TableCell>
-                                                    <TableCell>0</TableCell>
-                                                    <TableCell>-</TableCell>
-                                                    <TableCell>45</TableCell>
-                                                    <TableCell>147</TableCell>
-                                                    <TableCell>6/103</TableCell>
-                                                    <TableCell>28.08</TableCell>
-                                                </TableRow>
-                                            </TableBody>
-                                        </Table>
-                                    </div>
-                                    <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[389px] w-full">AD</div>
-                                </div>
-                                <div className='w-3/12'>
-                                    <div className='bg-white  divide-y divide-black/10  shadow-sm rounded-lg w-full'>
-                                        <div className="pt-6 p-4">
-                                            <h5 className="text-primary font-bold leading-[21px]">Recent Overs</h5>
-                                        </div>
-                                        <div className='p-4'>
-                                            <div className='flex items-center justify-between mb-2'>
-                                                <p className='leading-[19px] text-dark-gray-50'>Over 17</p>
-                                                <div className='text-info-50 border border-info-50 bg-info-50/10 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]'>12 runs</div>
-                                            </div>
-                                            <div className='flex items-center w-fit gap-2'>
-                                                {
-                                                    ballValue.map((data, i) => {
-                                                        return (
-                                                            <div className={`h-8 w-8 rounded-full flex items-center justify-center text-dark-gray-50 leading-[19px] bg-light-gray-300 ${data?.value === "4" || data?.value === "6" ? "bg-success/30" : data?.value === "W" ? "bg-primary-100" : ""}`} key={i}>{data?.value}</div>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <Live />
+                        </TabsContent>
+                        <TabsContent value="scorecard">
+                            <ScoreCard/>
+                        </TabsContent>
+                        <TabsContent value="commentary">
+                            <Commentary />
+                        </TabsContent>
+                        <TabsContent value="stats">
+                            <Stats />
                         </TabsContent>
                     </Container>
                 </Tabs>

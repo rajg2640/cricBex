@@ -38,7 +38,7 @@ const MatchCard = ({ data }) => {
       }`}
     >
       {/* Venue + Live indicator */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <p
           className={`capitalize text-xs leading-3.5 ${
             isLive ? "text-white" : "text-dark-gray-100"
@@ -47,7 +47,7 @@ const MatchCard = ({ data }) => {
           {data?.name} - {data?.seriesName}
         </p>
         {isLive && (
-          <ul className="text-right text-white text-xs leading-3.5">
+          <ul className="text-right text-white text-xs leading-3.5 flex-none">
             <li className="before:content-[''] before:w-1 before:h-1 before:rounded-2xl before:bg-white before:inline-block before:mr-1 before:align-middle">
               Live
             </li>

@@ -6,6 +6,8 @@ import India from "@/app/assets/image/png/india.png";
 import Pakistan from "@/app/assets/image/png/pakistan.png";
 import Australia from "@/app/assets/image/png/australia.png";
 import England from "@/app/assets/image/png/england.png";
+import Bangladesh from "@/app/assets/image/png/bangladesh.png";
+import Afghanistan from "@/app/assets/image/png/afghanistan.png";
 import CricketAPI from "@/app/assets/image/png/api-bg.jpg";
 import Blog1 from "@/app/assets/image/png/blog-1.png";
 import Blog2 from "@/app/assets/image/png/blog-2.png";
@@ -25,10 +27,81 @@ import UpcomingMatchCard from "./shared/UpcomingMatchCard";
 import TeamScore from "./shared/TeamScore";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import NewsCard from "./shared/NewsCard";
+import { useState } from "react";
+import CustomSelect from "./shared/CustomSelect";
+import Link from "next/link";
 import { RecentMatches } from "@/components/recent-matches";
 import { ICCRankings } from "@/components/icc-rankings";
 
 export default function Home() {
+
+  const [format, setFormat] = useState("odi");
+
+  const formatOption = [
+    { value: "odi", label: "ODI" },
+    { value: "t20", label: "T20" },
+    { value: "test", label: "TEST" },
+  ];
+
+  const recentMatch = [
+    {
+      venue: "Final • Asia Cup •  t20i •  Dubai",
+      firstTeam: "india",
+      firstTeamFlag: India,
+      firstTeamScore: "150",
+      firstTeamWicket: "5",
+      firstTeamOver: "19.4",
+      secondTeam: "pakistan",
+      secondaTeamFlag: Pakistan,
+      secondTeamScore: "146",
+      secondTeamWicket: "10",
+      secondTeamOver: "19.1",
+      result: "IND won by 5  wickets",
+      link: "/detail-score"
+    },
+    {
+      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
+      firstTeam: "australia",
+      firstTeamFlag: Australia,
+      firstTeamScore: "287",
+      firstTeamWicket: "6",
+      firstTeamOver: "50.0",
+      secondTeam: "england",
+      secondaTeamFlag: England,
+      secondTeamScore: "245",
+      secondTeamWicket: "7",
+      secondTeamOver: "42.5",
+      result: "AUS Needs 42 runs",
+      live: true
+    },
+    {
+      venue: "Final • Asia Cup •  t20i •  Dubai",
+      firstTeam: "india",
+      firstTeamFlag: India,
+      firstTeamScore: "150",
+      firstTeamWicket: "5",
+      firstTeamOver: "19.4",
+      secondTeam: "pakistan",
+      secondaTeamFlag: Pakistan,
+      secondTeamScore: "146",
+      secondTeamWicket: "10",
+      secondTeamOver: "19.1",
+      result: "IND won by 5  wickets"
+    },
+    {
+      venue: "3rd Match • Bilateral Series •  ODI •  Sydney",
+      firstTeam: "Bangladesh",
+      firstTeamFlag: Bangladesh,
+      firstTeamScore: "287",
+      firstTeamWicket: "6",
+      firstTeamOver: "20.0",
+      secondTeam: "Afghanistan",
+      secondaTeamFlag: Afghanistan,
+      result: "1st Inning",
+      live: true
+    },
+  ]
+
   const upcoming = [
     {
       time: "Tomorrow • 2:30 PM",
@@ -203,7 +276,7 @@ export default function Home() {
                 className="h-[278px] object-cover"
                 alt="cricket api bg"
               />
-              <span className="absolute bg-[linear-gradient(180deg,rgba(239,18,7,0)_0%,#FF4F2F_86.69%)] block h-full w-full z-1 top-0 left-0"></span>
+              <span className="absolute bg-[linear-gradient(180deg,rgba(239,18,7,0)_0%,var(--orange)_86.69%)] block h-full w-full z-1 top-0 left-0"></span>
               <div className="absolute z-2 top-0 left-0 w-full h-full flex flex-col items-center pt-9 px-14">
                 <h4 className="text-white text-center text-[40px] leading-[47px]">
                   Get Your <span className="font-bold">Cricket API</span> Today
@@ -215,12 +288,8 @@ export default function Home() {
             </div>
             <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
               <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">
-                  Recent Trending Players
-                </h5>
-                <Button variant="link" className="text-right">
-                  Full Rankings
-                </Button>
+                <h5 className="text-primary font-bold leading-[21px]">Recent Trending Players</h5>
+                <CustomSelect value={format} onChange={setFormat} options={formatOption} variant="outline" className="rounded-full w-fit" />
               </div>
               <div>
                 <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
@@ -469,62 +538,23 @@ export default function Home() {
             </div>
             <div className="p-4 divide-y divide-black/10">
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  SQUAD ANNOUNCEMENT
-                </p>
-                <Image
-                  src={Blog1}
-                  alt="blog 1"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <a href="/" className="font-bold text-2xl leading-7 mt-6 block">
-                  Nitish Reddy, Devdutt Padikkal return for West Indies Tests
-                </a>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  Ravindra Jadeja named vice-captain; No place for Karun Nair or
-                  Abhimanyu Easwaran
-                </p>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">SQUAD ANNOUNCEMENT</p>
+                <Image src={Blog1} alt="blog 1" className="max-h-[230px] rounded-sm object-cover" />
+                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Nitish Reddy, Devdutt Padikkal return for West Indies Tests</Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran</p>
               </div>
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  ASIA CUP 2025
-                </p>
-                <Image
-                  src={Blog2}
-                  alt="blog 2"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <a href="/" className="font-bold text-2xl leading-7 mt-6 block">
-                  Pakistan sneak narrow win to set finals date with India
-                </a>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  In a low-scoring affair, Pakistan managed to cover up their
-                  poor batting effort with a good bowling performance
-                </p>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">ASIA CUP 2025</p>
+                <Image src={Blog2} alt="blog 2" className="max-h-[230px] rounded-sm object-cover" />
+                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Pakistan sneak narrow win to set finals date with India</Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance</p>
               </div>
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  CAPTAINCY SHUFFLE
-                </p>
-                <Image
-                  src={Blog3}
-                  alt="blog 3"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <a href="/" className="font-bold text-2xl leading-7 mt-6 block">
-                  Iyer to lead India 'A' in one-dayers with Patidar handed Irani
-                  Cup reins
-                </a>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for
-                  the second and third one-dayers against Australia A
-                </p>
-                <a
-                  href="/"
-                  className="text-sm leading-normal font-bold text-info mt-6 block"
-                >
-                  Shreyas Iyer requests break from red-ball cricket
-                </a>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">CAPTAINCY SHUFFLE</p>
+                <Image src={Blog3} alt="blog 3" className="max-h-[230px] rounded-sm object-cover" />
+                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Iyer to lead India 'A' in one-dayers with Patidar handed Irani Cup reins</Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A</p>
+                <Link href="/" className="text-sm leading-normal font-bold text-info mt-6 block">Shreyas Iyer requests break from red-ball cricket</Link>
               </div>
             </div>
           </Masonry>
