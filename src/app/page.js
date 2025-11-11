@@ -1,47 +1,30 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import Container from "./shared/Container";
-import Image from "next/image";
-import India from "@/app/assets/image/png/india.png";
-import Pakistan from "@/app/assets/image/png/pakistan.png";
-import Australia from "@/app/assets/image/png/australia.png";
-import England from "@/app/assets/image/png/england.png";
+
 import CricketAPI from "@/app/assets/image/png/api-bg.jpg";
+import Australia from "@/app/assets/image/png/australia.png";
 import Blog1 from "@/app/assets/image/png/blog-1.png";
 import Blog2 from "@/app/assets/image/png/blog-2.png";
 import Blog3 from "@/app/assets/image/png/blog-3.png";
+import England from "@/app/assets/image/png/england.png";
+import India from "@/app/assets/image/png/india.png";
 import News1 from "@/app/assets/image/png/news-1.png";
 import News2 from "@/app/assets/image/png/news-2.png";
-import {
-  Ball,
-  Cup,
-  RankDown,
-  RankUp,
-  UpRightArrow,
-  Users,
-} from "./shared/Icon";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import NewsCard from "./shared/NewsCard";
-import { useState } from "react";
-import CustomSelect from "./shared/CustomSelect";
-import Link from "next/link";
-import { RecentMatches } from "@/components/recent-matches";
+import Pakistan from "@/app/assets/image/png/pakistan.png";
 import { ICCRankings } from "@/components/icc-rankings";
+import { RecentMatches } from "@/components/recent-matches";
 import { RecentResults } from "@/components/recent-results";
-import { UpcomingMatchesCard } from "@/components/upcoming-matches-card";
+import { RecentTrendingPlayers } from "@/components/recent-trending-players";
+import { Button } from "@/components/ui/button";
 import { UpcomingMatch } from "@/components/upcoming-match";
+import { UpcomingMatchesCard } from "@/components/upcoming-matches-card";
+import Image from "next/image";
+import Link from "next/link";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Container from "./shared/Container";
+import { Ball, Cup, UpRightArrow, Users } from "./shared/Icon";
+import NewsCard from "./shared/NewsCard";
 
 export default function Home() {
-
-  const [format, setFormat] = useState("odi");
-
-  const formatOption = [
-    { value: "odi", label: "ODI" },
-    { value: "t20", label: "T20" },
-    { value: "test", label: "TEST" },
-  ];
-
   const upcomingSeries = [
     {
       time: "Starts from Tomorrow • 2:30 PM",
@@ -149,185 +132,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">Recent Trending Players</h5>
-                <CustomSelect value={format} onChange={setFormat} options={formatOption} variant="outline" className="rounded-full w-fit" />
-              </div>
-              <div>
-                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
-                  <p className="text-sm font-medium leading-4 text-dark-gray-100">
-                    Top Batters
-                  </p>
-                  <Table>
-                    <TableBody>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #1
-                            <RankUp />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4">
-                          <h6 className="text-sm leading-4 font-bold">
-                            Shubman Gill
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            IND
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            847 runs
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            Avg: 52.9, SR: 96.2
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #2
-                            <RankDown />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4">
-                          <h6 className="text-sm leading-4 font-bold">
-                            B. Azam
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            PAK
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            786 runs
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            Avg: 49.1, SR: 89.7
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
-                  <p className="text-sm font-medium leading-4 text-dark-gray-100">
-                    Top Bowlers
-                  </p>
-                  <Table>
-                    <TableBody>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #1
-                            <RankUp />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4">
-                          <h6 className="text-sm leading-4 font-bold">
-                            J. Bumrah
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            IND
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            42 wickets
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            Avg: 18.6, Eco: 4.2
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #2
-                            <RankDown />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4">
-                          <h6 className="text-sm leading-4 font-bold">
-                            S. Afridi
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            PAK
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            38 wickets
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            Avg: 21.3, Eco: 4.8
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-                <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
-                  <p className="text-sm font-medium leading-4 text-dark-gray-100">
-                    Top All-Rounders
-                  </p>
-                  <Table>
-                    <TableBody>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #1
-                            <RankUp />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <h6 className="text-sm leading-4 font-bold">
-                            S. Raza
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            ZIM
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            456 pts
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            623 runs, 28 wkts
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow className="border-b! border-light-gray-100 last-of-type:border-0!">
-                        <TableCell className="font-medium p-0 py-4 w-10">
-                          <div className="text-dark-gray-100 text-xs leading-3.5 flex items-center">
-                            #2
-                            <RankDown />
-                          </div>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4">
-                          <h6 className="text-sm leading-4 font-bold">
-                            H. Pandya
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            IND
-                          </p>
-                        </TableCell>
-                        <TableCell className="font-medium p-0 py-4 text-right">
-                          <h6 className="text-sm leading-4 font-bold">
-                            398 pts
-                          </h6>
-                          <p className="mt-1.5 text-sm leading-4 text-dark-gray-500">
-                            512 runs, 24 wkts
-                          </p>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            </div>
+            <RecentTrendingPlayers />
             <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
               <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
                 <h5 className="text-primary font-bold leading-[21px]">
@@ -362,23 +167,71 @@ export default function Home() {
             </div>
             <div className="p-4 divide-y divide-black/10">
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">SQUAD ANNOUNCEMENT</p>
-                <Image src={Blog1} alt="blog 1" className="max-h-[230px] rounded-sm object-cover" />
-                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Nitish Reddy, Devdutt Padikkal return for West Indies Tests</Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran</p>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
+                  SQUAD ANNOUNCEMENT
+                </p>
+                <Image
+                  src={Blog1}
+                  alt="blog 1"
+                  className="max-h-[230px] rounded-sm object-cover"
+                />
+                <Link
+                  href="/"
+                  className="font-bold text-2xl leading-7 mt-6 block"
+                >
+                  Nitish Reddy, Devdutt Padikkal return for West Indies Tests
+                </Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
+                  Ravindra Jadeja named vice-captain; No place for Karun Nair or
+                  Abhimanyu Easwaran
+                </p>
               </div>
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">ASIA CUP 2025</p>
-                <Image src={Blog2} alt="blog 2" className="max-h-[230px] rounded-sm object-cover" />
-                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Pakistan sneak narrow win to set finals date with India</Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance</p>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
+                  ASIA CUP 2025
+                </p>
+                <Image
+                  src={Blog2}
+                  alt="blog 2"
+                  className="max-h-[230px] rounded-sm object-cover"
+                />
+                <Link
+                  href="/"
+                  className="font-bold text-2xl leading-7 mt-6 block"
+                >
+                  Pakistan sneak narrow win to set finals date with India
+                </Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
+                  In a low-scoring affair, Pakistan managed to cover up their
+                  poor batting effort with a good bowling performance
+                </p>
               </div>
               <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">CAPTAINCY SHUFFLE</p>
-                <Image src={Blog3} alt="blog 3" className="max-h-[230px] rounded-sm object-cover" />
-                <Link href="/" className="font-bold text-2xl leading-7 mt-6 block">Iyer to lead India 'A' in one-dayers with Patidar handed Irani Cup reins</Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A</p>
-                <Link href="/" className="text-sm leading-normal font-bold text-info mt-6 block">Shreyas Iyer requests break from red-ball cricket</Link>
+                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
+                  CAPTAINCY SHUFFLE
+                </p>
+                <Image
+                  src={Blog3}
+                  alt="blog 3"
+                  className="max-h-[230px] rounded-sm object-cover"
+                />
+                <Link
+                  href="/"
+                  className="font-bold text-2xl leading-7 mt-6 block"
+                >
+                  Iyer to lead India 'A' in one-dayers with Patidar handed Irani
+                  Cup reins
+                </Link>
+                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
+                  Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for
+                  the second and third one-dayers against Australia A
+                </p>
+                <Link
+                  href="/"
+                  className="text-sm leading-normal font-bold text-info mt-6 block"
+                >
+                  Shreyas Iyer requests break from red-ball cricket
+                </Link>
               </div>
             </div>
           </Masonry>
