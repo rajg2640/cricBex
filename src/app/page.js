@@ -1,21 +1,16 @@
 "use client";
 
 import CricketAPI from "@/app/assets/image/png/api-bg.jpg";
-import Australia from "@/app/assets/image/png/australia.png";
 import Blog1 from "@/app/assets/image/png/blog-1.png";
 import Blog2 from "@/app/assets/image/png/blog-2.png";
 import Blog3 from "@/app/assets/image/png/blog-3.png";
-import England from "@/app/assets/image/png/england.png";
-import India from "@/app/assets/image/png/india.png";
 import News1 from "@/app/assets/image/png/news-1.png";
 import News2 from "@/app/assets/image/png/news-2.png";
-import Pakistan from "@/app/assets/image/png/pakistan.png";
 import { ICCRankings } from "@/components/icc-rankings";
 import { RecentMatches } from "@/components/recent-matches";
 import { RecentResults } from "@/components/recent-results";
 import { RecentTrendingPlayers } from "@/components/recent-trending-players";
 import { Button } from "@/components/ui/button";
-import { UpcomingMatch } from "@/components/upcoming-match";
 import { UpcomingMatchesCard } from "@/components/upcoming-matches-card";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,31 +18,9 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Container from "./shared/Container";
 import { Ball, Cup, UpRightArrow, Users } from "./shared/Icon";
 import NewsCard from "./shared/NewsCard";
+import { UpcomingSeries } from "@/components/upcoming-series";
 
 export default function Home() {
-  const upcomingSeries = [
-    {
-      time: "Starts from Tomorrow • 2:30 PM",
-      format: "T20I",
-      firstTeam: "India",
-      firstTeamFlag: India,
-      secondTeam: "Pakistan",
-      secondTeamFlag: Pakistan,
-      matchDetail: "3 Matches T20I Series",
-      venue: "United Arab Emirates",
-    },
-    {
-      time: "Starts from Oct 2 • 9:30 AM",
-      format: "ODI",
-      firstTeam: "Australia",
-      firstTeamFlag: Australia,
-      secondTeam: "england",
-      secondTeamFlag: England,
-      matchDetail: "5 Matches ODI Series",
-      venue: "Australia",
-    },
-  ];
-
   const newsData = [
     {
       image: News1,
@@ -132,20 +105,9 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+
             <RecentTrendingPlayers />
-            <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-              <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
-                <h5 className="text-primary font-bold leading-[21px]">
-                  Upcoming Series
-                </h5>
-                <Button variant="link" className="text-right">
-                  Full Schedule
-                </Button>
-              </div>
-              {upcomingSeries.map((match, i) => (
-                <UpcomingMatch key={i} match={match} />
-              ))}
-            </div>
+            <UpcomingSeries />
 
             <RecentResults />
 

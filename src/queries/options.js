@@ -44,3 +44,12 @@ export const teamRankingsQueryOptions = queryOptions({
   },
   select: (data) => data?.data,
 });
+
+export const upcomingSeriesQueryOptions = queryOptions({
+  queryKey: ["upcoming-series"],
+  queryFn: async () => {
+    const response = await sportbexClient.get("/series/upcoming");
+    return response.data;
+  },
+  select: (data) => data?.data?.slice(0, 2),
+});

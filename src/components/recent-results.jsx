@@ -2,14 +2,15 @@ import TeamScore from "@/app/shared/TeamScore";
 import { Button } from "./ui/button";
 
 import { MATCH_STATUS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import { recentMatchesQueryOptions } from "@/queries/options";
 import { getMatchScore } from "@/utils/score";
 import { useQuery } from "@tanstack/react-query";
 import { format, isToday, isYesterday } from "date-fns";
-import { cn } from "@/lib/utils";
+import { Spinner } from "./ui/spinner";
 
 export const RecentResults = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     ...recentMatchesQueryOptions,
     select: (data) => {
       return data.data
@@ -33,7 +34,11 @@ export const RecentResults = () => {
           View All
         </Button>
       </div>
-      {data?.length > 0 ? (
+      {isLoading ? (
+        <div className="w-full h-100 rounded-none flex items-center justify-center">
+          <Spinner className="size-6" />
+        </div>
+      ) : data?.length > 0 ? (
         <div className="divide-y divide-black/10">
           {data?.map((match) => (
             <Result key={match?._id} match={match} />

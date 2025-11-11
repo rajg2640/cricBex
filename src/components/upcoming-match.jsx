@@ -13,7 +13,7 @@ const formatTime = (date) => {
   return format(date, "h:mm a");
 };
 
-export const UpcomingMatch = ({ match }) => {
+export const UpcomingMatch = ({ match, datePrefix }) => {
   const startDate = new Date(match?.startDate);
 
   return (
@@ -23,7 +23,7 @@ export const UpcomingMatch = ({ match }) => {
         <p className="text-dark-gray-100 text-xs leading-[14px]">
           {isValid(startDate) ? (
             <>
-              {formatDate(startDate)}
+              {datePrefix} {formatDate(startDate)}
               <span className="mx-1 text-lg align-middle">•</span>
               {formatTime(startDate)}
             </>
