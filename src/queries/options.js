@@ -1,17 +1,22 @@
 import { sportbexClient } from "@/services/sportbex";
 import { queryOptions } from "@tanstack/react-query";
 
-export const liveMatchesQueryOptions = queryOptions({
-  queryKey: ["live-matches"],
+export const recentMatchesQueryOptions = queryOptions({
+  queryKey: ["recent-matches"],
   queryFn: async () => {
-    const response = await sportbexClient.get("/live-score/match/live");
+    const response = await sportbexClient.get("/match/recent");
     return response.data;
   },
-  select: (data) => {
-    return data.data
-      ?.filter((match) => match.status !== "NOT_STARTED")
-      ?.slice(0, 4);
+  select: (data) => data?.data?.slice(0, 4),
+});
+
+export const upcomingMatchesQueryOptions = queryOptions({
+  queryKey: ["upcoming-matches"],
+  queryFn: async () => {
+    const response = await sportbexClient.get("/match/upcoming");
+    return response.data;
   },
+  select: (data) => data?.data?.slice(0, 2),
 });
 
 export const playerRankingsQueryOptions = queryOptions({
@@ -20,7 +25,7 @@ export const playerRankingsQueryOptions = queryOptions({
     const [_, { format, type }] = queryKey;
 
     const response = await sportbexClient.get(
-      `/live-score/rank/player?gender=MALE&matchType=${format}&type=${type}`
+      `/rank/player?gender=MALE&matchType=${format}&type=${type}`
     );
     return response.data;
   },
@@ -33,9 +38,18 @@ export const teamRankingsQueryOptions = queryOptions({
     const [_, { format }] = queryKey;
 
     const response = await sportbexClient.get(
-      `/live-score/rank?gender=MALE&matchType=${format}`
+      `/rank?gender=MALE&matchType=${format}`
     );
     return response.data;
   },
   select: (data) => data?.data,
+});
+
+export const upcomingSeriesQueryOptions = queryOptions({
+  queryKey: ["upcoming-series"],
+  queryFn: async () => {
+    const response = await sportbexClient.get("/series/upcoming");
+    return response.data;
+  },
+  select: (data) => data?.data?.slice(0, 2),
 });

@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 import { Table, TableBody, TableCell, TableRow } from "./ui/table";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { Skeleton } from "./ui/skeleton";
+import Link from "next/link";
 
 export const ICCRankings = () => {
   const [selectedFormat, setSelectedFormat] = useState(MATCH_FORMATS.ODI);
@@ -49,8 +50,8 @@ export const ICCRankings = () => {
     <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
       <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
         <h5 className="text-primary font-bold leading-[21px]">ICC Rankings</h5>
-        <Button variant="link" className="text-right">
-          Full Rankings
+        <Button variant="link" className="text-right" asChild>
+          <Link href="/ranking">Full Rankings</Link>
         </Button>
       </div>
       <div className="py-4 px-6">

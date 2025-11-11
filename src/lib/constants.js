@@ -9,3 +9,10 @@ export const MATCH_FORMATS = {
   TEST: "TEST",
   T20: "T20",
 };
+
+export const MATCH_STATUS = {
+  LIVE: "LIVE",
+  NOT_STARTED: "NOT_STARTED",
+  COMPLETED: "COMPLETED",
+  ABANDONED: "ABANDONED",
+};

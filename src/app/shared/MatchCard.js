@@ -1,29 +1,10 @@
 import Link from "next/link";
 import TeamScore from "./TeamScore";
-
-const getMatchScore = (teamScore) => {
-  if (!teamScore) {
-    return {
-      score: null,
-      wickets: null,
-      overs: null,
-    };
-  }
-
-  const [scoreWithWickets, overs] = teamScore.split(" ");
-  const [score, wickets] = scoreWithWickets.split("/");
-
-  const oversWithoutParentheses = overs?.replace(/[()]/g, "");
-
-  return {
-    score,
-    overs: oversWithoutParentheses,
-    wickets,
-  };
-};
+import { MATCH_STATUS } from "@/lib/constants";
+import { getMatchScore } from "@/utils/score";
 
 const MatchCard = ({ data }) => {
-  const isLive = data?.isLive;
+  const isLive = data?.status === MATCH_STATUS.LIVE;
 
   const firstTeamScore = getMatchScore(data.teams.t1.score);
   const secondTeamScore = getMatchScore(data.teams.t2.score);
@@ -44,7 +25,7 @@ const MatchCard = ({ data }) => {
             isLive ? "text-white" : "text-dark-gray-100"
           }`}
         >
-          {data?.name} - {data?.seriesName}
+          {data?.name} • {data?.seriesName} • {data?.format}
         </p>
         {isLive && (
           <ul className="text-right text-white text-xs leading-3.5 flex-none">
@@ -57,7 +38,7 @@ const MatchCard = ({ data }) => {
 
       {/* Teams Section */}
       <TeamScore
-        isLive={isLive}
+        className={isLive ? "text-white" : "text-dark-gray-50"}
         status={data.status}
         firstTeam={{
           name: data.teams.t1.name,
@@ -84,7 +65,7 @@ const MatchCard = ({ data }) => {
           isLive ? "text-white" : "text-dark-gray-50/50"
         }`}
       >
-        {data?.result?.message}
+        {data?.result?.message || data?.toss}
       </p>
     </Link>
   );
