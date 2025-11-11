@@ -2,6 +2,11 @@ import CustomSelect from '@/app/shared/CustomSelect';
 import { BarChartIcon, Boundary } from '@/app/shared/Icon'
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table';
 import React, { useState } from 'react'
+import ScoreProgressionChart from './ScoreProgressionChart';
+import RunRateChart from './RunRateChart';
+import BallTypeAnalysis from './BallTypeAnalysis';
+import BowlerPerformanceRadar from './BowlerPerformanceRadar';
+import EconomyRateChart from './EconomyRateChart';
 
 const Stats = () => {
 
@@ -221,12 +226,15 @@ const Stats = () => {
                 ))}
             </div>
             <div className='grid grid-cols-2 gap-6'>
-                <div className='shadow-sm bg-white rounded-[10px] overflow-auto'></div>
+                <div className='shadow-sm bg-white rounded-[10px] overflow-auto relative p-6 pt-[26px]'>
+                    <ScoreProgressionChart />
+                </div>
                 <div className='shadow-sm bg-white rounded-[10px] overflow-auto'>
                     <div className='flex items-center justify-between p-6 pb-0'>
-                        <h6 className='text-lg leading-7 font-bold text-black-100'>Scorecard</h6>
+                        <h6 className='text-lg leading-7 font-bold text-black-100'>Run Rate (IND)</h6>
                         <CustomSelect className='w-full max-w-[175px]' value={format} onChange={setInning} options={innings} />
                     </div>
+                    <RunRateChart/>
                 </div>
             </div>
             <div className='shadow-sm bg-white rounded-[10px] overflow-auto p-6'>
@@ -298,6 +306,7 @@ const Stats = () => {
                     </div>
                     <div>
                         <h6 className='leading-normal mb-4 text-black-100'>Economy Rate Chart</h6>
+                        <EconomyRateChart />
                     </div>
                 </div>
             </div>
@@ -305,9 +314,11 @@ const Stats = () => {
             <div className='grid grid-cols-2 gap-6'>
                 <div className='shadow-sm bg-white rounded-[10px] p-6'>
                     <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Ball Type Analysis</h6>
+                    <BallTypeAnalysis />
                 </div>
                 <div className='shadow-sm bg-white rounded-[10px] p-6'>
                     <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Bowler Performance Radar</h6>
+                    <BowlerPerformanceRadar/>
                 </div>
             </div>
             <div className='grid grid-cols-2 gap-6'>

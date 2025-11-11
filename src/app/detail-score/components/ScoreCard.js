@@ -1,6 +1,6 @@
 import CustomSelect from '@/app/shared/CustomSelect'
 import NewsCard from '@/app/shared/NewsCard'
-import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import News1 from '@/app/assets/image/png/news-1.png';
@@ -290,15 +290,15 @@ const ScoreCard = () => {
                             <h6 className='text-lg leading-7 font-bold text-black-100'>Scorecard</h6>
                             <CustomSelect className='w-full max-w-[175px]' value={format} onChange={setInning} options={innings} />
                         </div>
-                        <Table className="[&_td]:py-3! [&_td]:px-4! text-black-400 w-full text-base leading-normal [&_tr]:border-black/10">
+                        <Table className="[&_td]:py-3! [&_td]:px-4! [&_th]:py-3! [&_th]:px-4! text-black-400 w-full text-base leading-normal [&_tr]:border-black/10">
                             <TableHeader>
-                                <TableRow className="text-center bg-light-gray-500 border-black/10">
-                                    <TableCell className="w-6/12 text-left">Batsman</TableCell>
-                                    <TableCell>R</TableCell>
-                                    <TableCell>B</TableCell>
-                                    <TableCell>4s</TableCell>
-                                    <TableCell>6s</TableCell>
-                                    <TableCell>SR</TableCell>
+                                <TableRow className="[&_th]:text-center [&_th]:text-black-200  [&_th]:text-sm  [&_th]:leading-5  [&_th]:font-normal bg-light-gray-500 border-black/10">
+                                    <TableHead className="w-6/12 text-left!">Batsman</TableHead>
+                                    <TableHead>R</TableHead>
+                                    <TableHead>B</TableHead>
+                                    <TableHead>4s</TableHead>
+                                    <TableHead>6s</TableHead>
+                                    <TableHead>SR</TableHead>
                                 </TableRow>
                             </TableHeader>
 
@@ -359,17 +359,17 @@ const ScoreCard = () => {
                         </div>
                     </div>
                     <div className='shadow-sm bg-white rounded-2xl overflow-auto'>
-                        <Table className="[&_td]:py-3! [&_td]:px-4! [&_tr]:border-black/10 text-black-400 w-full">
+                        <Table className="[&_td]:py-3! [&_td]:px-4! [&_th]:py-3! [&_th]:px-4! [&_tr]:border-black/10 text-black-400 w-full">
                             <TableHeader>
-                                <TableRow className="bg-light-gray-500 text-dark-gray-700 border-black/10 text-right">
-                                    <TableCell className="text-left">Bowlers</TableCell>
-                                    <TableCell>O</TableCell>
-                                    <TableCell>M</TableCell>
-                                    <TableCell>R</TableCell>
-                                    <TableCell>W</TableCell>
-                                    <TableCell>Econ.</TableCell>
-                                    <TableCell>WD</TableCell>
-                                    <TableCell>NB</TableCell>
+                                <TableRow className="bg-light-gray-500 [&_th]:text-end [&_th]:font-normal [&_th]:leading-4 [&_th]:text-dark-gray-700 border-black/10 text-right">
+                                    <TableHead className="text-left!">Bowlers</TableHead>
+                                    <TableHead>O</TableHead>
+                                    <TableHead>M</TableHead>
+                                    <TableHead>R</TableHead>
+                                    <TableHead>W</TableHead>
+                                    <TableHead>Econ.</TableHead>
+                                    <TableHead>WD</TableHead>
+                                    <TableHead>NB</TableHead>
                                 </TableRow>
                             </TableHeader>
 
@@ -408,11 +408,13 @@ const ScoreCard = () => {
                         <div className='shadow-sm bg-white rounded-[12px] overflow-auto border border-light-gray-600'>
                             <h5 className='font-bold leading-5 text-[15px] p-4 border-b border-black/10'>ICC World Test Championship</h5>
                             <Table className="text-dark-gray-100 text-[13px] leading-4">
-                                <TableHeader className="bg-light-gray-500 text-dark-gray-700 [&_td]:py-[5px] [&_td]:px-4!">
-                                    <TableCell className="w-3/6">Team</TableCell>
-                                    <TableCell colSpan="6" className="text-end">PCT</TableCell>
+                                <TableHeader className="bg-light-gray-500 [&_th]:text-dark-gray-700 [&_th]:py-[5px] [&_th]:px-4! [&_th]:h-auto">
+                                    <TableRow className="border-0!">
+                                        <TableHead className="w-3/6">Team</TableHead>
+                                        <TableHead colSpan="6" className="text-end">PCT</TableHead>
+                                    </TableRow>
                                 </TableHeader>
-                                <TableBody className="[&_td]:py-[9.5px] [&_td]:px-2 text-end">
+                                <TableBody className="[&_td]:py-[9px] [&_td]:px-2 text-end">
                                     {wtcTeams.map((team, i) => (
                                         <TableRow key={i} className="border-light-gray-600">
                                             <TableCell className="text-dark-gray-50 font-bold px-4! text-start">

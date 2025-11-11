@@ -10,6 +10,7 @@ import Live from './components/Live';
 import ScoreCard from './components/ScoreCard';
 import Stats from './components/Stats';
 import Commentary from './components/Commantary';
+import PlayingXI from './components/PlayingXI';
 
 const page = () => {
 
@@ -220,6 +221,9 @@ const page = () => {
                         </TabsContent>
                         <TabsContent value="stats">
                             <Stats />
+                        </TabsContent>
+                        <TabsContent value="playing-xi">
+                            <PlayingXI />
                         </TabsContent>
                     </Container>
                 </Tabs>

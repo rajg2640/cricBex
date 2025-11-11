@@ -20,6 +20,7 @@
   --light-gray: #FFF0F0;
   --light-gray-50: #D7D7D7;
   --light-gray-100: #EAEBEC;
+  --light-gray-150: #F3F4F6;
   --light-gray-200: #BABABA;
   --light-gray-300: #F2F2F2;
   --light-gray-400: #E5E7EB;
@@ -28,7 +29,7 @@
   --light-gray-700: #F4F4F4;
   --light-gray-800: #F6F7F8;
   --light-gray-900: #99A1AF;
-  
+
   --dark-gray: #222222;
   --dark-gray-50: #2B2C2D;
   --dark-gray-100: #48494A;
@@ -50,11 +51,20 @@
   --success-100: #00A63E;
   --success-200: #016630;
   --success-300: #F0FDF4;
+  --success-400: #DCFCE7;
+
+  --danger: #9F0712;
+  --danger-50: #FFE2E2;
+
+  --purple: #6E11B0;
+  --purple-50: #F3E8FF;
 
   --orange: #FF4F2F;
 
   --info: #1866DB;
   --info-50: #03A9F4;
+  --info-100: #193CB8;
+  --info-200: #DBEAFE;
 
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -107,6 +117,7 @@
   --color-light-gray: var(--light-gray);
   --color-light-gray-50: var(--light-gray-50);
   --color-light-gray-100: var(--light-gray-100);
+  --color-light-gray-150: var(--light-gray-150);
   --color-light-gray-200: var(--light-gray-200);
   --color-light-gray-300: var(--light-gray-300);
   --color-light-gray-400: var(--light-gray-400);
@@ -127,7 +138,7 @@
   --color-dark-gray-700: var(--dark-gray-700);
   --color-dark-gray-800: var(--dark-gray-800);
   --color-dark-gray-900: var(--dark-gray-900);
-  
+
   --color-black-100: var(--black-100);
   --color-black-200: var(--black-200);
   --color-black-300: var(--black-300);
@@ -137,13 +148,22 @@
   --color-success-100: var(--success-100);
   --color-success-200: var(--success-200);
   --color-success-300: var(--success-300);
+  --color-success-400: var(--success-400);
+
+  --color-danger: var(--danger);
+  --color-danger-50: var(--danger-50);
+
+  --color-purple: var(--purple);
+  --color-purple-50: var(--purple-50);
 
   --color-orange: var(--orange);
 
   --color-info: var(--info);
   --color-info-50: var(--info-50);
-  
-  --shadow-sm:  0px 0px 16px 0px #00000014;
+  --color-info-100: var(--info-100);
+  --color-info-200: var(--info-200);
+
+  --shadow-sm: 0px 0px 16px 0px #00000014;
   --shadow-lg: 0px 1px 2px -1px #0000001A, 0px 1px 3px 0px #0000001A;
 
 
@@ -225,6 +245,12 @@ html body[data-scroll-locked] {
   margin-right: 0 !important;
 }
 
-.live{
+.live {
   @apply relative text-primary pl-1 text-base font-medium after:content-[''] after:absolute after:right-full after:h-1.5 after:w-1.5 after:bg-primary after:rounded-full after:top-1/2 after:-translate-y-1/2
+}
+
+.bowlerPerformanceChart g.apexcharts-yaxis {
+  transform: rotate(90deg) !important;
+  writing-mode: sideways-lr;
+  transform-origin: -4px 10px;
 }

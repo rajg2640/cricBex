@@ -153,63 +153,74 @@ export const ArrowRight = (props) => (
   </svg>
 );
 export const FirstRank = (props) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M8.33398 12.2167V13.5717C8.33084 13.8572 8.25439 14.1371 8.11197 14.3846C7.96955 14.6321 7.76593 14.8388 7.52065 14.985C6.99994 15.3707 6.57635 15.8725 6.28356 16.4506C5.99076 17.0286 5.83683 17.667 5.83398 18.315" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M11.666 12.2167V13.5717C11.6692 13.8572 11.7456 14.1371 11.888 14.3846C12.0305 14.6321 12.2341 14.8388 12.4793 14.985C13.0001 15.3707 13.4236 15.8725 13.7164 16.4506C14.0092 17.0286 14.1632 17.667 14.166 18.315" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15 7.50004H16.25C16.8025 7.50004 17.3324 7.28055 17.7231 6.88985C18.1138 6.49915 18.3333 5.96924 18.3333 5.41671C18.3333 4.86417 18.1138 4.33427 17.7231 3.94357C17.3324 3.55287 16.8025 3.33337 16.25 3.33337H15" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M3.33398 18.3334H16.6673" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M5 7.49996C5 8.82604 5.52678 10.0978 6.46447 11.0355C7.40215 11.9732 8.67392 12.5 10 12.5C11.3261 12.5 12.5979 11.9732 13.5355 11.0355C14.4732 10.0978 15 8.82604 15 7.49996V2.49996C15 2.27895 14.9122 2.06698 14.7559 1.9107C14.5996 1.75442 14.3877 1.66663 14.1667 1.66663H5.83333C5.61232 1.66663 5.40036 1.75442 5.24408 1.9107C5.0878 2.06698 5 2.27895 5 2.49996V7.49996Z" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M4.99935 7.50004H3.74935C3.19681 7.50004 2.66691 7.28055 2.27621 6.88985C1.88551 6.49915 1.66602 5.96924 1.66602 5.41671C1.66602 4.86417 1.88551 4.33427 2.27621 3.94357C2.66691 3.55287 3.19681 3.33337 3.74935 3.33337H4.99935" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M8.33398 12.2167V13.5717C8.33084 13.8572 8.25439 14.1371 8.11197 14.3846C7.96955 14.6321 7.76593 14.8388 7.52065 14.985C6.99994 15.3707 6.57635 15.8725 6.28356 16.4506C5.99076 17.0286 5.83683 17.667 5.83398 18.315" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M11.666 12.2167V13.5717C11.6692 13.8572 11.7456 14.1371 11.888 14.3846C12.0305 14.6321 12.2341 14.8388 12.4793 14.985C13.0001 15.3707 13.4236 15.8725 13.7164 16.4506C14.0092 17.0286 14.1632 17.667 14.166 18.315" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 7.50004H16.25C16.8025 7.50004 17.3324 7.28055 17.7231 6.88985C18.1138 6.49915 18.3333 5.96924 18.3333 5.41671C18.3333 4.86417 18.1138 4.33427 17.7231 3.94357C17.3324 3.55287 16.8025 3.33337 16.25 3.33337H15" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M3.33398 18.3334H16.6673" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5 7.49996C5 8.82604 5.52678 10.0978 6.46447 11.0355C7.40215 11.9732 8.67392 12.5 10 12.5C11.3261 12.5 12.5979 11.9732 13.5355 11.0355C14.4732 10.0978 15 8.82604 15 7.49996V2.49996C15 2.27895 14.9122 2.06698 14.7559 1.9107C14.5996 1.75442 14.3877 1.66663 14.1667 1.66663H5.83333C5.61232 1.66663 5.40036 1.75442 5.24408 1.9107C5.0878 2.06698 5 2.27895 5 2.49996V7.49996Z" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4.99935 7.50004H3.74935C3.19681 7.50004 2.66691 7.28055 2.27621 6.88985C1.88551 6.49915 1.66602 5.96924 1.66602 5.41671C1.66602 4.86417 1.88551 4.33427 2.27621 3.94357C2.66691 3.55287 3.19681 3.33337 3.74935 3.33337H4.99935" stroke="#F0B100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const SecondRank = (props) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M6.00789 12.5L2.21622 5.94996C2.05272 5.66735 1.97583 5.34295 1.99509 5.01702C2.01435 4.6911 2.12891 4.37801 2.32456 4.11663L3.66622 2.33329C3.82147 2.1263 4.02278 1.95829 4.2542 1.84258C4.48563 1.72687 4.74082 1.66663 4.99956 1.66663H14.9996C15.2583 1.66663 15.5135 1.72687 15.7449 1.84258C15.9763 1.95829 16.1776 2.1263 16.3329 2.33329L17.6662 4.11663C17.8632 4.37717 17.9792 4.68983 17.9999 5.01577C18.0207 5.34171 17.9452 5.66656 17.7829 5.94996L13.9912 12.5" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9.16758 10L4.26758 1.83337" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10.834 10L15.734 1.83337" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6.66602 5.83337H13.3327" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10.0007 18.3333C12.3018 18.3333 14.1673 16.4679 14.1673 14.1667C14.1673 11.8655 12.3018 10 10.0007 10C7.69946 10 5.83398 11.8655 5.83398 14.1667C5.83398 16.4679 7.69946 18.3333 10.0007 18.3333Z" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10.0007 15V13.3334H9.58398" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M6.00789 12.5L2.21622 5.94996C2.05272 5.66735 1.97583 5.34295 1.99509 5.01702C2.01435 4.6911 2.12891 4.37801 2.32456 4.11663L3.66622 2.33329C3.82147 2.1263 4.02278 1.95829 4.2542 1.84258C4.48563 1.72687 4.74082 1.66663 4.99956 1.66663H14.9996C15.2583 1.66663 15.5135 1.72687 15.7449 1.84258C15.9763 1.95829 16.1776 2.1263 16.3329 2.33329L17.6662 4.11663C17.8632 4.37717 17.9792 4.68983 17.9999 5.01577C18.0207 5.34171 17.9452 5.66656 17.7829 5.94996L13.9912 12.5" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9.16758 10L4.26758 1.83337" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10.834 10L15.734 1.83337" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6.66602 5.83337H13.3327" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10.0007 18.3333C12.3018 18.3333 14.1673 16.4679 14.1673 14.1667C14.1673 11.8655 12.3018 10 10.0007 10C7.69946 10 5.83398 11.8655 5.83398 14.1667C5.83398 16.4679 7.69946 18.3333 10.0007 18.3333Z" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10.0007 15V13.3334H9.58398" stroke="#99A1AF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const ThirdRank = (props) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M12.8983 10.7417L14.1608 17.8467C14.1749 17.9304 14.1632 18.0163 14.1271 18.0932C14.0911 18.17 14.0324 18.2339 13.959 18.2765C13.8857 18.3191 13.801 18.3383 13.7164 18.3315C13.6319 18.3246 13.5514 18.2922 13.4858 18.2384L10.5024 15.9992C10.3584 15.8916 10.1835 15.8335 10.0037 15.8335C9.82391 15.8335 9.64896 15.8916 9.50494 15.9992L6.5166 18.2375C6.45104 18.2912 6.37065 18.3237 6.28618 18.3305C6.20171 18.3373 6.11716 18.3182 6.04382 18.2758C5.97048 18.2333 5.91183 18.1695 5.8757 18.0928C5.83957 18.0162 5.82768 17.9303 5.8416 17.8467L7.10327 10.7417" stroke="#E17100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10 11.6666C12.7614 11.6666 15 9.42805 15 6.66663C15 3.9052 12.7614 1.66663 10 1.66663C7.23858 1.66663 5 3.9052 5 6.66663C5 9.42805 7.23858 11.6666 10 11.6666Z" stroke="#E17100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M12.8983 10.7417L14.1608 17.8467C14.1749 17.9304 14.1632 18.0163 14.1271 18.0932C14.0911 18.17 14.0324 18.2339 13.959 18.2765C13.8857 18.3191 13.801 18.3383 13.7164 18.3315C13.6319 18.3246 13.5514 18.2922 13.4858 18.2384L10.5024 15.9992C10.3584 15.8916 10.1835 15.8335 10.0037 15.8335C9.82391 15.8335 9.64896 15.8916 9.50494 15.9992L6.5166 18.2375C6.45104 18.2912 6.37065 18.3237 6.28618 18.3305C6.20171 18.3373 6.11716 18.3182 6.04382 18.2758C5.97048 18.2333 5.91183 18.1695 5.8757 18.0928C5.83957 18.0162 5.82768 17.9303 5.8416 17.8467L7.10327 10.7417" stroke="#E17100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 11.6666C12.7614 11.6666 15 9.42805 15 6.66663C15 3.9052 12.7614 1.66663 10 1.66663C7.23858 1.66663 5 3.9052 5 6.66663C5 9.42805 7.23858 11.6666 10 11.6666Z" stroke="#E17100" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const RankArrowUp = (props) => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M10.666 4.66663H14.666V8.66663" stroke="#00C950" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14.6673 4.66663L9.00065 10.3333L5.66732 6.99996L1.33398 11.3333" stroke="#00C950" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M10.666 4.66663H14.666V8.66663" stroke="#00C950" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14.6673 4.66663L9.00065 10.3333L5.66732 6.99996L1.33398 11.3333" stroke="#00C950" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const RankArrowDown = (props) => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M10.666 11.3334H14.666V7.33337" stroke="#FB2C36" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14.6673 11.3333L9.00065 5.66663L5.66732 8.99996L1.33398 4.66663" stroke="#FB2C36" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M10.666 11.3334H14.666V7.33337" stroke="#FB2C36" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14.6673 11.3333L9.00065 5.66663L5.66732 8.99996L1.33398 4.66663" stroke="#FB2C36" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const BarChartIcon = (props) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M2.5 2.5V15.8333C2.5 16.2754 2.67559 16.6993 2.98816 17.0118C3.30072 17.3244 3.72464 17.5 4.16667 17.5H17.5" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15 14.1667V7.5" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10.833 14.1666V4.16663" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6.66699 14.1666V11.6666" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M2.5 2.5V15.8333C2.5 16.2754 2.67559 16.6993 2.98816 17.0118C3.30072 17.3244 3.72464 17.5 4.16667 17.5H17.5" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 14.1667V7.5" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10.833 14.1666V4.16663" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6.66699 14.1666V11.6666" stroke="#2B7FFF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
 export const Boundary = (props) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g clip-path="url(#clip0_154_3449)">
-          <path d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6023 18.3337 9.99996C18.3337 5.39759 14.6027 1.66663 10.0003 1.66663C5.39795 1.66663 1.66699 5.39759 1.66699 9.99996C1.66699 14.6023 5.39795 18.3333 10.0003 18.3333Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M10 15C12.7614 15 15 12.7614 15 10C15 7.23858 12.7614 5 10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M9.99967 11.6667C10.9201 11.6667 11.6663 10.9205 11.6663 10C11.6663 9.07957 10.9201 8.33337 9.99967 8.33337C9.0792 8.33337 8.33301 9.07957 8.33301 10C8.33301 10.9205 9.0792 11.6667 9.99967 11.6667Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-      </g>
-      <defs>
-          <clipPath id="clip0_154_3449">
-              <rect width="20" height="20" fill="white" />
-          </clipPath>
-      </defs>
-  </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <g clipPath="url(#clip0_154_3449)">
+            <path d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6023 18.3337 9.99996C18.3337 5.39759 14.6027 1.66663 10.0003 1.66663C5.39795 1.66663 1.66699 5.39759 1.66699 9.99996C1.66699 14.6023 5.39795 18.3333 10.0003 18.3333Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M10 15C12.7614 15 15 12.7614 15 10C15 7.23858 12.7614 5 10 5C7.23858 5 5 7.23858 5 10C5 12.7614 7.23858 15 10 15Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M9.99967 11.6667C10.9201 11.6667 11.6663 10.9205 11.6663 10C11.6663 9.07957 10.9201 8.33337 9.99967 8.33337C9.0792 8.33337 8.33301 9.07957 8.33301 10C8.33301 10.9205 9.0792 11.6667 9.99967 11.6667Z" stroke="#00C950" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+        <defs>
+            <clipPath id="clip0_154_3449">
+                <rect width="20" height="20" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
 
+);
+export const User = (props) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M19 21V19C19 17.9391 18.5786 16.9217 17.8284 16.1716C17.0783 15.4214 16.0609 15 15 15H9C7.93913 15 6.92172 15.4214 6.17157 16.1716C5.42143 16.9217 5 17.9391 5 19V21" stroke="#6A7282" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#6A7282" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+export const Star = (props) => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M7.68323 1.53003C7.71245 1.471 7.75758 1.42132 7.81353 1.38658C7.86949 1.35184 7.93404 1.33344 7.9999 1.33344C8.06576 1.33344 8.13031 1.35184 8.18626 1.38658C8.24222 1.42132 8.28735 1.471 8.31656 1.53003L9.85656 4.64936C9.95802 4.85468 10.1078 5.0323 10.293 5.167C10.4782 5.3017 10.6933 5.38944 10.9199 5.4227L14.3639 5.9267C14.4292 5.93615 14.4905 5.96368 14.5409 6.00616C14.5913 6.04865 14.6288 6.1044 14.6492 6.1671C14.6696 6.22981 14.6721 6.29697 14.6563 6.36099C14.6405 6.42501 14.6071 6.48333 14.5599 6.52936L12.0692 8.9547C11.905 9.11477 11.7821 9.31235 11.7111 9.53045C11.6402 9.74855 11.6233 9.98062 11.6619 10.2067L12.2499 13.6334C12.2614 13.6986 12.2544 13.7657 12.2296 13.8272C12.2048 13.8886 12.1632 13.9418 12.1096 13.9807C12.056 14.0196 11.9925 14.0427 11.9265 14.0473C11.8604 14.0519 11.7944 14.0378 11.7359 14.0067L8.65723 12.388C8.45438 12.2815 8.22868 12.2259 7.99956 12.2259C7.77044 12.2259 7.54475 12.2815 7.3419 12.388L4.2639 14.0067C4.20545 14.0376 4.1395 14.0516 4.07353 14.0469C4.00757 14.0422 3.94424 14.0191 3.89076 13.9802C3.83728 13.9413 3.79579 13.8882 3.771 13.8268C3.74622 13.7655 3.73914 13.6985 3.75056 13.6334L4.3379 10.2074C4.37669 9.98119 4.35989 9.74896 4.28892 9.53073C4.21796 9.31249 4.09497 9.1148 3.93056 8.9547L1.4399 6.53003C1.39229 6.48405 1.35856 6.42563 1.34254 6.36141C1.32652 6.2972 1.32886 6.22978 1.34928 6.16682C1.36971 6.10387 1.40741 6.04793 1.45808 6.00535C1.50876 5.96278 1.57037 5.9353 1.6359 5.92603L5.07923 5.4227C5.30607 5.3897 5.52149 5.30207 5.70695 5.16736C5.89242 5.03264 6.04237 4.85488 6.1439 4.64936L7.68323 1.53003Z" stroke="#F0B100" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
 );
