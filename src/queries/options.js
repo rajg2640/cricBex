@@ -7,7 +7,17 @@ export const recentMatchesQueryOptions = queryOptions({
     const response = await sportbexClient.get("/match/recent");
     return response.data;
   },
-  select: (data) => data?.data?.slice(0, 4),
+  select: (data) =>
+    data?.data
+      ?.sort((a, b) => {
+        // First sort by status - LIVE matches come first
+        if (a.status === "LIVE" && b.status !== "LIVE") return -1;
+        if (a.status !== "LIVE" && b.status === "LIVE") return 1;
+
+        // Then sort by startDate (newest first)
+        return new Date(a.startDate) - new Date(b.startDate);
+      })
+      .slice(0, 4),
 });
 
 export const upcomingMatchesQueryOptions = queryOptions({
