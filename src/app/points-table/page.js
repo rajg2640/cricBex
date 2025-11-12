@@ -26,7 +26,7 @@ const page = () => {
                     <div className='flex items-center'>
                         <div>
                             <CustomBreadcrumb items={breadcrumbItems} />
-                            <h2 className='text-[32px] font-medium text-dark-gray'>Asia Cup 2025</h2>
+                            <h2 className='text-xl leading-normal sm:text-2xl md:text-[32px] md:leading-[38px] font-medium text-dark-gray mt-1.5'>Asia Cup 2025</h2>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const page = () => {
                         </TableHeader>
                         <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-sm leading-4">
                             {rankings.map((team) => (
-                                <TableRow key={team.rank} className="border-b last:border-0">
+                                <TableRow key={team.rank.value} className="border-b last:border-0">
                                     <TableCell className={`border-b p-4 font-medium text-gray-700 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
                                         <span className={`w-5 text-center flex items-center gap-1 ${team.rank.value <= 4 ? 'text-success-200' : ''}`}>{team.rank.value} {team.rank.status === 'up' ? <ArrowUp className='w-3 h-3 text-success-200 flex-none' /> : team.rank.status === 'down' ? <ArrowDown className='w-3 h-3 flex-none text-primary' /> : <span className='w-3 flex-none'>-</span>}</span>
                                     </TableCell>
@@ -70,8 +70,8 @@ const page = () => {
                                     </TableCell>
                                     <TableCell className={`border-b p-4 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
                                         {
-                                            team.forms.map((val) => (
-                                                <span key={val} className={`inline-flex items-center w-6 h-6 mx-0.5 justify-center rounded-sm text-xs ${val === 'W' ? 'bg-success-200 text-white' : val === 'L' ? 'bg-primary text-white' : ''}`}>
+                                            team.forms.map((val, i) => (
+                                                <span key={i} className={`inline-flex items-center w-6 h-6 mx-0.5 justify-center rounded-sm text-xs ${val === 'W' ? 'bg-success-200 text-white' : val === 'L' ? 'bg-primary text-white' : ''}`}>
                                                     {val}
                                                 </span>
                                             ))

@@ -119,7 +119,7 @@ const page = () => {
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
 
-        { label: "Squads", href: "#" },
+        { label: "Squads", href: "/squad" },
       ],
     },
     {
@@ -132,8 +132,8 @@ const page = () => {
       teams: ["India", "Australia"],
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
-        { label: "Points Table", href: "#" },
-        { label: "Squads", href: "#" },
+        { label: "Points Table", href: "/points-table" },
+        { label: "Squads", href: "/squad" },
       ],
     },
     {
@@ -146,8 +146,8 @@ const page = () => {
       teams: ["Pakistan", "New Zealand"],
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
-        { label: "Points Table", href: "#" },
-        { label: "Squads", href: "#" },
+        { label: "Points Table", href: "/points-table" },
+        { label: "Squads", href: "/squad" },
       ],
     },
     {
@@ -161,7 +161,7 @@ const page = () => {
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
 
-        { label: "Squads", href: "#" },
+        { label: "Squads", href: "/squad" },
       ],
     },
     {
@@ -174,8 +174,8 @@ const page = () => {
       teams: ["India", "Australia"],
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
-        { label: "Points Table", href: "#" },
-        { label: "Squads", href: "#" },
+        { label: "Points Table", href: "/points-table" },
+        { label: "Squads", href: "/squad" },
       ],
     },
     {
@@ -188,8 +188,8 @@ const page = () => {
       teams: ["Pakistan", "New Zealand"],
       links: [
         { label: "Fixtures & Results", href: "/fixtures-and-results" },
-        { label: "Points Table", href: "#" },
-        { label: "Squads", href: "#" },
+        { label: "Points Table", href: "/points-table" },
+        { label: "Squads", href: "/squad" },
       ],
     },
   ];

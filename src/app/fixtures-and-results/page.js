@@ -149,7 +149,7 @@ const page = () => {
                     <div className='flex items-center'>
                         <div>
                             <CustomBreadcrumb items={breadcrumbItems} />
-                            <h2 className='text-[32px] font-medium text-dark-gray'>Asia Cup 2025</h2>
+                            <h2 className='text-xl leading-normal sm:text-2xl md:text-[32px] md:leading-[38px] font-medium text-dark-gray mt-1.5'>Asia Cup 2025</h2>
                         </div>
                         <div className='ml-auto text-primary'>
                             <Link href='/points-table'>Points Table</Link>

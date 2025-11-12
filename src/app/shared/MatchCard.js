@@ -6,8 +6,8 @@ import { getMatchScore } from "@/utils/score";
 const MatchCard = ({ data }) => {
   const isLive = data?.status === MATCH_STATUS.LIVE;
 
-  const firstTeamScore = getMatchScore(data.teams.t1.score);
-  const secondTeamScore = getMatchScore(data.teams.t2.score);
+  const firstTeamScore = getMatchScore(data.teams?.t1?.score);
+  const secondTeamScore = getMatchScore(data.teams?.t2?.score);
 
   return (
     <div className="sm:mx-2.5 mx-2 my-2.5">

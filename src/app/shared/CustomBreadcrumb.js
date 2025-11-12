@@ -14,7 +14,7 @@ export default function CustomBreadcrumb({ items }) {
         <Breadcrumb>
             <BreadcrumbList>
                 {items.map((item, index) => (
-                    <BreadcrumbItem key={index}>
+                    <BreadcrumbItem key={index} className="text-xs leading-3.5">
                         {item.href ? (
                             <BreadcrumbLink asChild>
                                 <Link href={item.href}>{item.label}</Link>
