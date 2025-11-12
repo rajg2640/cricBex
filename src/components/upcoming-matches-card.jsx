@@ -15,7 +15,7 @@ export const UpcomingMatchesCard = () => {
 
   return (
     <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-      <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+      <div className="flex items-center justify-between sm:px-6 px-4 sm:pt-6 pt-4 pb-4 border-b border-black/10">
         <h5 className="text-primary font-bold leading-[21px]">
           Upcoming Matches
         </h5>

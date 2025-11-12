@@ -42,7 +42,7 @@ const Footer = () => {
     return (
         <footer className='pt-16 bg-dark-gray-600 text-white'>
             <Container>
-                <div className='flex justify-between'>
+                <div className='flex flex-wrap justify-between'>
                     <Link href="/">
                         <Logo />
                     </Link>

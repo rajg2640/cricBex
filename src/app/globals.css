@@ -55,6 +55,7 @@
 
   --danger: #9F0712;
   --danger-50: #FFE2E2;
+  --danger-100: #290000;
 
   --purple: #6E11B0;
   --purple-50: #F3E8FF;
@@ -152,6 +153,7 @@
 
   --color-danger: var(--danger);
   --color-danger-50: var(--danger-50);
+  --color-danger-100: var(--danger-100);
 
   --color-purple: var(--purple);
   --color-purple-50: var(--purple-50);

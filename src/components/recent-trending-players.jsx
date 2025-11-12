@@ -40,7 +40,7 @@ export const RecentTrendingPlayers = () => {
 
   return (
     <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-      <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+      <div className="flex items-center justify-between sm:px-6 px-4 sm:pt-6 pt-4 pb-4 border-b border-black/10">
         <h5 className="text-primary font-bold leading-[21px]">
           Recent Trending Players
         </h5>
@@ -54,7 +54,7 @@ export const RecentTrendingPlayers = () => {
       </div>
 
       <div>
-        <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+        <div className="border-b pt-4 sm:px-6 px-4 border-black/10 last-of-type:border-0">
           <p className="text-sm font-medium leading-4 text-dark-gray-100">
             Top Batters
           </p>
@@ -64,7 +64,7 @@ export const RecentTrendingPlayers = () => {
           />
         </div>
 
-        <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+        <div className="border-b pt-4 sm:px-6 px-4 border-black/10 last-of-type:border-0">
           <p className="text-sm font-medium leading-4 text-dark-gray-100">
             Top Bowlers
           </p>
@@ -74,7 +74,7 @@ export const RecentTrendingPlayers = () => {
           />
         </div>
 
-        <div className="border-b pt-4 px-6 border-black/10 last-of-type:border-0">
+        <div className="border-b pt-4 sm:px-6 px-4 border-black/10 last-of-type:border-0">
           <p className="text-sm font-medium leading-4 text-dark-gray-100">
             Top All-Rounders
           </p>

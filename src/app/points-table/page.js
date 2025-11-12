@@ -82,7 +82,26 @@ const page = () => {
                         </TableBody>
                         <TableFooter>
                             <TableRow>
-                                <TableCell colSpan={rankings.length} className='bg-light-gray-500 p-4 text-black-300 text-sm'>Rankings updated as of 05/11/2025. Changes reflect movement from previous week.</TableCell>
+                                <TableCell colSpan={10} className='bg-light-gray-500 p-4 text-black-300 text-sm'>
+                                    <div className='flex gap-3 font-normal'>
+                                        <div className='flex items-center gap-1.5'>
+                                            <span className='w-3 h-3 rounded bg-success-200'></span>
+                                            <span>Qualification line</span>
+                                        </div>
+                                        <div className='flex items-center gap-1.5'>
+                                            <ArrowUp className='w-3 h-3 text-success-200 flex-none' />
+                                            <span>Up</span>
+                                        </div>
+                                        <div className='flex items-center gap-1.5'>
+                                            <ArrowDown className='w-3 h-3 text-primary flex-none' />
+                                            <span>Down</span>
+                                        </div>
+                                        <div className='flex items-center gap-1.5'>
+                                            <span>-</span>
+                                            <span>No change</span>
+                                        </div>
+                                    </div>
+                                </TableCell>
                             </TableRow>
                         </TableFooter>
                     </Table>

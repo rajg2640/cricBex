@@ -48,20 +48,20 @@ export const ICCRankings = () => {
 
   return (
     <div className="rounded-2xl bg-white shadow-sm h-fit w-full">
-      <div className="flex items-center justify-between p-6 pb-4 border-b border-black/10">
+      <div className="flex items-center justify-between sm:px-6 px-4 sm:pt-6 pt-4 pb-4 border-b border-black/10">
         <h5 className="text-primary font-bold leading-[21px]">ICC Rankings</h5>
         <Button variant="link" className="text-right" asChild>
           <Link href="/ranking">Full Rankings</Link>
         </Button>
       </div>
-      <div className="py-4 px-6">
+      <div className="py-4 sm:px-6 px-4">
         <Tabs value={selectedFormat} onValueChange={setSelectedFormat}>
           <TabsList>
-            <TabsTrigger value={MATCH_FORMATS.ODI}>odi</TabsTrigger>
-            <TabsTrigger value={MATCH_FORMATS.TEST}>Test</TabsTrigger>
-            <TabsTrigger value={MATCH_FORMATS.T20}>T20</TabsTrigger>
+            <TabsTrigger className="max-sm:py-2" value={MATCH_FORMATS.ODI}>odi</TabsTrigger>
+            <TabsTrigger className="max-sm:py-2" value={MATCH_FORMATS.TEST}>Test</TabsTrigger>
+            <TabsTrigger className="max-sm:py-2" value={MATCH_FORMATS.T20}>T20</TabsTrigger>
           </TabsList>
-          <div className="mt-3">
+          <div className="sm:mt-3">
             <Table>
               <TableBody>
                 <Ranking

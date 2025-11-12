@@ -14,7 +14,7 @@ const TeamScore = ({ firstTeam, secondTeam, status, className }) => {
               src={firstTeam?.flag}
             />
           )}
-          <p className="font-bold leading-[19px] capitalize">
+          <p className="font-bold leading-[19px] capitalize max-sm:text-sm">
             {firstTeam?.name}
           </p>
         </div>
@@ -38,7 +38,7 @@ const TeamScore = ({ firstTeam, secondTeam, status, className }) => {
               />
             )}
           </div>
-          <p className="font-bold leading-[19px] capitalize">
+          <p className="font-bold leading-[19px] capitalize max-sm:text-sm">
             {secondTeam?.name}
           </p>
         </div>
@@ -67,7 +67,7 @@ const Score = ({ score, wickets, overs, status }) => {
   return (
     <div className="text-right">
       {!yetToBat && (
-        <p className="font-semibold leading-[19px]">
+        <p className="font-semibold leading-[19px] max-sm:text-sm">
           <span>{score}</span>
           {!isTeamAllOut && (
             <>
@@ -80,7 +80,7 @@ const Score = ({ score, wickets, overs, status }) => {
 
       {/* Overs */}
       {isMatchAbandoned && !overs ? null : score && wickets ? (
-        <span className="text-xs block leading-[14px]">
+        <span className="text-xs block leading-3.5">
           {overs ? `(${overs})` : ""}
         </span>
       ) : null}

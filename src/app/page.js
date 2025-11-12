@@ -35,6 +35,29 @@ export default function Home() {
     },
   ];
 
+  const blog = [
+    {
+      label: 'SQUAD ANNOUNCEMENT',
+      image: Blog1,
+      title: 'Nitish Reddy, Devdutt Padikkal return for West Indies Tests',
+      desc: 'Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran'
+    },
+    {
+      label: 'ASIA CUP 2025',
+      image: Blog2,
+      title: 'Pakistan sneak narrow win to set finals date with India',
+      desc: 'In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance'
+    },
+    {
+      label: 'CAPTAINCY SHUFFLE',
+      image: Blog3,
+      title: 'Iyer to lead India &apos;A&apos; in one-dayers with Patidar handed Irani Cup reins',
+      desc: 'Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A',
+      linkTitle: 'Shreyas Iyer requests break from red-ball cricket',
+      link: '/'
+    }
+  ]
+
   return (
     <div>
       <Container>
@@ -46,13 +69,13 @@ export default function Home() {
             View All Matches
           </Button>
         </div>
-        <div className="grid grid-cols-4 gap-4 mt-4">
+        <div className="-mx-2.5 -mb-2.5 sm:mt-4 mt-2">
           <RecentMatches />
         </div>
 
-        <div className="flex items-center gap-4 mt-8">
-          <p>Quick Access</p>
-          <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mt-5">
+          <p className="max-sm:hidden">Quick Access</p>
+          <div className="flex items-center md:gap-4 gap-2 overflow-x-auto">
             <Button variant="outline" className="rounded-full py-[11px] px-4">
               <Cup />
               Asia Cup
@@ -96,8 +119,8 @@ export default function Home() {
                 alt="cricket api bg"
               />
               <span className="absolute bg-[linear-gradient(180deg,rgba(239,18,7,0)_0%,var(--orange)_86.69%)] block h-full w-full z-1 top-0 left-0"></span>
-              <div className="absolute z-2 top-0 left-0 w-full h-full flex flex-col items-center pt-9 px-14">
-                <h4 className="text-white text-center text-[40px] leading-[47px]">
+              <div className="absolute z-2 top-0 left-0 w-full h-full flex flex-col items-center justify-center pt-9 lg:px-14 sm:px-10 px-6">
+                <h4 className="text-white text-center sm:text-[40px] text-3xl sm:leading-[47px] leading-9">
                   Get Your <span className="font-bold">Cricket API</span> Today
                 </h4>
                 <Button variant="secondary" className="rounded-full w-fit mt-4">
@@ -111,7 +134,7 @@ export default function Home() {
 
             <RecentResults />
 
-            <div className="p-6">
+            <div className="sm:p-6">
               <h6 className="text-primary  uppercase font-bold text-base leading-normal mb-4">
                 Latest News
               </h6>
@@ -127,74 +150,39 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="p-4 divide-y divide-black/10">
-              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  SQUAD ANNOUNCEMENT
-                </p>
-                <Image
-                  src={Blog1}
-                  alt="blog 1"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <Link
-                  href="/"
-                  className="font-bold text-2xl leading-7 mt-6 block"
-                >
-                  Nitish Reddy, Devdutt Padikkal return for West Indies Tests
-                </Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  Ravindra Jadeja named vice-captain; No place for Karun Nair or
-                  Abhimanyu Easwaran
-                </p>
-              </div>
-              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  ASIA CUP 2025
-                </p>
-                <Image
-                  src={Blog2}
-                  alt="blog 2"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <Link
-                  href="/"
-                  className="font-bold text-2xl leading-7 mt-6 block"
-                >
-                  Pakistan sneak narrow win to set finals date with India
-                </Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  In a low-scoring affair, Pakistan managed to cover up their
-                  poor batting effort with a good bowling performance
-                </p>
-              </div>
-              <div className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                  CAPTAINCY SHUFFLE
-                </p>
-                <Image
-                  src={Blog3}
-                  alt="blog 3"
-                  className="max-h-[230px] rounded-sm object-cover"
-                />
-                <Link
-                  href="/"
-                  className="font-bold text-2xl leading-7 mt-6 block"
-                >
-                  Iyer to lead India &apos;A&apos; in one-dayers with Patidar
-                  handed Irani Cup reins
-                </Link>
-                <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                  Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for
-                  the second and third one-dayers against Australia A
-                </p>
-                <Link
-                  href="/"
-                  className="text-sm leading-normal font-bold text-info mt-6 block"
-                >
-                  Shreyas Iyer requests break from red-ball cricket
-                </Link>
-              </div>
+            <div className="sm:p-4 divide-y divide-black/10">
+              {
+                blog.map((data, i) => (
+                  <div key={i} className="py-6 first-of-type:pt-0 last-of-type:pb-0">
+                    <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
+                      {data.label}
+                    </p>
+                    <Image
+                      src={data.image}
+                      alt="blog 1"
+                      className="max-h-[230px] rounded-sm object-cover"
+                    />
+                    <Link
+                      href="/"
+                      className="font-bold lg:text-2xl sm:text-xl lg:leading-7 leading-6 lg:mt-6 mt-3 block"
+                    >
+                      {data.title}
+                    </Link>
+                    <p className="text-dark-gray-500 text-sm leading-normal mt-2">
+                      {data.desc}
+                    </p>
+                    {
+                      data?.linkTitle &&
+                      <Link
+                        href={data?.link}
+                        className="text-sm leading-normal font-bold text-info mt-6 block"
+                      >
+                        {data?.linkTitle}
+                      </Link>
+                    }
+                  </div>
+                ))
+              }
             </div>
           </Masonry>
         </ResponsiveMasonry>
