@@ -17,10 +17,11 @@ export const RecentResults = () => {
         ?.filter(
           (match) =>
             match.status === MATCH_STATUS.COMPLETED ||
-            match.status === MATCH_STATUS.ABANDONED
+            match.status === MATCH_STATUS.ABANDONED ||
+            match.status === MATCH_STATUS.NO_RESULT
         )
-        ?.slice(0, 2)
-        ?.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+        ?.sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
+        ?.slice(0, 3);
     },
   });
 
@@ -93,7 +94,9 @@ const Result = ({ match }) => {
       <div className="text-xs leading-3.5 mt-3">
         <p
           className={cn("text-success font-semibold", {
-            "text-dark-gray-50": match?.status === MATCH_STATUS.ABANDONED,
+            "text-dark-gray-50":
+              match?.status === MATCH_STATUS.ABANDONED ||
+              match?.status === MATCH_STATUS.NO_RESULT,
           })}
         >
           {match?.result?.message}

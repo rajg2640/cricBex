@@ -37,26 +37,27 @@ export default function Home() {
 
   const blog = [
     {
-      label: 'SQUAD ANNOUNCEMENT',
+      label: "SQUAD ANNOUNCEMENT",
       image: Blog1,
-      title: 'Nitish Reddy, Devdutt Padikkal return for West Indies Tests',
-      desc: 'Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran'
+      title: "Nitish Reddy, Devdutt Padikkal return for West Indies Tests",
+      desc: "Ravindra Jadeja named vice-captain; No place for Karun Nair or Abhimanyu Easwaran",
     },
     {
-      label: 'ASIA CUP 2025',
+      label: "ASIA CUP 2025",
       image: Blog2,
-      title: 'Pakistan sneak narrow win to set finals date with India',
-      desc: 'In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance'
+      title: "Pakistan sneak narrow win to set finals date with India",
+      desc: "In a low-scoring affair, Pakistan managed to cover up their poor batting effort with a good bowling performance",
     },
     {
-      label: 'CAPTAINCY SHUFFLE',
+      label: "CAPTAINCY SHUFFLE",
       image: Blog3,
-      title: 'Iyer to lead India &apos;A&apos; in one-dayers with Patidar handed Irani Cup reins',
-      desc: 'Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A',
-      linkTitle: 'Shreyas Iyer requests break from red-ball cricket',
-      link: '/'
-    }
-  ]
+      title:
+        "Iyer to lead India 'A' in one-dayers with Patidar handed Irani Cup reins",
+      desc: "Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for the second and third one-dayers against Australia A",
+      linkTitle: "Shreyas Iyer requests break from red-ball cricket",
+      link: "/",
+    },
+  ];
 
   return (
     <div>
@@ -151,38 +152,38 @@ export default function Home() {
               </div>
             </div>
             <div className="sm:p-4 divide-y divide-black/10">
-              {
-                blog.map((data, i) => (
-                  <div key={i} className="py-6 first-of-type:pt-0 last-of-type:pb-0">
-                    <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
-                      {data.label}
-                    </p>
-                    <Image
-                      src={data.image}
-                      alt="blog 1"
-                      className="max-h-[230px] rounded-sm object-cover"
-                    />
+              {blog.map((data, i) => (
+                <div
+                  key={i}
+                  className="py-6 first-of-type:pt-0 last-of-type:pb-0"
+                >
+                  <p className="uppercase text-dark-gray-500 mb-3 text-xs leading-3.5">
+                    {data.label}
+                  </p>
+                  <Image
+                    src={data.image}
+                    alt="blog 1"
+                    className="max-h-[230px] rounded-sm object-cover"
+                  />
+                  <Link
+                    href="/"
+                    className="font-bold lg:text-2xl sm:text-xl lg:leading-7 leading-6 lg:mt-6 mt-3 block"
+                  >
+                    {data.title}
+                  </Link>
+                  <p className="text-dark-gray-500 text-sm leading-normal mt-2">
+                    {data.desc}
+                  </p>
+                  {data?.linkTitle && (
                     <Link
-                      href="/"
-                      className="font-bold lg:text-2xl sm:text-xl lg:leading-7 leading-6 lg:mt-6 mt-3 block"
+                      href={data?.link}
+                      className="text-sm leading-normal font-bold text-info mt-6 block"
                     >
-                      {data.title}
+                      {data?.linkTitle}
                     </Link>
-                    <p className="text-dark-gray-500 text-sm leading-normal mt-2">
-                      {data.desc}
-                    </p>
-                    {
-                      data?.linkTitle &&
-                      <Link
-                        href={data?.link}
-                        className="text-sm leading-normal font-bold text-info mt-6 block"
-                      >
-                        {data?.linkTitle}
-                      </Link>
-                    }
-                  </div>
-                ))
-              }
+                  )}
+                </div>
+              ))}
             </div>
           </Masonry>
         </ResponsiveMasonry>
