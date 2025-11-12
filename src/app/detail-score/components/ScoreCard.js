@@ -283,10 +283,10 @@ const ScoreCard = () => {
 
     return (
         <div className='pb-[120px]'>
-            <div className='flex gap-6'>
-                <div className='w-9/12 space-y-6'>
-                    <div className='shadow-sm bg-white rounded-2xl overflow-auto'>
-                        <div className='flex items-center justify-between p-6 border-b border-black/10'>
+            <div className='flex flex-wrap -mx-3'>
+                <div className='xl:w-9/12 lg:w-8/12 w-full space-y-6 lg:px-3'>
+                    <div className='lg:shadow-sm bg-white lg:rounded-2xl overflow-auto'>
+                        <div className='flex items-center justify-between sm:p-6 p-4 border-b border-black/10'>
                             <h6 className='text-lg leading-7 font-bold text-black-100'>Scorecard</h6>
                             <CustomSelect className='w-full max-w-[175px]' value={format} onChange={setInning} options={innings} />
                         </div>
@@ -304,14 +304,14 @@ const ScoreCard = () => {
 
                             <TableBody>
                                 {scorecard.map((player, i) => (
-                                    <TableRow key={i} className={`text-center ${player?.notOut ? "bg-success-300" : ""}`}>
+                                    <TableRow key={i} className={`text-center max-sm:text-xs ${player?.notOut ? "bg-success-300" : ""}`}>
                                         <TableCell className="text-left">
                                             <p className={`leading-normal ${player?.notOut ? "text-[#008236]" : "text-black-100"}`}>
                                                 {player.name}
                                                 {player.notOut && <span>*</span>}
                                             </p>
                                             {!player.notOut && player.status && (
-                                                <p className="text-black-300 text-xs leading-[14px] mt-1">{player.status}</p>
+                                                <p className="text-black-300 text-xs leading-3.5 mt-1">{player.status}</p>
                                             )}
                                         </TableCell>
                                         <TableCell className="font-bold">{player.runs}</TableCell>
@@ -323,7 +323,7 @@ const ScoreCard = () => {
                                 ))}
                             </TableBody>
                         </Table>
-                        <div className='p-6 grid grid-cols-4 gap-4 border-t border-black/10'>
+                        <div className='sm:p-6 p-4 grid xxs:grid-cols-4 grid-cols-2 sm:gap-4 gap-2 border-t border-black/10'>
                             <div className='flex items-center text-sm leading-5 gap-1'>
                                 <p className='text-black-300'>Total:</p>
                                 <p className='font-bold text-black-400'>287/8d</p>
@@ -341,13 +341,13 @@ const ScoreCard = () => {
                                 <p className='font-bold text-black-400'>15</p>
                             </div>
                         </div>
-                        <div className='p-6 flex gap-2 leading-[19px] border-t border-black/10'>
+                        <div className='sm:p-6 p-4 max-sm:text-xs flex flex-wrap gap-2 sm:leading-[19px] border-t border-black/10'>
                             <p className='font-bold text-dark-gray-800'>Yet to bat: </p>
                             <span className='text-dark-gray-50'>Jomel Warrican, </span>
                             <span className='text-dark-gray-50'>Johann Layne, </span>
                             <span className='text-dark-gray-50'>Jayden Seales </span>
                         </div>
-                        <div className='p-6 flex gap-2 leading-[19px] border-t border-black/10 flex-wrap'>
+                        <div className='sm:p-6 p-4 max-sm:text-xs flex gap-2 sm:leading-[19px] border-t border-black/10 flex-wrap'>
                             <p className='font-bold text-dark-gray-800'>West Indies Playing XI: </p>
                             {
                                 playingXI.map((player, i) => {
@@ -358,7 +358,7 @@ const ScoreCard = () => {
                             }
                         </div>
                     </div>
-                    <div className='shadow-sm bg-white rounded-2xl overflow-auto'>
+                    <div className='shadow-sm bg-white rounded-2xl overflow-auto max-lg:mx-3'>
                         <Table className="[&_td]:py-3! [&_td]:px-4! [&_th]:py-3! [&_th]:px-4! [&_tr]:border-black/10 text-black-400 w-full">
                             <TableHeader>
                                 <TableRow className="bg-light-gray-500 [&_th]:text-end [&_th]:font-normal [&_th]:leading-4 [&_th]:text-dark-gray-700 border-black/10 text-right">
@@ -390,15 +390,15 @@ const ScoreCard = () => {
                         </Table>
                     </div>
                 </div>
-                <div className='w-3/12'>
-                    <div className='sticky top-20 space-y-6'>
+                <div className='xl:w-3/12 lg:w-4/12 w-full px-3'>
+                    <div className='sticky top-20 space-y-6 max-lg:mt-5'>
                         <div className='shadow-sm bg-white rounded-[10px]'>
                             <h5 className='font-bold leading-normal p-6 border-b border-black/10'>Fall of Wickets</h5>
                             <ul className='space-y-4 p-6'>
                                 {
                                     fallofWicket.map((data, i) => {
                                         return (
-                                            <li key={i} className='text-sm leading-[20px]'>{data?.label}</li>
+                                            <li key={i} className='text-sm leading-5'>{data?.label}</li>
                                         )
                                     })
                                 }
@@ -442,7 +442,7 @@ const ScoreCard = () => {
             <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[375px] w-full mt-6">AD</div>
             <div className='mt-6'>
                 <h6 className="text-primary  uppercase font-bold text-base leading-normal mb-4">Latest News</h6>
-                <div className="space-y-6 grid grid-cols-4 gap-6">
+                <div className="space-y-6 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-6">
                     {newsData.map((news, i) => (
                         <NewsCard
                             key={i}

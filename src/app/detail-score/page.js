@@ -255,7 +255,7 @@ const page = () => {
         <Tabs defaultValue="live" className="gap-6">
           <div className="border-t border-b border-black/25">
             <Container>
-              <TabsList className="border-0 justify-start p-0 overflow-x-auto">
+              <TabsList className="border-0 justify-start p-0 overflow-x-auto rounded-none">
                 {scroeDetailTab.map((data, i) => {
                   return (
                     <TabsTrigger

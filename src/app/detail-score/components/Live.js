@@ -210,9 +210,9 @@ const overSummary = [
   },
 ];
 
-const RecentOvers = () => {
+const RecentOvers = ({ className }) => {
   return (
-    <div className="bg-white  divide-y divide-black/10  shadow-sm rounded-lg w-full">
+    <div className={`bg-white  divide-y divide-black/10 shadow-sm rounded-lg w-full ${className}`}>
       <div className="pt-6 p-4">
         <h5 className="text-primary font-bold leading-[21px]">
           Recent Overs
@@ -254,7 +254,7 @@ const RecentOvers = () => {
 const Live = () => {
 
   return (
-    <div className="flex flex-wrap -mx-3 pb-[120px]">
+    <div className="flex flex-wrap -mx-3 lg:pb-[120px] sm:pb-20 pb-10">
       <div className="xl:w-9/12 lg:w-8/12 w-full space-y-6 px-3">
         <div className="shadow-sm bg-white rounded-2xl overflow-auto">
           <Table>
@@ -387,16 +387,17 @@ const Live = () => {
         <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[389px] w-full">
           AD
         </div>
+        <RecentOvers className="lg:hidden" />
         <div className="rounded-2xl bg-white shadow-sm">
           <h5 className="p-3 border-b border-light-gray-600 text-[15px] leading-5 font-bold">
             Fall of Wickets
           </h5>
-          <div className="p-3 pl-16 flex gap-5">
-            <div className="h-10 w-10 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5">
+          <div className="p-3 sm:pl-16 xxs:pl-10 pl-5 flex sm:gap-5 gap-3">
+            <div className="sm:h-10 h-6 sm:w-10 w-6 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5 flex-none">
               •
             </div>
             <div className="text-dark-gray-800 leading-5 max-w-[380px]">
-              <div className="flex items-center  gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-1">
                 <p className="text-[13px] leading-none">14.3</p>
                 <p className="text-[15px]">Jain to Atharva, no run</p>
               </div>
@@ -429,10 +430,10 @@ const Live = () => {
               </div>
 
               {/* 🔹 Batters & Bowlers */}
-              <div className="bg-light-gray flex items-center">
+              <div className="bg-light-gray flex flex-wrap items-center">
                 {/* Batters */}
-                <div className="w-1/2 p-2.5">
-                  <div className="w-1/2 space-y-1.5">
+                <div className="xxs:w-1/2 w-full p-2.5">
+                  <div className="xl:w-1/2 space-y-1.5">
                     {over.batters.map((batter, j) => (
                       <div
                         key={j}
@@ -446,8 +447,8 @@ const Live = () => {
                 </div>
 
                 {/* Bowlers */}
-                <div className="w-1/2 p-2.5 border-l border-black/10">
-                  <div className="w-1/2 space-y-1.5">
+                <div className="xxs:w-1/2 w-full p-2.5 xxs:border-l max-xxs:border-t border-black/10">
+                  <div className="xl:w-1/2 space-y-1.5">
                     {over.bowlers.map((bowler, k) => (
                       <div
                         key={k}
@@ -465,10 +466,10 @@ const Live = () => {
               {over.balls.map((ball, l) => (
                 <div
                   key={l}
-                  className="p-3 pl-16 flex gap-5 border-b border-black/5"
+                  className="p-3 sm:pl-16 xxs:pl-10 pl-5 flex sm:gap-5 gap-3 border-b border-black/5"
                 >
                   <div
-                    className={`h-10 w-10 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5 ${ball?.resultIcon === "4" ? "bg-success text-white" : ""
+                    className={`sm:h-10 h-6 sm:w-10 w-6 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5 flex-none ${ball?.resultIcon === "4" ? "bg-success text-white" : ""
                       }`}
                   >
                     {ball.resultIcon}
@@ -494,17 +495,17 @@ const Live = () => {
               Commentary Feedback
             </p>
           </div>
-          <div className="py-4">
-            <form className="p-6">
-              <div className="grid grid-cols-2 gap-6">
+          <div className="sm:py-4">
+            <form className="sm:p-6 p-4">
+              <div className="grid sm:grid-cols-2 grid-cols-1 gap-6">
                 <Input placeholder="Name" />
                 <Input placeholder="Email" />
                 <Textarea
                   placeholder="Your message (Maximum 500 words)"
-                  className="col-span-2 min-h-[90px]"
+                  className="sm:col-span-2 min-h-[90px]"
                 />
               </div>
-              <div className="flex items-center text-[15px] leading-6 text-dark-gray-100 w-full [&_a]:text-primary [&_a]:mx-2 mt-5">
+              <div className="text-[15px] leading-6 text-dark-gray-100 w-full [&_a]:text-primary [&_a]:mx-2 mt-5">
                 This site is protected by reCAPTCHA and the Google{" "}
                 <Link href="/">Privacy Policy</Link>and
                 <Link href="/">Terms of Service</Link>apply.
@@ -518,7 +519,7 @@ const Live = () => {
       </div>
       <div className="xl:w-3/12 lg:w-4/12 w-full px-3">
         <div className="sticky top-20">
-          <RecentOvers />
+          <RecentOvers className="max-lg:hidden" />
           <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[475px] w-full mt-6">
             AD
           </div>

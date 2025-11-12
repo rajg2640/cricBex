@@ -118,7 +118,7 @@ const Header = () => {
                                 mobileMenu.map((data, i) => {
                                     return (
                                         <li key={i} onClick={data?.children ? handleSubMenu : handleMainMenu}>
-                                            <Link href={data?.link} className="flex items-center relative py-2 font-medium">
+                                            <Link href={data?.children ? '#' : data?.link} className="flex items-center relative py-2 font-medium">
                                                 <span className='mr-2 [&_svg]:w-5 [&_svg]:h-5'>{data?.icon}</span>
                                                 {data?.label}
                                                 {data?.children && <ArrowUp className={`ml-auto ${subMenu ? '' : 'rotate-180'}`} />}
