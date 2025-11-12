@@ -181,8 +181,8 @@ export default function Home() {
                   href="/"
                   className="font-bold text-2xl leading-7 mt-6 block"
                 >
-                  Iyer to lead India 'A' in one-dayers with Patidar handed Irani
-                  Cup reins
+                  Iyer to lead India &apos;A&apos; in one-dayers with Patidar
+                  handed Irani Cup reins
                 </Link>
                 <p className="text-dark-gray-500 text-sm leading-normal mt-2">
                   Abhishek Sharma, Arshdeep Singh and Tilak Varma will join for
