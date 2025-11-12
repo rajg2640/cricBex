@@ -7,7 +7,7 @@ export default function NewsCard({ image, title, description, link }) {
       <Image
         src={image}
         alt={title}
-        className="max-h-[230px] rounded-sm object-cover"
+        className="max-h-[230px] w-full rounded-sm object-cover"
       />
       <Link href={link || "/"} className="font-bold text-base text-dark-gray leading-normal mt-3 block"> {title}
       </Link>

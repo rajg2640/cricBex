@@ -19,7 +19,7 @@ const MatchCard = ({ data }) => {
           }`}
       >
         {/* Venue + Live indicator */}
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex justify-between gap-2">
           <p
             className={`capitalize text-xs leading-3.5 ${isLive ? "text-white" : "text-dark-gray-100"
               }`}

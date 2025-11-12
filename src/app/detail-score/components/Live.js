@@ -5,215 +5,257 @@ import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import React from "react";
 
+const overData = [
+  {
+    overNumber: 18,
+    totalRuns: 8,
+    balls: [
+      { value: "•" },
+      { value: 1 },
+      { value: 2 },
+      { value: 1 },
+      { value: 4 },
+    ],
+  },
+  {
+    overNumber: 17,
+    totalRuns: 12,
+    balls: [
+      { value: 1 },
+      { value: 4 },
+      { value: "W" },
+      { value: 2 },
+      { value: 1 },
+      { value: 4 },
+    ],
+  },
+];
+
+const batters = [
+  {
+    name: "Atharva Taide*",
+    hand: "lhb",
+    runs: 22,
+    balls: 44,
+    fours: 4,
+    sixes: 0,
+    sr: 50.0,
+    thisBowler: "8 (8b)",
+    thisBowlerMat: "14 (32b)",
+    fcMat: 34,
+    fcRuns: 1847,
+    fcHS: 138,
+    fcAvg: 34.85,
+  },
+  {
+    name: "Dhruv Shorey",
+    hand: "rhb",
+    runs: 7,
+    balls: 18,
+    fours: 1,
+    sixes: 0,
+    sr: 38.88,
+    thisBowler: "1 (1b)",
+    thisBowlerMat: "7 (18b)",
+    fcMat: 72,
+    fcRuns: 4892,
+    fcHS: "252*",
+    fcAvg: 47.5,
+  },
+];
+
+const bowlers = [
+  {
+    name: "Saransh Jain",
+    type: "ob",
+    o: "1.3",
+    m: 0,
+    r: 9,
+    w: 0,
+    econ: 6.0,
+    zero: 6,
+    fours: 2,
+    sixes: 0,
+    thisSpell: "-",
+    mat: 45,
+    wkts: 147,
+    bbi: "6/103",
+    ave: 28.08,
+  },
+  {
+    name: "Gurnoor Brar",
+    type: "rf",
+    o: 2,
+    m: 0,
+    r: 8,
+    w: 0,
+    econ: 4.0,
+    zero: 10,
+    fours: 2,
+    sixes: 0,
+    thisSpell: "-",
+    mat: 15,
+    wkts: 41,
+    bbi: "5/14",
+    ave: 25.83,
+  },
+];
+
+const overSummary = [
+  {
+    overNumber: 16,
+    runs: 4,
+    score: "VIDAR: 70/1",
+    crr: "4.28",
+    batters: [
+      { name: "Dhruv Shorey", score: "7 (18b 1x4)" },
+      { name: "Atharva Taide", score: "22 (41b 4x4)" },
+    ],
+    bowlers: [
+      { name: "Saransh Jain", score: "2-0-9-0" },
+      { name: "Gurnoor Brar", score: "2-0-8-0" },
+    ],
+    balls: [
+      {
+        ball: "15.6",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "15.5",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "15.4",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "15.3",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "15.2",
+        summary: "Jain to Taide, FOUR!",
+        description: "lovely timing through extra cover for four runs.",
+        resultIcon: "4",
+      },
+      {
+        ball: "15.1",
+        summary: "Jain to Taide, no run",
+        description:
+          "uses his feet and drives but can't get past the short extra cover.",
+        resultIcon: "•",
+      },
+    ],
+  },
+  {
+    overNumber: 15,
+    runs: 6,
+    score: "VIDAR: 66/1",
+    crr: "4.40",
+    batters: [
+      { name: "Atharva Taide", score: "28 (48b 5x4)" },
+      { name: "Dhruv Shorey", score: "8 (21b 1x4)" },
+    ],
+    bowlers: [
+      { name: "Gurnoor Brar", score: "3-0-14-0" },
+      { name: "Saransh Jain", score: "2-0-10-0" },
+    ],
+    balls: [
+      {
+        ball: "14.6",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "14.5",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "14.4",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "•",
+      },
+      {
+        ball: "14.3",
+        summary: "Jain to Taide, no run",
+        description: "defended firmly back to the bowler.",
+        resultIcon: "2",
+      },
+      {
+        ball: "14.2",
+        summary: "Jain to Taide, FOUR!",
+        description: "lovely timing through extra cover for four runs.",
+        resultIcon: "4",
+      },
+      {
+        ball: "14.1",
+        summary: "Jain to Taide, no run",
+        description:
+          "uses his feet and drives but can't get past the short extra cover.",
+        resultIcon: "•",
+      },
+    ],
+  },
+];
+
+const RecentOvers = () => {
+  return (
+    <div className="bg-white  divide-y divide-black/10  shadow-sm rounded-lg w-full">
+      <div className="pt-6 p-4">
+        <h5 className="text-primary font-bold leading-[21px]">
+          Recent Overs
+        </h5>
+      </div>
+      {overData.map((over, index) => (
+        <div key={index} className="p-4">
+          {/* Over Header */}
+          <div className="flex items-center justify-between mb-2">
+            <p className="leading-[19px] text-dark-gray-50">
+              Over {over.overNumber}
+            </p>
+            <div className="text-info-50 border border-info-50 bg-info-50/10 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]">
+              {over.totalRuns} runs
+            </div>
+          </div>
+
+          {/* Ball Values */}
+          <div className="flex items-center w-fit gap-2">
+            {over.balls.map((ball, i) => (
+              <div
+                key={i}
+                className={`h-8 w-8 rounded-full flex items-center justify-center text-dark-gray-50 leading-[19px] bg-light-gray-300 ${ball.value === 4 || ball.value === 6
+                  ? "bg-success/30"
+                  : ball.value === "W"
+                    ? "bg-primary-100"
+                    : ""
+                  }`}
+              >
+                {ball.value}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 const Live = () => {
-  const overData = [
-    {
-      overNumber: 18,
-      totalRuns: 8,
-      balls: [
-        { value: "•" },
-        { value: 1 },
-        { value: 2 },
-        { value: 1 },
-        { value: 4 },
-      ],
-    },
-    {
-      overNumber: 17,
-      totalRuns: 12,
-      balls: [
-        { value: 1 },
-        { value: 4 },
-        { value: "W" },
-        { value: 2 },
-        { value: 1 },
-        { value: 4 },
-      ],
-    },
-  ];
-
-  const batters = [
-    {
-      name: "Atharva Taide*",
-      hand: "lhb",
-      runs: 22,
-      balls: 44,
-      fours: 4,
-      sixes: 0,
-      sr: 50.0,
-      thisBowler: "8 (8b)",
-      thisBowlerMat: "14 (32b)",
-      fcMat: 34,
-      fcRuns: 1847,
-      fcHS: 138,
-      fcAvg: 34.85,
-    },
-    {
-      name: "Dhruv Shorey",
-      hand: "rhb",
-      runs: 7,
-      balls: 18,
-      fours: 1,
-      sixes: 0,
-      sr: 38.88,
-      thisBowler: "1 (1b)",
-      thisBowlerMat: "7 (18b)",
-      fcMat: 72,
-      fcRuns: 4892,
-      fcHS: "252*",
-      fcAvg: 47.5,
-    },
-  ];
-
-  const bowlers = [
-    {
-      name: "Saransh Jain",
-      type: "ob",
-      o: "1.3",
-      m: 0,
-      r: 9,
-      w: 0,
-      econ: 6.0,
-      zero: 6,
-      fours: 2,
-      sixes: 0,
-      thisSpell: "-",
-      mat: 45,
-      wkts: 147,
-      bbi: "6/103",
-      ave: 28.08,
-    },
-    {
-      name: "Gurnoor Brar",
-      type: "rf",
-      o: 2,
-      m: 0,
-      r: 8,
-      w: 0,
-      econ: 4.0,
-      zero: 10,
-      fours: 2,
-      sixes: 0,
-      thisSpell: "-",
-      mat: 15,
-      wkts: 41,
-      bbi: "5/14",
-      ave: 25.83,
-    },
-  ];
-
-  const overSummary = [
-    {
-      overNumber: 16,
-      runs: 4,
-      score: "VIDAR: 70/1",
-      crr: "4.28",
-      batters: [
-        { name: "Dhruv Shorey", score: "7 (18b 1x4)" },
-        { name: "Atharva Taide", score: "22 (41b 4x4)" },
-      ],
-      bowlers: [
-        { name: "Saransh Jain", score: "2-0-9-0" },
-        { name: "Gurnoor Brar", score: "2-0-8-0" },
-      ],
-      balls: [
-        {
-          ball: "15.6",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "15.5",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "15.4",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "15.3",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "15.2",
-          summary: "Jain to Taide, FOUR!",
-          description: "lovely timing through extra cover for four runs.",
-          resultIcon: "4",
-        },
-        {
-          ball: "15.1",
-          summary: "Jain to Taide, no run",
-          description:
-            "uses his feet and drives but can't get past the short extra cover.",
-          resultIcon: "•",
-        },
-      ],
-    },
-    {
-      overNumber: 15,
-      runs: 6,
-      score: "VIDAR: 66/1",
-      crr: "4.40",
-      batters: [
-        { name: "Atharva Taide", score: "28 (48b 5x4)" },
-        { name: "Dhruv Shorey", score: "8 (21b 1x4)" },
-      ],
-      bowlers: [
-        { name: "Gurnoor Brar", score: "3-0-14-0" },
-        { name: "Saransh Jain", score: "2-0-10-0" },
-      ],
-      balls: [
-        {
-          ball: "14.6",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "14.5",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "14.4",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "•",
-        },
-        {
-          ball: "14.3",
-          summary: "Jain to Taide, no run",
-          description: "defended firmly back to the bowler.",
-          resultIcon: "2",
-        },
-        {
-          ball: "14.2",
-          summary: "Jain to Taide, FOUR!",
-          description: "lovely timing through extra cover for four runs.",
-          resultIcon: "4",
-        },
-        {
-          ball: "14.1",
-          summary: "Jain to Taide, no run",
-          description:
-            "uses his feet and drives but can't get past the short extra cover.",
-          resultIcon: "•",
-        },
-      ],
-    },
-  ];
 
   return (
-    <div className="flex gap-6 pb-[120px]">
-      <div className="w-9/12 space-y-6">
+    <div className="flex flex-wrap -mx-3 pb-[120px]">
+      <div className="xl:w-9/12 lg:w-8/12 w-full space-y-6 px-3">
         <div className="shadow-sm bg-white rounded-2xl overflow-auto">
           <Table>
             <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-end text-sm leading-4">
@@ -426,9 +468,8 @@ const Live = () => {
                   className="p-3 pl-16 flex gap-5 border-b border-black/5"
                 >
                   <div
-                    className={`h-10 w-10 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5 ${
-                      ball?.resultIcon === "4" ? "bg-success text-white" : ""
-                    }`}
+                    className={`h-10 w-10 rounded-sm bg-black/10 flex items-center justify-center text-dark-gray-50 font-bold text-[15px] leading-5 ${ball?.resultIcon === "4" ? "bg-success text-white" : ""
+                      }`}
                   >
                     {ball.resultIcon}
                   </div>
@@ -475,46 +516,9 @@ const Live = () => {
           </div>
         </div>
       </div>
-      <div className="w-3/12">
+      <div className="xl:w-3/12 lg:w-4/12 w-full px-3">
         <div className="sticky top-20">
-          <div className="bg-white  divide-y divide-black/10  shadow-sm rounded-lg w-full">
-            <div className="pt-6 p-4">
-              <h5 className="text-primary font-bold leading-[21px]">
-                Recent Overs
-              </h5>
-            </div>
-            {overData.map((over, index) => (
-              <div key={index} className="p-4">
-                {/* Over Header */}
-                <div className="flex items-center justify-between mb-2">
-                  <p className="leading-[19px] text-dark-gray-50">
-                    Over {over.overNumber}
-                  </p>
-                  <div className="text-info-50 border border-info-50 bg-info-50/10 rounded-sm py-0.5 px-1 text-[11px] leading-[13px]">
-                    {over.totalRuns} runs
-                  </div>
-                </div>
-
-                {/* Ball Values */}
-                <div className="flex items-center w-fit gap-2">
-                  {over.balls.map((ball, i) => (
-                    <div
-                      key={i}
-                      className={`h-8 w-8 rounded-full flex items-center justify-center text-dark-gray-50 leading-[19px] bg-light-gray-300 ${
-                        ball.value === 4 || ball.value === 6
-                          ? "bg-success/30"
-                          : ball.value === "W"
-                          ? "bg-primary-100"
-                          : ""
-                      }`}
-                    >
-                      {ball.value}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <RecentOvers />
           <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[475px] w-full mt-6">
             AD
           </div>

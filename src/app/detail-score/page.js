@@ -7,15 +7,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import Container from "../shared/Container";
 import {
-    BatBall,
-    Humidity,
-    HumidityPercentage,
-    LeftArrow,
-    Location,
-    Sun,
-    Tepmrature,
-    TossCoin,
-    Wind,
+  BatBall,
+  Humidity,
+  HumidityPercentage,
+  LeftArrow,
+  Location,
+  Sun,
+  Tepmrature,
+  TossCoin,
+  Wind,
 } from "../shared/Icon";
 import Commentary from "./components/Commantary";
 import Live from "./components/Live";
@@ -72,26 +72,26 @@ const page = () => {
     <>
       <div className="py-4">
         <Container>
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start sm:gap-6 gap-3">
               <Button variant="link" className="text-[#343330]">
                 <LeftArrow className="w-6! h-6!" />
               </Button>
               <div>
-                <h6 className="text-xl leading-7 mb-1 font-semibold [&_span]:font-normal">
+                <h6 className="sm:text-xl text-lg sm:leading-7 leading-6 mb-1 font-semibold [&_span]:font-normal">
                   IND <span>vs</span> PAK, Asia Cup Final
                 </h6>
-                <div className="flex items-center gap-4 text-xs leading-3.5 text-dark-gray-100">
-                  <div className="flex items-center gap-1">
-                    <Location />
+                <div className="flex flex-wrap items-center sm:gap-4 gap-2 text-xs leading-3.5 text-dark-gray-100">
+                  <div className="flex gap-1">
+                    <Location className="flex-none" />
                     <p>Boland Park, Paarl, South Africa</p>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <BatBall />
+                  <div className="flex gap-1">
+                    <BatBall className="flex-none" />
                     <p>T20I</p>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <TossCoin />
+                  <div className="flex gap-1">
+                    <TossCoin className="flex-none" />
                     <p>Pakistan won the toss and elected to bat first</p>
                   </div>
                 </div>
@@ -103,83 +103,85 @@ const page = () => {
       </div>
       <div>
         <Container>
-          <div className="flex gap-6">
-            <div className="w-8/12 space-y-4">
-              <div className="bg-white p-6 shadow-sm rounded-lg w-full">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      className="max-w-6 max-h-6"
-                      alt={`India Flag`}
-                      src={India}
-                    />
-                    <div>
+          <div className="flex flex-wrap -mx-3">
+            <div className="lg:w-8/12 md:w-7/12 w-full space-y-4 px-3">
+              <div className="max-md:bg-white max-md:p-4 max-md:shadow-sm max-md:rounded-lg space-y-4">
+                <div className="md:bg-white md:p-6 md:shadow-sm md:rounded-lg w-full">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        className="max-w-6 max-h-6"
+                        alt={`India Flag`}
+                        src={India}
+                      />
+                      <div>
+                        <p
+                          className={`font-bold leading-[19px] capitalize text-dark-gray-50`}
+                        >
+                          India
+                        </p>
+                        <p className="mt-1 text-xs leading-3.5 text-dark-gray-50/50">
+                          Currently Batting
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right max-md:flex items-center gap-2">
                       <p
-                        className={`font-bold leading-[19px] capitalize text-dark-gray-50`}
+                        className={`font-semibold text-2xl leading-7 text-dark-gray-50`}
                       >
-                        India
+                        <span>146</span>
+                        <span className="inline-block mx-0.5">/</span>
+                        <span>5</span>
                       </p>
-                      <p className="mt-1 text-xs leading-3.5 text-dark-gray-50/50">
-                        Currently Batting
-                      </p>
+                      <span
+                        className={`text-sm block leading-4 text-dark-gray-100`}
+                      >
+                        (19.1)
+                      </span>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p
-                      className={`font-semibold text-2xl leading-7 text-dark-gray-50`}
-                    >
-                      <span>146</span>
-                      <span className="inline-block mx-0.5">/</span>
-                      <span>5</span>
-                    </p>
-                    <span
-                      className={`text-sm block leading-4 text-dark-gray-100`}
-                    >
-                      (19.1)
-                    </span>
+                </div>
+                <div className="md:bg-white md:p-6 md:shadow-sm md:rounded-lg w-full">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        className="max-w-6 max-h-6"
+                        alt={`Pakistan Flag`}
+                        src={Pakistan}
+                      />
+                      <div>
+                        <p
+                          className={`font-bold leading-[19px] capitalize text-dark-gray-50`}
+                        >
+                          India
+                        </p>
+                        <p className="mt-1 text-xs leading-3.5 text-dark-gray-50/50">
+                          1st Inning
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right max-md:flex items-center gap-2">
+                      <p
+                        className={`font-semibold text-2xl leading-7 text-dark-gray-50`}
+                      >
+                        <span>142</span>
+                        <span className="inline-block mx-0.5">/</span>
+                        <span>5</span>
+                      </p>
+                      <span
+                        className={`text-sm block leading-4 text-dark-gray-100`}
+                      >
+                        (20.0)
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-white p-6 shadow-sm rounded-lg w-full">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      className="max-w-6 max-h-6"
-                      alt={`Pakistan Flag`}
-                      src={Pakistan}
-                    />
-                    <div>
-                      <p
-                        className={`font-bold leading-[19px] capitalize text-dark-gray-50`}
-                      >
-                        India
-                      </p>
-                      <p className="mt-1 text-xs leading-3.5 text-dark-gray-50/50">
-                        1st Inning
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p
-                      className={`font-semibold text-2xl leading-7 text-dark-gray-50`}
-                    >
-                      <span>142</span>
-                      <span className="inline-block mx-0.5">/</span>
-                      <span>5</span>
-                    </p>
-                    <span
-                      className={`text-sm block leading-4 text-dark-gray-100`}
-                    >
-                      (20.0)
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light-gray border border-primary-600 text-primary font-bold text-2xl leading-7 p-6 shadow-sm rounded-lg w-full">
+              <div className="bg-light-gray border border-primary-600 text-primary font-bold md:text-2xl sm:text-xl text-lg md:leading-7 sm:leading-6 leading-5 md:p-6 p-4 max-md:mb-4 shadow-sm rounded-lg w-full max-md:text-center">
                 IND need 34 runs from 9 balls
               </div>
             </div>
-            <div className="w-4/12 space-y-4">
+            <div className="lg:w-4/12 md:w-5/12 w-full space-y-4 px-3">
               <div className="bg-white p-6  pb-[34px] shadow-sm rounded-lg w-full">
                 <div className="flex items-center justify-between mb-6">
                   <p className="leading-[19px] text-dark-gray-50">
@@ -193,13 +195,12 @@ const page = () => {
                   {ballValue.map((data, i) => {
                     return (
                       <div
-                        className={`h-10 w-10 rounded-full flex items-center justify-center text-dark-gray-50 text-xl leading-[23px] bg-light-gray-300 ${
-                          data?.value === "4" || data?.value === "6"
-                            ? "bg-success/30"
-                            : data?.value === "W"
+                        className={`xl:h-10 h-8 xl:w-10 w-8 rounded-full flex items-center justify-center text-dark-gray-50 xl:text-xl text-lg leading-[23px] bg-light-gray-300 ${data?.value === "4" || data?.value === "6"
+                          ? "bg-success/30"
+                          : data?.value === "W"
                             ? "bg-primary-100"
                             : ""
-                        }`}
+                          }`}
                         key={i}
                       >
                         {data?.value}
@@ -212,7 +213,7 @@ const page = () => {
                 <p className="mb-4 text-dark-gray-50/50 leading-[19px]">
                   Weather
                 </p>
-                <div className="flex items-center w-fit gap-4">
+                <div className="flex items-center lg:gap-4 gap-2 justify-between w-full">
                   <div>
                     <Sun />
                     <p className="text-xs leading-3.5 text-dark-gray-50/50 text-center">
@@ -251,10 +252,10 @@ const page = () => {
       </div>
 
       <div className="mt-6">
-        <Tabs defaultValue="stats" className="gap-6">
+        <Tabs defaultValue="live" className="gap-6">
           <div className="border-t border-b border-black/25">
             <Container>
-              <TabsList className="border-0 justify-start p-0">
+              <TabsList className="border-0 justify-start p-0 overflow-x-auto">
                 {scroeDetailTab.map((data, i) => {
                   return (
                     <TabsTrigger
