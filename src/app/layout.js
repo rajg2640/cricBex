@@ -1,8 +1,9 @@
-import { Roboto } from "next/font/google";
-import "./globals.css";
-import Header from "./shared/Header";
-import Footer from "./shared/Footer";
 import { QueryClientProvider } from "@/provider/query-client";
+import { Roboto } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import "./globals.css";
+import Footer from "./shared/Footer";
+import Header from "./shared/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -23,9 +24,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${roboto.variable} antialiased`}>
         <QueryClientProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <NuqsAdapter>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </NuqsAdapter>
         </QueryClientProvider>
       </body>
     </html>

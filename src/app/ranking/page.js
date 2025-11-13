@@ -14,6 +14,7 @@ import Container from "../shared/Container";
 import CustomBreadcrumb from "../shared/CustomBreadcrumb";
 import { MATCH_FORMATS, PLAYER_TYPES } from "@/lib/constants";
 import { useState } from "react";
+import { useQueryState } from "nuqs";
 
 const formats = [
   { value: MATCH_FORMATS.TEST, label: "Test" },
@@ -35,8 +36,11 @@ const categoryLabels = {
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Rankings" }];
 
 const RankingsPage = () => {
-  const [selectedFormat, setSelectedFormat] = useState(MATCH_FORMATS.TEST);
+  const [selectedFormat, setSelectedFormat] = useQueryState("format", {
+    defaultValue: MATCH_FORMATS.TEST,
+  });
   const [selectedCategory, setSelectedCategory] = useState(categories[0].value);
+
   const selectedFormatLabel = formats.find(
     (format) => format.value === selectedFormat
   )?.label;
