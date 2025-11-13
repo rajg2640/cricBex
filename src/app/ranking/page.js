@@ -13,7 +13,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Container from "../shared/Container";
 import CustomBreadcrumb from "../shared/CustomBreadcrumb";
 import { MATCH_FORMATS, PLAYER_TYPES } from "@/lib/constants";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useQueryState } from "nuqs";
 
 const formats = [
@@ -36,6 +36,21 @@ const categoryLabels = {
 const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Rankings" }];
 
 const RankingsPage = () => {
+  return (
+    <Container>
+      <div className="py-4">
+        <CustomBreadcrumb items={breadcrumbItems} />
+        <h2 className="text-[32px] font-medium text-dark-gray">Rankings</h2>
+      </div>
+
+      <Suspense fallback={<div className="h-screen w-full" />}>
+        <Rankings />
+      </Suspense>
+    </Container>
+  );
+};
+
+const Rankings = () => {
   const [selectedFormat, setSelectedFormat] = useQueryState("format", {
     defaultValue: MATCH_FORMATS.TEST,
   });
@@ -46,65 +61,54 @@ const RankingsPage = () => {
   )?.label;
 
   return (
-    <>
-      <Container>
-        <div className="py-4">
-          <CustomBreadcrumb items={breadcrumbItems} />
-          <h2 className="text-[32px] font-medium text-dark-gray">Rankings</h2>
-        </div>
-      </Container>
-      <Tabs
-        value={selectedFormat}
-        onValueChange={setSelectedFormat}
-        className="gap-6 mb-10"
-      >
-        <div className="border-t border-b border-black/25">
-          <Container>
-            <div className="flex items-center">
-              <TabsList className="border-0 justify-start p-0">
-                {formats.map((format) => (
-                  <TabsTrigger
-                    key={format.value}
-                    className="w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary"
-                    value={format.value}
-                  >
-                    {format.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-              <Select
-                value={selectedCategory}
-                onValueChange={setSelectedCategory}
-              >
-                <SelectTrigger className="w-[180px] border-0 shadow-none text-black/60">
-                  <SelectValue placeholder="Select Ranking" />
-                </SelectTrigger>
-                <SelectContent className="border-0">
-                  <SelectGroup>
-                    {categories.map((category) => (
-                      <SelectItem key={category.value} value={category.value}>
-                        {category.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-          </Container>
-        </div>
+    <Tabs
+      value={selectedFormat}
+      onValueChange={setSelectedFormat}
+      className="gap-6 mb-10"
+    >
+      <div className="border-t border-b border-black/25">
         <Container>
-          <div className="rounded-lg shadow-lg overflow-auto border border-black/10">
-            <h2 className="text-xl text-black-100 font-bold p-4">
-              {selectedFormatLabel} {categoryLabels[selectedCategory]} Rankings
-            </h2>
-            <RankingsTable
-              format={selectedFormat}
-              category={selectedCategory}
-            />
+          <div className="flex items-center">
+            <TabsList className="border-0 justify-start p-0">
+              {formats.map((format) => (
+                <TabsTrigger
+                  key={format.value}
+                  className="w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary"
+                  value={format.value}
+                >
+                  {format.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <Select
+              value={selectedCategory}
+              onValueChange={setSelectedCategory}
+            >
+              <SelectTrigger className="w-[180px] border-0 shadow-none text-black/60">
+                <SelectValue placeholder="Select Ranking" />
+              </SelectTrigger>
+              <SelectContent className="border-0">
+                <SelectGroup>
+                  {categories.map((category) => (
+                    <SelectItem key={category.value} value={category.value}>
+                      {category.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
         </Container>
-      </Tabs>
-    </>
+      </div>
+      <Container>
+        <div className="rounded-lg shadow-lg overflow-auto border border-black/10">
+          <h2 className="text-xl text-black-100 font-bold p-4">
+            {selectedFormatLabel} {categoryLabels[selectedCategory]} Rankings
+          </h2>
+          <RankingsTable format={selectedFormat} category={selectedCategory} />
+        </div>
+      </Container>
+    </Tabs>
   );
 };
 
