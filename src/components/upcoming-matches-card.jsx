@@ -3,6 +3,7 @@ import { upcomingMatchesQueryOptions } from "@/queries/options";
 import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "./ui/spinner";
 import { UpcomingMatch } from "./upcoming-match";
+import Link from "next/link";
 
 export const UpcomingMatchesCard = () => {
   const { data: upcomingMatches, isLoading } = useQuery(
@@ -15,8 +16,8 @@ export const UpcomingMatchesCard = () => {
         <h5 className="text-primary font-bold leading-[21px]">
           Upcoming Matches
         </h5>
-        <Button variant="link" className="text-right">
-          Full Schedule
+        <Button variant="link" className="text-right" asChild>
+          <Link href="/fixtures-and-results">Full Schedule</Link>
         </Button>
       </div>
       {isLoading ? (
