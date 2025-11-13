@@ -28,8 +28,9 @@ const MatchCard = ({ data }) => {
           </p>
           {isLive && (
             <ul className="text-right text-white text-xs leading-3.5 flex-none">
-              <li className="before:content-[''] before:w-1 before:h-1 before:rounded-2xl before:bg-white before:inline-block before:mr-1 before:align-middle">
+              <li className="overflow-hidden font-bold">
                 Live
+                <div className="line mt-0! bg-white! "></div>
               </li>
             </ul>
           )}

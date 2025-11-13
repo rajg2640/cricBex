@@ -18,23 +18,23 @@ const CricketMatchCard = ({ status, matchData }) => {
 
     return (
         <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-4 mb-4 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-200">
-                <div className="flex items-center gap-2 text-sm text-black-300">
+            <div className="flex justify-between items-center sm:mb-4 pb-3 sm:border-b border-gray-200 gap-2">
+                <div className="line-clamp-1 text-xs leading-3.5 sm:text-sm sm:leading-5 text-black-300 break-all">
                     <span>{matchData.tournament}</span>
-                    <span className="mx-2">•</span>
+                    <span className="mx-2 md:mx-4">•</span>
                     <span>{matchData.format}</span>
-                    <span className="mx-2">•</span>
+                    <span className="mx-2 md:mx-4">•</span>
                     <span>{matchData.date}</span>
-                    <span className="mx-2">•</span>
+                    <span className="mx-2 md:mx-4">•</span>
                     <span>{matchData.time}</span>
-                    <span className="mx-2">•</span>
+                    <span className="mx-2 md:mx-4">•</span>
                     <span>{matchData.venue}</span>
                 </div>
-                <span className={`px-3 py-1 rounded-full capitalize ${status === 'live' ? '' : 'text-xs'} ${getStatusColor(status)}`}>
+                <span className={`px-3 py-1 rounded-full capitalize whitespace-nowrap  text-sm leading-4 sm:text-base sm:leading-6  ${status === 'live' ? '' : 'text-xs'} ${getStatusColor(status)}`}>
                     {status === 'live' && <span className="text-2xl align-middle leading-0">•</span>} {status}
                 </span>
             </div>
-            <div className="flex items-center justify-between gap-5">
+            <div className={`grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-3 md:gap-5 flex-wrap lg:flex-nowrap ${matchData.status === 'VS' ? "grid-cols-3" : ""}`}>
                 <div className="flex items-center gap-3 flex-1">
                     <div className="w-10 h-10 flex items-center justify-center">
                         <span className="text-white font-bold text-sm">
@@ -54,10 +54,10 @@ const CricketMatchCard = ({ status, matchData }) => {
                     }
                 </div>
 
-                <div className="flex items-center gap-3 flex-1 justify-end text-end order-3">
+                <div className={`flex items-center gap-3 flex-1 justify-end text-end md:order-3 flex-row-reverse md:flex-row  ${matchData.status === 'VS' ? "order-3" : "" }`}>
                     {
                         matchData.status !== 'VS' &&
-                        <div className="text-start flex-1">
+                        <div className="text-end md:text-start flex-1">
                             <div className="font-bold text-black-100">{matchData.teams?.t2?.score}/{matchData.teams?.t2?.wickets}</div>
                             <div className="text-sm text-dark-gray-900">({matchData.teams?.t2?.overs})</div>
                         </div>
@@ -74,16 +74,16 @@ const CricketMatchCard = ({ status, matchData }) => {
                 </div>
 
                 <div className={`text-center px-4 py-2 rounded-lg flex-1 ${matchData.status !== 'VS' ? 'bg-light-gray-500' : 'order-2'}`}>
-                    <div className="text-sm text-gray-700">{matchData.status}</div>
+                    <div className="text-sm text-black-300">{matchData.status}</div>
                 </div>
             </div>
 
-            <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-200">
-                <a href="#" className="text-red-600 text-sm font-medium hover:underline">
+            <div className="flex justify-between items-center mt-3 md:mt-4 pt-3 border-t border-light-gray-250">
+                <Link href="#" className="text-primary text-xs leading-[21px] sm:text-sm hover:underline">
                     View Full Match Summary
-                </a>
-                <div className="text-sm text-black-300">
-                    {matchData.timeToStart}
+                </Link>
+                <div className="text-xs leading-4 sm:text-sm sm:leading-5 text-black-300 text-end">
+                     Match will Start in <span className='block sm:inline-block'>{matchData.timeToStart}</span>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@ const page = () => {
                 t2: { score: 142, wickets: 5, overs: '20.0', name: 'India', logo: india },
             },
             matchStatus: 'SRL need 14 runs from 9 balls',
-            timeToStart: 'Match will Start in 2 Hours and 30 Mins.'
+            timeToStart: '2 Hours and 30 Mins.'
         },
         {
             id: 2,
@@ -124,7 +124,7 @@ const page = () => {
                 t2: { score: 142, wickets: 5, overs: '20.0', name: 'India', logo: india },
             },
             matchStatus: 'SRL won by 14',
-            timeToStart: 'Match will Start in 2 Hours and 30 Mins.'
+            timeToStart: '2 Hours and 30 Mins.'
         },
         {
             id: 3,
@@ -139,7 +139,7 @@ const page = () => {
                 t2: { score: 0, wickets: 0, overs: '0.0', name: 'India', logo: india },
             },
             matchStatus: 'VS',
-            timeToStart: 'Match will Start in 2 Hours and 30 Mins.'
+            timeToStart: '2 Hours and 30 Mins.'
         }
     ];
     return (

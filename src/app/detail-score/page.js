@@ -97,7 +97,9 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <p className="live">Live</p>
+            <p className="live overflow-hidden">Live
+              <span className="line block"></span>
+            </p>
           </div>
         </Container>
       </div>

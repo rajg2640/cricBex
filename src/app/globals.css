@@ -22,6 +22,7 @@
   --light-gray-100: #EAEBEC;
   --light-gray-150: #F3F4F6;
   --light-gray-200: #BABABA;
+  --light-gray-250: #E6E6E6;
   --light-gray-300: #F2F2F2;
   --light-gray-400: #E5E7EB;
   --light-gray-500: #F9FAFB;
@@ -129,6 +130,7 @@
   --color-light-gray-100: var(--light-gray-100);
   --color-light-gray-150: var(--light-gray-150);
   --color-light-gray-200: var(--light-gray-200);
+  --color-light-gray-250: var(--light-gray-250);
   --color-light-gray-300: var(--light-gray-300);
   --color-light-gray-400: var(--light-gray-400);
   --color-light-gray-500: var(--light-gray-500);
@@ -267,11 +269,39 @@ html body[data-scroll-locked] {
 }
 
 .live {
-  @apply relative text-primary pl-1 text-base font-medium after:content-[''] after:absolute after:right-full after:h-1.5 after:w-1.5 after:bg-primary after:rounded-full after:top-1/2 after:-translate-y-1/2
+  @apply relative text-primary pl-1 text-base font-medium
 }
 
 .bowlerPerformanceChart g.apexcharts-yaxis {
   transform: rotate(90deg) !important;
   writing-mode: sideways-lr;
   transform-origin: -4px 10px;
+}
+
+.line {
+  float: left;
+  width: 200%;
+  -webkit-transform-origin: left;
+  animation: line 4s 1s infinite alternate cubic-bezier(.87, .01, .87, .5);
+  height: 2px;
+  background-color: var(--primary);
+  margin-top: -3px;
+}
+
+@keyframes line {
+  0% {
+    -webkit-transform: scaleX(0) translateX(0%);
+  }
+
+  60% {
+    -webkit-transform: scaleX(0) translateX(0%);
+  }
+
+  80% {
+    -webkit-transform: scaleX(1) translateX(0%);
+  }
+
+  100% {
+    -webkit-transform: scaleX(1.5) translateX(calc(40% - 2px));
+  }
 }

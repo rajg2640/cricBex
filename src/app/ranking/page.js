@@ -37,16 +37,18 @@ const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Rankings" }];
 
 const RankingsPage = () => {
   return (
-    <Container>
-      <div className="py-4">
-        <CustomBreadcrumb items={breadcrumbItems} />
-        <h2 className="text-[32px] font-medium text-dark-gray">Rankings</h2>
-      </div>
+    <div>
+      <Container>
+        <div className="py-4">
+          <CustomBreadcrumb items={breadcrumbItems} />
+          <h2 className="text-[32px] font-medium text-dark-gray">Rankings</h2>
+        </div>
+      </Container>
 
       <Suspense fallback={<div className="h-screen w-full" />}>
         <Rankings />
       </Suspense>
-    </Container>
+    </div>
   );
 };
 
@@ -84,7 +86,7 @@ const Rankings = () => {
               value={selectedCategory}
               onValueChange={setSelectedCategory}
             >
-              <SelectTrigger className="w-[180px] border-0 shadow-none text-black/60">
+              <SelectTrigger className="w-[180px]  shadow-none text-black/60 py-1 px-2 h-auto! rounded-sm">
                 <SelectValue placeholder="Select Ranking" />
               </SelectTrigger>
               <SelectContent className="border-0">
