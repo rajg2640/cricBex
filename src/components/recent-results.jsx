@@ -21,7 +21,7 @@ export const RecentResults = () => {
             match.status === MATCH_STATUS.NO_RESULT
         )
         ?.sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
-        ?.slice(0, 3);
+        ?.slice(0, 4);
     },
   });
 

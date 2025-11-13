@@ -1,12 +1,8 @@
-import Australia from "@/app/assets/image/png/australia.png";
-import England from "@/app/assets/image/png/england.png";
-import India from "@/app/assets/image/png/india.png";
-import Pakistan from "@/app/assets/image/png/pakistan.png";
 import { Button } from "@/components/ui/button";
 import { upcomingMatchesQueryOptions } from "@/queries/options";
 import { useQuery } from "@tanstack/react-query";
-import { UpcomingMatch } from "./upcoming-match";
 import { Spinner } from "./ui/spinner";
+import { UpcomingMatch } from "./upcoming-match";
 
 export const UpcomingMatchesCard = () => {
   const { data: upcomingMatches, isLoading } = useQuery(
