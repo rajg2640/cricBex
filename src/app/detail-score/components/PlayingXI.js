@@ -165,23 +165,23 @@ const PlayingXI = () => {
     ];
 
     return (
-        <div className='pb-[120px] space-y-8'>
+        <div className='lg:pb-[120px] sm:pb-20 pb-10 space-y-8'>
             <div className='flex items-center justify-between mb-6'>
                 <h6 className='text-lg leading-7 font-bold text-black-100'>Team</h6>
                 <CustomSelect className='w-full max-w-[175px] py-1.5 px-2 h-auto' value={format} onChange={setInning} options={innings} />
             </div>
-            <div className='grid grid-cols-2 gap-6'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-6'>
                 {players.map((player, i) => (
                     <React.Fragment key={i}>
                         {i === 4 && (
-                            <div className="rounded-2xl col-span-2 bg-[#D9D9D9] flex items-center justify-center h-[340px] w-full">AD</div>
+                            <div className="rounded-2xl md:col-span-2 bg-[#D9D9D9] flex items-center justify-center h-[340px] w-full">AD</div>
                         )}
                         <div
                             key={i}
                             className="border border-black/10 shadow-sm p-6 rounded-[10px] space-y-4"
                         >
                             {/* Header Section */}
-                            <div className="flex items-center justify-between">
+                            <div className="flex justify-between">
                                 <div className="flex items-center gap-2">
                                     <div className="h-12 w-12 rounded-full bg-light-gray-400 flex items-center justify-center">
                                         <User />

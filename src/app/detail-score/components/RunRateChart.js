@@ -16,7 +16,7 @@ const RunRateChart = () => {
         chart: {
             type: "bar",
             toolbar: {
-                show: false, // ✅ hides the entire download / zoom / pan menu
+                show: false,
             },
         },
         plotOptions: {
@@ -53,7 +53,7 @@ const RunRateChart = () => {
             {
                 breakpoint: 768,
                 options: {
-                    plotOptions: { bar: { columnWidth: "100%" } },
+                    plotOptions: { bar: { columnWidth: "60%" } },
                     legend: { position: "bottom" },
                 },
             },

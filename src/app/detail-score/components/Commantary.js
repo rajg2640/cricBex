@@ -2,7 +2,7 @@ import React from 'react'
 
 const Commentary = () => {
 
-     const overCommentary = [
+    const overCommentary = [
         {
             over: "52.0",
             batter: "Ayush Mhatre",
@@ -67,7 +67,7 @@ const Commentary = () => {
     ];
 
     return (
-        <div className='pb-[120px] space-y-6'>
+        <div className='lg:pb-[120px] sm:pb-20 pb-10 space-y-6'>
             <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[375px] w-full mt-6">AD</div>
             <div className='shadow-sm bg-white rounded-[10px] overflow-auto divide-y divide-black/10'>
                 <h5 className='tetx-lg leading-7 text-black-100 p-6'>Ball by Ball Commentary</h5>
@@ -77,14 +77,16 @@ const Commentary = () => {
                         className="p-6 flex justify-between gap-4 border-b border-light-gray-600 last:border-0"
                     >
                         <div>
-                            <div className="flex gap-3 items-center">
+                            <div className="flex gap-3">
                                 <div className="py-1 px-2.5 rounded-sm bg-orange text-white h-fit text-sm font-medium">
                                     {data.over}
                                 </div>
-                                <p className="max-w-[200px] text-sm leading-5 text-black-300">
-                                    {data.batter} facing {data.bowler}
-                                </p>
-                                <span className="text-light-gray-900 text-xs leading-4">{data.time}</span>
+                                <div className="flex flex-wrap">
+                                    <p className="max-w-[200px] text-sm leading-5 text-black-300">
+                                        {data.batter} facing {data.bowler}
+                                    </p>
+                                    <span className="text-light-gray-900 text-xs leading-4 mt-1">{data.time}</span>
+                                </div>
                             </div>
 
                             <p className="text-black-100 leading-[26px] mt-1">{data.description}</p>
@@ -98,7 +100,7 @@ const Commentary = () => {
 
                         {/* Ball Value (Right Side Circle) */}
                         <div
-                            className={`h-14 w-14 rounded-full flex items-center justify-center text-dark-gray-50 text-2xl leading-7 bg-light-gray-300 ${data.value === "4" || data.value === "6"
+                            className={`md:h-14 sm:h-10 h-6 md:w-14 sm:w-10 w-6 flex-none rounded-full flex items-center justify-center text-dark-gray-50 lg:text-2xl md:text-xl sm:text-lg xxs:text-base text-sm leading-7 bg-light-gray-300 ${data.value === "4" || data.value === "6"
                                 ? "bg-success/30"
                                 : data.value === "W"
                                     ? "bg-primary-100"

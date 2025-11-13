@@ -282,7 +282,7 @@ const ScoreCard = () => {
     ];
 
     return (
-        <div className='pb-[120px]'>
+        <div className='lg:pb-[120px] sm:pb-20 pb-10'>
             <div className='flex flex-wrap -mx-3'>
                 <div className='xl:w-9/12 lg:w-8/12 w-full space-y-6 lg:px-3'>
                     <div className='lg:shadow-sm bg-white lg:rounded-2xl overflow-auto'>

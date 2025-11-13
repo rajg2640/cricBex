@@ -1,5 +1,5 @@
 import CustomSelect from '@/app/shared/CustomSelect';
-import { BarChartIcon, Boundary } from '@/app/shared/Icon'
+import { BarChartIcon, Boundary, DotBall } from '@/app/shared/Icon'
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table';
 import React, { useState } from 'react'
 import ScoreProgressionChart from './ScoreProgressionChart';
@@ -32,6 +32,7 @@ const Stats = () => {
         },
         {
             title: "Dot Ball %",
+            icon: <DotBall />,
             innings: [
                 { team: "AUS-U19:", rate: "47.2%" },
                 { team: "IND-U19:", rate: "31.4%" },
@@ -186,8 +187,8 @@ const Stats = () => {
     ];
 
     return (
-        <div className='pb-[120px] space-y-8'>
-            <div className='grid grid-cols-3 gap-6'>
+        <div className='lg:pb-[120px] sm:pb-20 pb-10 space-y-8'>
+            <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-6 gap-4'>
                 {scoringData.map((team, i) => (
                     <div
                         key={i}
@@ -225,19 +226,19 @@ const Stats = () => {
                     </div>
                 ))}
             </div>
-            <div className='grid grid-cols-2 gap-6'>
-                <div className='shadow-sm bg-white rounded-[10px] overflow-auto relative p-6 pt-[26px]'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>
+                <div className='shadow-sm bg-white rounded-[10px] overflow-auto relative sm:p-6 p-4 pt-[26px]'>
                     <ScoreProgressionChart />
                 </div>
                 <div className='shadow-sm bg-white rounded-[10px] overflow-auto'>
-                    <div className='flex items-center justify-between p-6 pb-0'>
+                    <div className='flex items-center justify-between sm:p-6 p-4 pb-0'>
                         <h6 className='text-lg leading-7 font-bold text-black-100'>Run Rate (IND)</h6>
-                        <CustomSelect className='w-full max-w-[175px]' value={format} onChange={setInning} options={innings} />
+                        <CustomSelect className='w-full sm:max-w-[175px] max-w-32' value={format} onChange={setInning} options={innings} />
                     </div>
-                    <RunRateChart/>
+                    <RunRateChart />
                 </div>
             </div>
-            <div className='shadow-sm bg-white rounded-[10px] overflow-auto p-6'>
+            <div className='shadow-sm bg-white rounded-[10px] overflow-auto sm:p-6 p-4'>
                 <h6 className='text-lg leading-7 font-bold text-black-100 pb-4'>Phase-wise Analysis</h6>
                 <Table className="text-end [&_td]:p-3 text-sm leading-4">
                     <TableHeader className="bg-light-gray-500 text-dark-gray-700">
@@ -270,9 +271,9 @@ const Stats = () => {
                     </TableBody>
                 </Table>
             </div>
-            <div className='shadow-sm bg-white rounded-[10px] overflow-auto p-6'>
+            <div className='shadow-sm bg-white rounded-[10px] overflow-auto sm:p-6 p-4'>
                 <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Bowling Analysis</h6>
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid md:grid-cols-2 grid-cols-1 gap-6'>
                     <div>
                         <h6 className='leading-normal mb-4 text-black-100'>Bowling Figures</h6>
                         <Table className="text-end [&_td]:p-3 text-sm leading-4">
@@ -311,24 +312,24 @@ const Stats = () => {
                 </div>
             </div>
             <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[375px] w-full mt-6">AD</div>
-            <div className='grid grid-cols-2 gap-6'>
-                <div className='shadow-sm bg-white rounded-[10px] p-6'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-6'>
+                <div className='shadow-sm bg-white rounded-[10px] sm:p-6 p-4'>
                     <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Ball Type Analysis</h6>
                     <BallTypeAnalysis />
                 </div>
-                <div className='shadow-sm bg-white rounded-[10px] p-6'>
+                <div className='shadow-sm bg-white rounded-[10px] sm:p-6 p-4'>
                     <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Bowler Performance Radar</h6>
-                    <BowlerPerformanceRadar/>
+                    <BowlerPerformanceRadar />
                 </div>
             </div>
-            <div className='grid grid-cols-2 gap-6'>
-                <div className='shadow-sm bg-white rounded-[10px] p-6'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-6'>
+                <div className='shadow-sm bg-white rounded-[10px] sm:p-6 p-4'>
                     <h6 className='text-lg leading-7 font-bold text-black-100 pb-6'>Session Breakdown</h6>
                     <div className='divide-y divide-black/10'>
                         {sessions.map((session, i) => (
                             <div
                                 key={i}
-                                className="w-full p-4 text-sm leading-5 text-black-300 [&_span]:text-black-400"
+                                className="w-full py-4 text-sm leading-5 text-black-300 [&_span]:text-black-400"
                             >
                                 <div className="flex items-center justify-between">
                                     <h6 className="text-base leading-normal text-black-100">
@@ -352,16 +353,16 @@ const Stats = () => {
                         ))}
                     </div>
                 </div>
-                <div className='shadow-sm bg-white rounded-[10px] p-6'>
+                <div className='shadow-sm bg-white rounded-[10px] sm:p-6 p-4'>
                     <div className='flex items-center justify-between mb-4'>
                         <h6 className='text-lg leading-7 font-bold text-black-100'>Partnerships</h6>
-                        <CustomSelect className='w-full max-w-[175px] py-1.5 px-2 h-auto' value={format} onChange={setInning} options={innings} />
+                        <CustomSelect className='w-full sm:max-w-[175px] max-w-32 py-1.5 px-2 h-auto' value={format} onChange={setInning} options={innings} />
                     </div>
                     <div className='divide-y divide-black/10'>
                         {partnerships.map((pair, i) => (
                             <div
                                 key={i}
-                                className="text-black-300 text-sm leading-5 grid grid-cols-3 gap-4 p-4"
+                                className="text-black-300 text-sm leading-5 grid grid-cols-3 gap-4 py-4"
                             >
                                 <div>
                                     <p className="text-black-100 text-base">{pair.left.name}</p>
