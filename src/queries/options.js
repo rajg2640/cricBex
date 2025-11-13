@@ -26,7 +26,7 @@ export const upcomingMatchesQueryOptions = queryOptions({
     const response = await sportbexClient.get("/match/upcoming");
     return response.data;
   },
-  select: (data) => data?.data?.slice(0, 2),
+  select: (data) => data?.data?.slice(0, 4),
 });
 
 export const playerRankingsQueryOptions = queryOptions({
@@ -61,5 +61,5 @@ export const upcomingSeriesQueryOptions = queryOptions({
     const response = await sportbexClient.get("/series/upcoming");
     return response.data;
   },
-  select: (data) => data?.data?.slice(0, 2),
+  select: (data) => data?.data?.slice(0, 4),
 });

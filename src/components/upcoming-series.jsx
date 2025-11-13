@@ -3,6 +3,7 @@ import { UpcomingMatch } from "@/components/upcoming-match";
 import { upcomingSeriesQueryOptions } from "@/queries/options";
 import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "./ui/spinner";
+import Link from "next/link";
 
 export const UpcomingSeries = () => {
   const { data: upcomingSeries, isLoading } = useQuery(
@@ -15,8 +16,8 @@ export const UpcomingSeries = () => {
         <h5 className="text-primary font-bold leading-[21px]">
           Upcoming Series
         </h5>
-        <Button variant="link" className="text-right">
-          Full Schedule
+        <Button variant="link" className="text-right" asChild>
+          <Link href="/series">Full Schedule</Link>
         </Button>
       </div>
 

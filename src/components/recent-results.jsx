@@ -8,6 +8,7 @@ import { getMatchScore } from "@/utils/score";
 import { useQuery } from "@tanstack/react-query";
 import { format, isToday, isYesterday } from "date-fns";
 import { Spinner } from "./ui/spinner";
+import Link from "next/link";
 
 export const RecentResults = () => {
   const { data, isLoading } = useQuery({
@@ -21,7 +22,7 @@ export const RecentResults = () => {
             match.status === MATCH_STATUS.NO_RESULT
         )
         ?.sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
-        ?.slice(0, 3);
+        ?.slice(0, 4);
     },
   });
 
@@ -31,8 +32,8 @@ export const RecentResults = () => {
         <h5 className="text-primary font-bold leading-[21px]">
           Recent Results
         </h5>
-        <Button variant="link" className="text-right">
-          View All
+        <Button variant="link" className="text-right" asChild>
+          <Link href="/fixtures-and-results">View All</Link>
         </Button>
       </div>
       {isLoading ? (
