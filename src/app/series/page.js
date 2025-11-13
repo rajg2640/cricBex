@@ -10,6 +10,7 @@ import Bangladesh from "@/app/assets/image/png/bangladesh.png";
 import Afghanistan from "@/app/assets/image/png/afghanistan.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TournamentCard from "../shared/TournamentCard";
+import { RecentMatches } from "@/components/recent-matches";
 
 const page = () => {
   const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Series" }];
@@ -205,16 +206,14 @@ const page = () => {
             Recent Matches
           </h5>
         </div>
-        <div className="grid grid-cols-4 gap-4 mt-4 mb-6">
-          {recentMatch.map((match, i) => (
-            <MatchCard key={i} data={match} />
-          ))}
+        <div className="-mx-2.5 sm:mt-4 mt-2 mb-5 md:mb-6">
+          <RecentMatches />
         </div>
       </Container>
       <Tabs defaultValue="all" className="gap-6 mb-10">
         <div className="border-t border-b border-black/25">
           <Container>
-            <TabsList className="border-0 justify-start p-0">
+            <TabsList className="border-0 justify-start p-0 overflow-x-auto rounded-none">
               <TabsTrigger
                 className="w-fit flex-none py-3 px-6 text-dark-gray-300 capitalize font-normal text-base leading-[19px] shadow-none! bg-transparent! border-0 rounded-none hover:text-primary border-b-[3px] data-[state=active]:text-primary! data-[state=active]:border-primary"
                 value="all"
@@ -245,7 +244,13 @@ const page = () => {
         <Container>
           <TabsContent value="all">
             {tournaments.map((tournament, index) => (
-              <TournamentCard key={index} tournament={tournament} />
+              <React.Fragment key={index}>
+                <TournamentCard  tournament={tournament} />
+                {
+                  index === 3 && (
+                    <div className="rounded-2xl col-span-2 bg-[#D9D9D9] flex items-center justify-center mb-4 h-[180px] w-full  md:hidden">AD</div>
+                  )}
+              </React.Fragment>
             ))}
           </TabsContent>
         </Container>

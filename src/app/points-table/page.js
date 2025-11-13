@@ -30,45 +30,45 @@ const page = () => {
                         </div>
                     </div>
                 </div>
-                <div className='rounded-lg shadow-lg overflow-auto border border-black/10 mb-10'>
-                    <div className='p-4 bg-linear-to-r from-light-gray-500 to-white'>
-                        <h2 className="text-xl text-black-100 font-bold">Asia Cup 2025 - Points Table</h2>
-                        <p className='text-xs text-black-300'>ODI Format</p>
+                <div className='rounded-lg shadow-lg overflow-auto border border-black/10'>
+                    <div className='px-4 py-3 md:p-4 bg-linear-to-r from-light-gray-500 to-white'>
+                        <h2 className="text-base sm:text-lg mb-1 md:mb-0 md:text-xl text-black-100 font-bold">Asia Cup 2025 - Points Table</h2>
+                        <p className='text-xs leading-5 text-black-300'>ODI Format</p>
                     </div>
                     <Table>
                         <TableHeader>
                             <TableRow className='border-0!'>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>Pos</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>Team</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>P</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>W</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>L</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>T</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>NR</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>PTS</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>NRR</TableHead>
-                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 p-3 uppercase text-xs text-black-300'>Form</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>Pos</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>Team</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>P</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>W</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>L</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>T</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>NR</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>PTS</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>NRR</TableHead>
+                                <TableHead className='border-t border-light-gray-400 bg-light-gray-500 py-3 px-4 uppercase font-bold text-xs text-black-300'>Form</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody className="[&_td]:p-3 [&_tr]:border-0 text-sm leading-4">
                             {rankings.map((team) => (
-                                <TableRow key={team.rank.value} className="border-b last:border-0">
-                                    <TableCell className={`border-b p-4 font-medium text-gray-700 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
+                                <TableRow key={team.rank.value} className="border-b last:border-0 text-base">
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! font-bold text-gray-700 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
                                         <span className={`w-5 text-center flex items-center gap-1 ${team.rank.value <= 4 ? 'text-success-200' : ''}`}>{team.rank.value} {team.rank.status === 'up' ? <ArrowUp className='w-3 h-3 text-success-200 flex-none' /> : team.rank.status === 'down' ? <ArrowDown className='w-3 h-3 flex-none text-primary' /> : <span className='w-3 flex-none'>-</span>}</span>
                                     </TableCell>
-                                    <TableCell className={`border-b p-4 text-gray-800 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.team}</TableCell>
-                                    <TableCell className={`border-b p-4 text-gray-600 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.points}</TableCell>
-                                    <TableCell className={`border-b p-4 font-semibold text-success-200 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.win}</TableCell>
-                                    <TableCell className={`border-b p-4 text-primary ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.lose}</TableCell>
-                                    <TableCell className={`border-b p-4 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.tie}</TableCell>
-                                    <TableCell className={`border-b p-4 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.nr}</TableCell>
-                                    <TableCell className={`border-b p-4 font-bold ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.pts}</TableCell>
-                                    <TableCell className={`border-b p-4 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! text-gray-800 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.team}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! text-gray-600 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.points}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! text-success-200 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.win}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! text-primary ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.lose}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.tie}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.nr}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! font-bold ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>{team.pts}</TableCell>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
                                         <span className={`text-primary flex items-center ${team.nrr.status === 'positive' ? 'text-success-200' : team.nrr.status === 'negative' ? 'text-primary' : ''}`}>
                                             {team.nrr.status === 'positive' ? '+' : team.nrr.status === 'negative' ? '-' : ''}{team.nrr.value}
                                         </span>
                                     </TableCell>
-                                    <TableCell className={`border-b p-4 ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
+                                    <TableCell className={`border-b px-4! py-[8.5px]! md:p-4! ${team.rank.value === 4 ? 'border-success-200 border-b-2' : 'border-light-gray-400'}`}>
                                         {
                                             team.forms.map((val, i) => (
                                                 <span key={i} className={`inline-flex items-center w-6 h-6 mx-0.5 justify-center rounded-sm text-xs ${val === 'W' ? 'bg-success-200 text-white' : val === 'L' ? 'bg-primary text-white' : ''}`}>
@@ -106,6 +106,7 @@ const page = () => {
                         </TableFooter>
                     </Table>
                 </div>
+                <div className="rounded-2xl bg-[#D9D9D9] flex items-center justify-center h-[180px] sm:h-[275px] md:h-[375px] w-full mt-5 mb-12 sm:mt-10 md:mt-16 sm:mb-16 md:mb-[120px]">AD</div>
             </Container>
         </div>
     )

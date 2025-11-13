@@ -42,8 +42,8 @@ const Footer = () => {
     return (
         <footer className='pt-16 bg-dark-gray-600 text-white'>
             <Container>
-                <div className='flex flex-wrap justify-between'>
-                    <Link href="/">
+                <div className='flex flex-col xxs:flex-row flex-wrap justify-between gap-y-[60px] gap-x-6'>
+                    <Link href="/" className='w-full md:w-auto'>
                         <Logo />
                     </Link>
                     {footerLinks.map((section, index) => (
