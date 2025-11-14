@@ -19,13 +19,12 @@ export const RecentMatches = () => {
       <SwiperSlider
         spaceBetween={20}
         breakpoints={{
-          0: { slidesPerView: 1.25 },
-          575: { slidesPerView: 1.5 },
-          768: { slidesPerView: 2.5 },
-          1024: { slidesPerView: 3.25 },
-          1280: { slidesPerView: 4 },
+          0: { slidesPerView: 1.25, spaceBetween: 20 },
+          575: { slidesPerView: 1.5, spaceBetween: 20 },
+          768: { slidesPerView: 2.5, spaceBetween: 20 },
+          1024: { slidesPerView: 3.25, spaceBetween: 20 },
+          1280: { slidesPerView: 4, spaceBetween: 20 },
         }}
-        className="w-full"
       >
         {new Array(4).fill(0).map((_, i) => (
           <SwiperSlide key={i}>
@@ -40,18 +39,17 @@ export const RecentMatches = () => {
     <>
       <SwiperSlider
         className="w-full"
-        spaceBetween={0}
+        spaceBetween={16}
         breakpoints={{
-          0: { slidesPerView: 1.25 },
-          575: { slidesPerView: 1.5 },
-          575: { slidesPerView: 1.5 },
-          768: { slidesPerView: 2.5 },
-          1024: { slidesPerView: 3.25 },
-          1280: { slidesPerView: 4 },
+          0: { slidesPerView: 1.25, spaceBetween: 16 },
+          575: { slidesPerView: 1.5, spaceBetween: 16 },
+          768: { slidesPerView: 2.5, spaceBetween: 20 },
+          1024: { slidesPerView: 3.25, spaceBetween: 20 },
+          1280: { slidesPerView: 4, spaceBetween: 20 },
         }}
       >
         {recentMatches.map((match, i) => (
-          <SwiperSlide>
+          <SwiperSlide className="h-[unset]!">
             <MatchCard key={i} data={match} />
           </SwiperSlide>
         ))}

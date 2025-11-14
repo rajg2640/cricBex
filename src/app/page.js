@@ -105,7 +105,7 @@ export default function Home() {
             View All Matches
           </Button>
         </div>
-        <div className="-mx-2.5 -mb-2.5 sm:mt-4 mt-2">
+        <div className="sm:mt-4 mt-2 -mr-4 xl:mr-0">
           <RecentMatches />
         </div>
 

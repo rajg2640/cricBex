@@ -206,7 +206,7 @@ const page = () => {
             Recent Matches
           </h5>
         </div>
-        <div className="-mx-2.5 sm:mt-4 mt-2 mb-5 md:mb-6">
+        <div className="-mr-4 xl:mr-0 sm:mt-4 mt-2 mb-5 md:mb-6">
           <RecentMatches />
         </div>
       </Container>

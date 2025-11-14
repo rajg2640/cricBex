@@ -10,10 +10,10 @@ const MatchCard = ({ data }) => {
   const secondTeamScore = getMatchScore(data.teams?.t2?.score);
 
   return (
-    <div className="sm:mx-2.5 mx-2 my-2.5">
+    <div className="h-full">
       <Link
         href={`/matches/${data?._id}`}
-        className={`p-4 rounded-2xl block shadow-sm transition duration-300 hover:shadow-md w-full ${isLive
+        className={`p-4 rounded-2xl block shadow-sm transition duration-300 flex flex-col hover:shadow-md w-full h-full ${isLive
           ? "bg-[linear-gradient(106.92deg,#E10000_0%,#900C0C_100%)]"
           : "bg-white"
           }`}
@@ -57,15 +57,17 @@ const MatchCard = ({ data }) => {
         />
 
         {/* Divider & Result */}
-        <span
-          className={`block h-px my-3 ${isLive ? "bg-white/10" : "bg-black/10"}`}
-        ></span>
-        <p
-          className={`text-xs leading-3.5 ${isLive ? "text-white" : "text-dark-gray-50/50"
-            }`}
-        >
-          {data?.result?.message || data?.toss}
-        </p>
+        <div className="mt-auto">
+          <span
+            className={`block h-px my-3 ${isLive ? "bg-white/10" : "bg-black/10"}`}
+          ></span>
+          <p
+            className={`text-xs leading-3.5 ${isLive ? "text-white" : "text-dark-gray-50/50"
+              }`}
+          >
+            {data?.result?.message || data?.toss}
+          </p>
+        </div>
       </Link>
     </div>
   );
