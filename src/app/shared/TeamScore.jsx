@@ -1,61 +1,60 @@
 import { MATCH_STATUS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { getMatchScore } from "@/utils/score";
 
-const TeamScore = ({ firstTeam, secondTeam, status, className }) => {
+const DEFAULT_INNINGS_ORDER = ["t1_1", "t2_2"];
+
+const MatchScore = ({
+  firstTeam,
+  secondTeam,
+  status,
+  className,
+  inningsOrder,
+}) => {
+  const [firstInningOrder, secondInningOrder] =
+    inningsOrder || DEFAULT_INNINGS_ORDER;
+
+  // Returns the team that should play in the inning
+  const getTeamToPlayInning = (inningOrder) => {
+    return inningOrder.startsWith("t1") ? firstTeam : secondTeam;
+  };
+
+  const teamToPlayFirst = getTeamToPlayInning(firstInningOrder);
+  const teamToPlaySecond = getTeamToPlayInning(secondInningOrder);
+
   return (
     <div className={cn("space-y-4 mt-4 text-dark-gray-50", className)}>
-      {/* First Team */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {firstTeam?.flag && (
-            <img
-              className="max-w-6 max-h-6"
-              alt={`${firstTeam?.name} Flag`}
-              src={firstTeam?.flag}
-            />
-          )}
-          <p className="font-bold leading-[19px] capitalize max-sm:text-sm">
-            {firstTeam?.name}
-          </p>
-        </div>
-        <Score
-          status={status}
-          score={firstTeam?.score}
-          wickets={firstTeam?.wicket}
-          overs={firstTeam?.over}
-        />
-      </div>
-
-      {/* Second Team */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="relative max-w-6 max-h-6">
-            {secondTeam?.flag && (
-              <img
-                className="max-w-6 max-h-6"
-                alt={`${secondTeam?.name} Flag`}
-                src={secondTeam?.flag}
-              />
-            )}
-          </div>
-          <p className="font-bold leading-[19px] capitalize max-sm:text-sm">
-            {secondTeam?.name}
-          </p>
-        </div>
-        <Score
-          status={status}
-          score={secondTeam?.score}
-          wickets={secondTeam?.wicket}
-          overs={secondTeam?.over}
-        />
-      </div>
+      <TeamScore team={teamToPlayFirst} status={status} />
+      <TeamScore team={teamToPlaySecond} status={status} />
     </div>
   );
 };
 
-const Score = ({ score, wickets, overs, status }) => {
+const TeamScore = ({ team, status }) => {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        {team?.logo && (
+          <img
+            className="max-w-6 max-h-6"
+            alt={`${team?.name} Flag`}
+            src={team?.logo}
+          />
+        )}
+        <p className="font-bold leading-[19px] capitalize max-sm:text-sm">
+          {team?.name}
+        </p>
+      </div>
+      <Score status={status} rawScore={team?.score} />
+    </div>
+  );
+};
+
+const Score = ({ rawScore, status }) => {
   const isMatchAbandoned = status === MATCH_STATUS.ABANDONED;
   const isMatchLive = status === MATCH_STATUS.LIVE;
+
+  const { score, wickets, overs } = getMatchScore(rawScore);
 
   if (isMatchAbandoned && !score) {
     return null;
@@ -92,4 +91,4 @@ const Score = ({ score, wickets, overs, status }) => {
   );
 };
 
-export default TeamScore;
+export default MatchScore;

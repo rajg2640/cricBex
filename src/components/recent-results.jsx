@@ -1,10 +1,9 @@
-import TeamScore from "@/app/shared/TeamScore";
+import MatchScore from "@/app/shared/TeamScore";
 import { Button } from "./ui/button";
 
 import { MATCH_STATUS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { recentMatchesQueryOptions } from "@/queries/options";
-import { getMatchScore } from "@/utils/score";
 import { useQuery } from "@tanstack/react-query";
 import { format, isToday, isYesterday } from "date-fns";
 import { Spinner } from "./ui/spinner";
@@ -56,9 +55,6 @@ export const RecentResults = () => {
 };
 
 const Result = ({ match }) => {
-  const firstTeamScore = getMatchScore(match.teams.t1.score);
-  const secondTeamScore = getMatchScore(match.teams.t2.score);
-
   return (
     <div
       key={match?._id}
@@ -75,22 +71,11 @@ const Result = ({ match }) => {
       </div>
 
       {/* Your exact TeamScore usage */}
-      <TeamScore
+      <MatchScore
         status={match.status}
-        firstTeam={{
-          name: match.teams.t1.name,
-          flag: match.teams.t1.logo,
-          score: firstTeamScore.score,
-          wicket: firstTeamScore.wickets,
-          over: firstTeamScore.overs,
-        }}
-        secondTeam={{
-          name: match.teams.t2.name,
-          flag: match.teams.t2.logo,
-          score: secondTeamScore.score,
-          wicket: secondTeamScore.wickets,
-          over: secondTeamScore.overs,
-        }}
+        firstTeam={match.teams.t1}
+        secondTeam={match.teams.t2}
+        inningsOrder={match.inningsOrder}
       />
       <div className="text-xs leading-3.5 mt-3">
         <p
